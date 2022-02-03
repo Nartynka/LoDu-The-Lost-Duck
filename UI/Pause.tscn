@@ -1,0 +1,238 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Pause.gd" type="Script" id=1]
+[ext_resource path="res://UI/BlackTexture.png" type="Texture" id=2]
+[ext_resource path="res://UI/KeyboardModernBlack.png" type="Texture" id=3]
+[ext_resource path="res://UI/Minecraft.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0745098, 0.54902, 0.227451, 0.243137 )
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[node name="Pause" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Backgorund" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.509804 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.5
+margin_top = -11.0
+margin_right = 43.5
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.0
+margin_top = -36.0
+margin_right = 53.0
+margin_bottom = -14.0
+custom_fonts/font = SubResource( 1 )
+text = "Fullscreen"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = 12.0
+margin_right = 53.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit Game"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 52.0
+margin_right = 79.0
+margin_bottom = 68.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "Move"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Roll" type="Label" parent="."]
+margin_left = 37.0
+margin_top = 93.0
+margin_right = 68.0
+margin_bottom = 109.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "Roll"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="Label" parent="."]
+margin_left = 27.0
+margin_top = 119.0
+margin_right = 83.0
+margin_bottom = 135.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "Attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenLabel" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 163.0
+margin_right = 116.0
+margin_bottom = 179.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 148.0
+margin_right = 79.0
+margin_bottom = 164.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 1 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="Sprite" parent="."]
+position = Vector2( 27.4, 71 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 96, 32, 16, 16 )
+
+[node name="A" type="Sprite" parent="."]
+position = Vector2( 13.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="S" type="Sprite" parent="."]
+position = Vector2( 27.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 16, 16 )
+
+[node name="D" type="Sprite" parent="."]
+position = Vector2( 41.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 16, 16 )
+
+[node name="ArrowUp" type="Sprite" parent="."]
+position = Vector2( 76.4, 71 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 96, 96, 16, 16 )
+
+[node name="ArrowDown" type="Sprite" parent="."]
+position = Vector2( 76.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 96, 112, 16, 16 )
+
+[node name="ArrowLeft" type="Sprite" parent="."]
+position = Vector2( 62.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 80, 112, 16, 16 )
+
+[node name="ArrowRight" type="Sprite" parent="."]
+position = Vector2( 90.4, 82 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 112, 112, 16, 16 )
+
+[node name="Z" type="Sprite" parent="."]
+position = Vector2( 78, 110 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 16, 48, 16, 16 )
+
+[node name="Space" type="Sprite" parent="."]
+position = Vector2( 38, 110 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 48, 160, 80, 16 )
+
+[node name="X" type="Sprite" parent="."]
+position = Vector2( 38, 137 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 112, 32, 16, 16 )
+
+[node name="J" type="Sprite" parent="."]
+position = Vector2( 54, 137 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="ESC" type="Sprite" parent="."]
+position = Vector2( 14, 152 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 32, 48, 16, 16 )
+
+[node name="F11" type="Sprite" parent="."]
+position = Vector2( 15, 167 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 38, 96, 18, 16 )
+
+[connection signal="pressed" from="Continue" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

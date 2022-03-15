@@ -1,0 +1,20 @@
+{
+	"color": "#ffdf8776",
+	"description": "i am NPC",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1645021441.json",
+	"mirror_portraits": false,
+	"name": "NPC",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://icon.png"
+		}
+	],
+	"scale": 100
+}

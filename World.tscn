@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=11]
+[ext_resource path="res://npc/sensei.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -525,7 +526,7 @@ position = Vector2( 440, 32 )
 collision_mask = 2
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( 160, 96 )
+position = Vector2( 96, 88 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
 position = Vector2( 512, 256 )
@@ -536,10 +537,10 @@ position = Vector2( -128, -128 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Bat5" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 46, 111 )
+position = Vector2( 224, -48 )
 
 [node name="Bat6" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 208, 80 )
+position = Vector2( 272, 80 )
 
 [node name="Bat7" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 389, -44 )
@@ -550,11 +551,14 @@ position = Vector2( -59, -20 )
 [node name="Bat8" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 393, 168 )
 
+[node name="sensei" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( -96, 88 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 136, 56 )
+position = Vector2( 96, 64 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-position = Vector2( 24, 40 )
+position = Vector2( 0, 24 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="Bushes" type="YSort" parent="YSort"]

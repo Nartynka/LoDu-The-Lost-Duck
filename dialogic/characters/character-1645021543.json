@@ -1,0 +1,20 @@
+{
+	"color": "#ff080a3f",
+	"description": "Satan ",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1645021543.json",
+	"mirror_portraits": false,
+	"name": "Satan",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://icon.png"
+		}
+	],
+	"scale": 100
+}

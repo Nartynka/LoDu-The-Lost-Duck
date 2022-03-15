@@ -30,7 +30,7 @@ func _ready():
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
-	
+
 func _physics_process(delta):
 	match state:
 		MOVE:

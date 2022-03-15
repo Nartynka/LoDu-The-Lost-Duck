@@ -1,0 +1,35 @@
+{
+	"events": [
+		{
+			"character": "character-1645021543.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Kawa czy herbata, o to jest pytanie!"
+		},
+		{
+			"choice": "Kawa",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Herbata",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1645021589.json",
+		"name": "conversation with satan"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"color": "#ffcb7530",
+	"description": "",
+	"display_name": " ",
+	"display_name_bool": true,
+	"id": "character-1645543433.json",
+	"mirror_portraits": false,
+	"name": "MC",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -115,
+	"offset_y": -65,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Player/fox-front.png"
+		}
+	],
+	"scale": 280
+}

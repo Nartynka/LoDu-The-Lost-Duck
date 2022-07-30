@@ -1,5 +1,5 @@
 {
-	"color": "#ffa85518",
+	"color": "#ffeedacb",
 	"description": "",
 	"display_name": "",
 	"display_name_bool": false,
@@ -13,12 +13,9 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://npc/sesnsei_avatar.png"
-		},
-		{
-			"name": "sesnsei_avatar",
-			"path": "res://npc/sesnsei_avatar.png"
+			"path": "res://npc/sensei/sesnsei_avatar.png"
 		}
 	],
-	"scale": 200
+	"scale": 200,
+	"theme": ""
 }

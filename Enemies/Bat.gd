@@ -22,7 +22,7 @@ onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
-onready var wanderController = $WanderControler
+onready var wanderController = $WanderController
 onready var animationPlayer = $AnimationPlayer
 
 

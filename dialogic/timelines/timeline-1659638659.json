@@ -1,0 +1,247 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hej..chłopcze!"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tak?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nie widziałeś może gdzieś sebastiana?\nTo żółta gumowa kaczka i wydaje mi się, że została skradziona"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Podejrzewasz kogoś?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Te wścibskie dzieciaki się ostatnio tutaj kręciły"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okej, zobaczę co da się zrobić"
+		},
+		{
+			"animation": "back_out_right.gd",
+			"animation_length": 1,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "On.."
+		},
+		{
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 0.5,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tak..?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sebastian jest bardzo wrażliwą kaczką, dużo dla mnie znaczy"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Spokojnie, zaopiekuje się nim jak go znajdę"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tak, tak\nTylko..ja.."
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Coś jeszcze powinienem wiedzieć?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "J..j..ja\nJa tak jakby nie mogę się bez niego kąpać"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Ja tak jakby nie mogę się bez niego kąpać"
+		},
+		{
+			"choice": "Okej..",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okej..?\nWrócę jak będę miał jakieś infromacje odnośnie twojej gumowej kaczki"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "\tT..To Sebastian"
+		},
+		{
+			"choice": "Czemu?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Czemu?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No bo kąpiele są takie nudne..\nA ja nawet pływać nie umiem"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Spoczko, loczko\nSeba będzie bezpieczny w moich rękach\nNie możesz wziąć teraz prysznica?"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "O..O..Okkk\nPrysznic to dobry pomysł"
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "To miłej kompieli! jak będę miał jakieś informacje to się odezwę\nBywaj"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bywaj"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1659638659.json",
+		"name": "Start"
+	}
+}

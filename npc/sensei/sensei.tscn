@@ -14,4 +14,4 @@ position = Vector2( 0, 2 )
 
 [node name="AnimatedSprite" parent="." index="2"]
 position = Vector2( 1, -22 )
-frame = 4
+frame = 2

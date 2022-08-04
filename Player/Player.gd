@@ -107,8 +107,10 @@ func _input(event):
 		handle_action_input();
 
 func handle_action_input():
+	print("handling")
 	if get_node_or_null("DialogNode") == null:
 		if NPC and not isInDialog:
+			print("git")
 			get_tree().paused = true
 			var DialogNode = Dialogic.start(NPC.DialogueTimelineName)
 			print("dialog: ", NPC.DialogueTimelineName)

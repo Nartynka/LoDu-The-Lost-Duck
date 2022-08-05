@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/dialog Out (24x8).png" type="Texture" id=1]
 [ext_resource path="res://UI/dialog In (24x8).png" type="Texture" id=2]
@@ -6,7 +6,10 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
-height = 6.0
+height = 4.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 12.0416
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -36,7 +39,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="NPC" type="KinematicBody2D"]
+[node name="NPC" type="StaticBody2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,10 +47,18 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource( 9 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -27 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
-frame = 4
+frame = 1
 playing = true
+
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_TriggerArea_area_entered"]
+[connection signal="area_exited" from="TriggerArea" to="." method="_on_TriggerArea_area_exited"]

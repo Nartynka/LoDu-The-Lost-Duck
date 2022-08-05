@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -785,9 +785,6 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CircleShape2D" id=53]
-radius = 29.0172
-
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -864,17 +861,9 @@ stream = ExtResource( 7 )
 anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
 
-[node name="InteractionArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2( 0, -4 )
-shape = SubResource( 53 )
-
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
-[connection signal="body_entered" from="InteractionArea" to="." method="_on_InteractionArea_body_entered"]
-[connection signal="body_exited" from="InteractionArea" to="." method="_on_InteractionArea_body_exited"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtbox"]

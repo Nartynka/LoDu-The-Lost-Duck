@@ -32,7 +32,6 @@
 		},
 		"Themes": {
 			"files": [
-				"theme-1645543940.cfg",
 				"theme-1645543940.cfg"
 			],
 			"folders": {
@@ -50,7 +49,8 @@
 			"folders": {
 				"Lost Duck": {
 					"files": [
-						"timeline-1659638659.json"
+						"timeline-1659638659.json",
+						"timeline-1659727905.json"
 					],
 					"folders": {
 

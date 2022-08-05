@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Localization/translation_service.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "DialogNPC",
-"language": "GDScript",
-"path": "res://npc/Base/BaseNpc.gd"
-}, {
 "base": "Node",
 "class": "Dialogic",
 "language": "GDScript",
@@ -76,7 +71,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "DTS": "",
-"DialogNPC": "",
 "Dialogic": "",
 "DialogicAnimaPropertiesHelper": "",
 "DialogicAnimaResources": "",
@@ -92,16 +86,20 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Action RPG"
+config/name="LostDuck"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
+Quest="*res://singletons/Quest.gd"
 Gui="res://UI/GUI.tscn"
 PlayerStats="*res://Player/PlayerStats.tscn"
 Death="res://UI/Death.tscn"
 Pause="res://UI/Pause.tscn"
+DialogManager="*res://singletons/DialogManager.gd"
+Screen="*res://singletons/Screen.gd"
+SceneChange="*res://singletons/SceneChange.tscn"
 
 [display]
 

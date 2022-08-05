@@ -7,4 +7,4 @@ func _on_Portal_body_entered(body):
 		if(!EndScene): 
 			print("No scene in this portal")
 			return
-		get_tree().change_scene(EndScene)
+		SceneChange.change_scene(EndScene)

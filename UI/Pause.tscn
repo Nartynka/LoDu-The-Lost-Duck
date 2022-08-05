@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/Pause.gd" type="Script" id=1]
 [ext_resource path="res://UI/BlackTexture.png" type="Texture" id=2]
 [ext_resource path="res://UI/KeyboardModernBlack.png" type="Texture" id=3]
-[ext_resource path="res://UI/Minecraft.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Theme.tres" type="Theme" id=4]
+[ext_resource path="res://UI/Minecraftia-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-outline_size = 1
-outline_color = Color( 0.0745098, 0.54902, 0.227451, 0.243137 )
-extra_spacing_char = 1
-font_data = ExtResource( 4 )
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=2]
+Label/fonts/font = SubResource( 1 )
 
 [node name="Pause" type="CanvasLayer"]
 pause_mode = 2
@@ -27,48 +29,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -43.5
-margin_top = -11.0
-margin_right = 43.5
-margin_bottom = 11.0
-custom_fonts/font = SubResource( 1 )
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 100.0
+margin_top = 44.0
+margin_right = 220.0
+margin_bottom = 136.0
+
+[node name="Continue" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 28.0
+theme = ExtResource( 4 )
 text = "Continue"
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Fullscreen" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -47.0
-margin_top = -36.0
-margin_right = 53.0
-margin_bottom = -14.0
-custom_fonts/font = SubResource( 1 )
+[node name="Fullscreen" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 120.0
+margin_bottom = 60.0
+theme = ExtResource( 4 )
 text = "Fullscreen"
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Quit" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -49.0
-margin_top = 12.0
-margin_right = 53.0
-margin_bottom = 34.0
-custom_fonts/font = SubResource( 1 )
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 92.0
+theme = ExtResource( 4 )
 text = "Quit Game"
 flat = true
 __meta__ = {
@@ -78,62 +68,42 @@ __meta__ = {
 [node name="Move" type="Label" parent="."]
 margin_left = 36.0
 margin_top = 52.0
-margin_right = 79.0
-margin_bottom = 68.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+margin_right = 60.0
+margin_bottom = 63.0
+theme = SubResource( 2 )
 text = "Move"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Roll" type="Label" parent="."]
 margin_left = 37.0
-margin_top = 93.0
-margin_right = 68.0
-margin_bottom = 109.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+margin_top = 90.0
+margin_right = 55.0
+margin_bottom = 101.0
+theme = SubResource( 2 )
 text = "Roll"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Attack" type="Label" parent="."]
-margin_left = 27.0
-margin_top = 119.0
-margin_right = 83.0
-margin_bottom = 135.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+margin_left = 31.0
+margin_top = 116.0
+margin_right = 62.0
+margin_bottom = 127.0
+theme = SubResource( 2 )
 text = "Attack"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FullscreenLabel" type="Label" parent="."]
-margin_left = 28.0
-margin_top = 163.0
-margin_right = 116.0
-margin_bottom = 179.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+margin_left = 24.0
+margin_top = 162.0
+margin_right = 78.0
+margin_bottom = 173.0
+theme = SubResource( 2 )
 text = "Fullscreen"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Pause" type="Label" parent="."]
-margin_left = 28.0
-margin_top = 148.0
-margin_right = 79.0
-margin_bottom = 164.0
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 1 )
+margin_left = 24.0
+margin_top = 147.0
+margin_right = 54.0
+margin_bottom = 158.0
+theme = SubResource( 2 )
 text = "Pause"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="W" type="Sprite" parent="."]
 position = Vector2( 27.4, 71 )
@@ -233,6 +203,6 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 38, 96, 18, 16 )
 
-[connection signal="pressed" from="Continue" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Fullscreen" to="." method="_on_Fullscreen_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

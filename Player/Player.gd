@@ -18,11 +18,6 @@ var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
 var stats = PlayerStats
 
-# NPC as DialogNPC (class from baseNpc)
-var NPC : DialogNPC
-var isInDialog : bool = false
-var DialogNode
-
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get('parameters/playback')
@@ -100,33 +95,3 @@ func _on_Hurtbox_invincibility_started():
 
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
-
-func _input(event):
-	if event.is_action("action"):
-		print("action input")
-		handle_action_input();
-
-func handle_action_input():
-	print("handling")
-	if get_node_or_null("DialogNode") == null:
-		if NPC and not isInDialog:
-			print("git")
-			get_tree().paused = true
-			var DialogNode = Dialogic.start(NPC.DialogueTimelineName)
-			print("dialog: ", NPC.DialogueTimelineName)
-			DialogNode.pause_mode = Node.PAUSE_MODE_PROCESS
-			DialogNode.connect("timeline_end", self, "_onTimelineEnded")
-			get_tree().current_scene.add_child(DialogNode)
-			isInDialog = true;
-
-func _onTimelineEnded(_timeline_name):
-	get_tree().paused = false
-	isInDialog = false
-	
-
-func _on_InteractionArea_body_entered(body):
-	NPC = body as DialogNPC;
-	print(NPC)
-
-func _on_InteractionArea_body_exited(body):
-	NPC = body as DialogNPC;

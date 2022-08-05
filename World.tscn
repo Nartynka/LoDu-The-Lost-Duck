@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://HealBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
+[ext_resource path="res://misc/Quest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=11]
 [ext_resource path="res://npc/sensei/sensei.tscn" type="PackedScene" id=12]
@@ -584,7 +585,13 @@ remote_path = NodePath("../../../Camera2D")
 [node name="Sensei" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -76, 91 )
 scale = Vector2( 1.5, 1.5 )
-DialogueTimelineName = "/Lost Duck/Start"
+
+[node name="Quest" parent="YSort/Sensei" instance=ExtResource( 8 )]
+required_item = "Rubber Duck"
+required_amount = 1
+initial_dialog = "/Lost Duck/Start"
+pending_dialog = "/Lost Duck/Pending"
+delivered_dialog = "/Lost Duck/Complete"
 
 [node name="Bushes" type="YSort" parent="YSort"]
 

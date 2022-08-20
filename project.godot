@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "GameWorld",
 "language": "GDScript",
-"path": "res://Procedural world map/World.gd"
+"path": "res://Procedural world map/Desert/Desert.gd"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",

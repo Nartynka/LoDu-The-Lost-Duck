@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TileSet.png-8669c41eadea4806e55e053ce01d5b3b.stex"
+path="res://.import/TileSet.png-5414be45a23643bd59809c0013a175ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Procedural world map/TileSet.png"
-dest_files=[ "res://.import/TileSet.png-8669c41eadea4806e55e053ce01d5b3b.stex" ]
+source_file="res://Procedural world map/Desert/TileSet.png"
+dest_files=[ "res://.import/TileSet.png-5414be45a23643bd59809c0013a175ab.stex" ]
 
 [params]
 

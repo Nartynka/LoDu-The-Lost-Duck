@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Procedural world map/Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Procedural world map/World.gd" type="Script" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=4]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 15, 87 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 15, 87 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 5150, 2903 )
+
+[node name="TopLeft" parent="Camera2D/Limits" index="1"]
+position = Vector2( 4, 4 )
+
+[editable path="Camera2D"]

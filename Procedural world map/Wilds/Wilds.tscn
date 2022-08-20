@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Procedural world map/Wilds/Wilds.gd" type="Script" id=1]
 [ext_resource path="res://Procedural world map/Wilds/snow-expansion.png" type="Texture" id=2]
 [ext_resource path="res://Procedural world map/Wilds/GrassTileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Procedural world map/Wilds/Background.shader" type="Shader" id=4]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -131,13 +133,28 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Roads" type="TileMap" parent="."]
-z_index = 1
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Enviroment" type="TileMap" parent="."]
-z_index = 1
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 30, 98 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 30, 98 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 1280, 956 )
+
+[node name="TopLeft" parent="Camera2D/Limits" index="1"]
+position = Vector2( 2, 2 )
+
+[editable path="Camera2D"]

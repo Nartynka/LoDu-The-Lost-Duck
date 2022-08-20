@@ -8,6 +8,7 @@ var enviroment_caps = Vector3(0.4, 0.3, 0.04)
 
 func _ready():
 	randomize()
+	VisualServer.set_default_clear_color(Color("#1a2830"))
 	noise = OpenSimplexNoise.new()
 	noise.seed = randi()
 	noise.octaves = 1.0

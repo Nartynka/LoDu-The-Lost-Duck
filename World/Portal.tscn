@@ -2,8 +2,11 @@
 
 [ext_resource path="res://World/Portal.gd" type="Script" id=1]
 
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" groups=["Portal"]]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 

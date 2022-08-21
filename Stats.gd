@@ -2,6 +2,10 @@ extends Node
 
 export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
+var from_scene
+var to_scene
+
+var spawn_position := Vector2(96,64)
 
 signal no_health
 signal player_death

@@ -64,11 +64,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/BaseEnemy.gd"
 }, {
-"base": "Node2D",
-"class": "GameWorld",
-"language": "GDScript",
-"path": "res://Procedural world map/Desert/Desert.gd"
-}, {
 "base": "PanelContainer",
 "class": "HistoryRow",
 "language": "GDScript",
@@ -86,7 +81,6 @@ _global_script_class_icons={
 "DialogicResources": "",
 "DialogicUtil": "",
 "Enemy": "",
-"GameWorld": "",
 "HistoryRow": ""
 }
 

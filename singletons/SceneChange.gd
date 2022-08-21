@@ -11,5 +11,5 @@ func change_scene(scene:String, speed:int = 2):
 	animation.playback_speed = speed
 	animation.play("fade")
 	yield(animation, "animation_finished")
-	get_tree().change_scene(scene)
+	assert(get_tree().change_scene(scene) == OK)
 	animation.play_backwards("fade")

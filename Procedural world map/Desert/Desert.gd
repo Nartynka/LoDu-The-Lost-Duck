@@ -1,10 +1,4 @@
 extends Node2D
-class_name GameWorld
-# Procedurally generates a tile-based map with a border.
-# Right click or press enter to re-generate the map.
-
-signal started
-signal finished
 
 enum Cell {OBSTACLE, GROUND, OUTER}
 
@@ -20,13 +14,8 @@ onready var _tile_map : TileMap = $TileMap
 var _rng := RandomNumberGenerator.new()
 
 func generate() -> void:
-	# Although there's no other nodes to use these signals, we're including them
-	# to show when and how to emit them.
-	# Watch our signals tutorial for more information.
-	emit_signal("started")
 	generate_perimeter()
 	generate_inner()
-	emit_signal("finished")
 
 
 func generate_perimeter() -> void:
@@ -72,6 +61,8 @@ func _pick_random_texture(cell_type: int) -> int:
 
 
 func _ready() -> void:
+	if PlayerStats.from_scene != null:
+		$"%Player".set_position(get_node(PlayerStats.from_scene+"Pos").position)
 	_rng.randomize()
 	generate()
 

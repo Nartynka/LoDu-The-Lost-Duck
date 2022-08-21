@@ -7,6 +7,8 @@ var road_caps = Vector2(0.3, 0.05)
 var enviroment_caps = Vector3(0.4, 0.3, 0.04)
 
 func _ready():
+	if PlayerStats.from_scene != null:
+		$"%Player".set_position(get_node(PlayerStats.from_scene+"Pos").position)
 	randomize()
 	VisualServer.set_default_clear_color(Color("#1a2830"))
 	noise = OpenSimplexNoise.new()

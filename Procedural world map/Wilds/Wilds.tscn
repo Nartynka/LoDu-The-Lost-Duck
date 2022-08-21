@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Procedural world map/Wilds/Wilds.gd" type="Script" id=1]
 [ext_resource path="res://Procedural world map/Wilds/snow-expansion.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Procedural world map/Wilds/Background.shader" type="Shader" id=4]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Portal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -119,6 +120,9 @@ shader = ExtResource( 4 )
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 16 )
+
 [node name="Wilds" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -142,11 +146,14 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
+[node name="YSort" type="YSort" parent="."]
 position = Vector2( 30, 98 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 30, 98 )
@@ -157,4 +164,16 @@ position = Vector2( 1280, 956 )
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( 2, 2 )
 
+[node name="WorldPos" type="Position2D" parent="."]
+position = Vector2( 11, 90 )
+
+[node name="Portal" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 84 )
+EndScene = "res://World.tscn"
+
+[node name="CollisionShape" parent="Portal" index="0"]
+position = Vector2( 0, 6 )
+shape = SubResource( 5 )
+
 [editable path="Camera2D"]
+[editable path="Portal"]

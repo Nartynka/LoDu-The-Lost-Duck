@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://npc/sensei/sensei.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World/Portal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=14]
+[ext_resource path="res://World.gd" type="Script" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -498,9 +499,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=59]
-extents = Vector2( 10, 16.5 )
-
 [sub_resource type="RectangleShape2D" id=57]
 extents = Vector2( 32, 12.5 )
 
@@ -510,10 +508,26 @@ extents = Vector2( 16.5, 10 )
 [sub_resource type="RectangleShape2D" id=60]
 extents = Vector2( 14, 17.5 )
 
+[sub_resource type="RectangleShape2D" id=59]
+extents = Vector2( 10, 16.5 )
+
 [node name="World" type="Node2D"]
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -28.0 ]
 }
+
+[node name="CityPos" type="Position2D" parent="."]
+position = Vector2( -122, 92 )
+
+[node name="SchoolPos" type="Position2D" parent="."]
+position = Vector2( 144, -128 )
+
+[node name="WildsPos" type="Position2D" parent="."]
+position = Vector2( 501, 14 )
+
+[node name="DesertPos" type="Position2D" parent="."]
+position = Vector2( 506, 78 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 183, 80 )
@@ -542,30 +556,40 @@ tile_data = PoolIntArray( -262149, 0, 4, -262148, 0, 196609, -262147, 0, 196609,
 position = Vector2( 411, 39 )
 collision_mask = 2
 
-[node name="PortalToProcedural" parent="." instance=ExtResource( 13 )]
-position = Vector2( 527, 77 )
-EndScene = "res://Procedural world map/World.tscn"
+[node name="Portals" type="Node" parent="."]
 
-[node name="CollisionShape" parent="PortalToProcedural" index="0"]
-position = Vector2( 0, 2.5 )
-shape = SubResource( 59 )
-
-[node name="PortalToCity" parent="." instance=ExtResource( 13 )]
+[node name="City" parent="Portals" instance=ExtResource( 13 )]
 position = Vector2( -145, 91 )
 rotation = 1.5708
 EndScene = "res://city.tscn"
 
-[node name="CollisionShape" parent="PortalToCity" index="0"]
+[node name="CollisionShape" parent="Portals/City" index="0"]
 position = Vector2( 5, -2.5 )
 shape = SubResource( 57 )
 
-[node name="PortalToSchool" parent="." instance=ExtResource( 13 )]
+[node name="School" parent="Portals" instance=ExtResource( 13 )]
 position = Vector2( 145, -146 )
 EndScene = "res://School.tscn"
 
-[node name="CollisionShape" parent="PortalToSchool" index="0"]
+[node name="CollisionShape" parent="Portals/School" index="0"]
 position = Vector2( 0.5, 0 )
 shape = SubResource( 58 )
+
+[node name="Wilds" parent="Portals" instance=ExtResource( 13 )]
+position = Vector2( 525, 15 )
+EndScene = "res://Procedural world map/Wilds/Wilds.tscn"
+
+[node name="CollisionShape" parent="Portals/Wilds" index="0"]
+position = Vector2( 4, -1.5 )
+shape = SubResource( 60 )
+
+[node name="Desert" parent="Portals" instance=ExtResource( 13 )]
+position = Vector2( 527, 77 )
+EndScene = "res://Procedural world map/Desert/Desert.tscn"
+
+[node name="CollisionShape" parent="Portals/Desert" index="0"]
+position = Vector2( 0, 2.5 )
+shape = SubResource( 59 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
 position = Vector2( 96, 88 )
@@ -594,6 +618,7 @@ position = Vector2( -59, -20 )
 position = Vector2( 393, 168 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
+unique_name_in_owner = true
 position = Vector2( 96, 64 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -735,16 +760,9 @@ position = Vector2( 288, 136 )
 [node name="Tree3" parent="YSort/Trees" instance=ExtResource( 10 )]
 position = Vector2( 280, 32 )
 
-[node name="Portal" parent="." instance=ExtResource( 13 )]
-position = Vector2( 525, 15 )
-
-[node name="CollisionShape" parent="Portal" index="0"]
-position = Vector2( 4, -1.5 )
-shape = SubResource( 60 )
-
-[editable path="PortalToProcedural"]
-[editable path="PortalToCity"]
-[editable path="PortalToSchool"]
+[editable path="Portals/City"]
+[editable path="Portals/School"]
+[editable path="Portals/Wilds"]
+[editable path="Portals/Desert"]
 [editable path="Camera2D"]
 [editable path="YSort/Player/DayNightCycle"]
-[editable path="Portal"]

@@ -14,22 +14,22 @@ func _process(delta):
 	match color.to_html():
 		"ffffffff":
 			sprite.frame = 0
-			print("dzien")
+#			print("dzien")
 		"ffe1e3ea":
 			sprite.frame = 1
-			print("zachod 1")
+#			print("zachod 1")
 		"ffa5abc2":
 			sprite.frame = 2
-			print("zachod 2")
+#			print("zachod 2")
 		"ffe1e399":
 			sprite.frame = 3
-			print("zachod finall")
+#			print("zachod finall")
 		"ff828baa":
 			sprite.frame = 4
-			print("noc 1")
+#			print("noc 1")
 		"ff475481":
 			sprite.frame = 5
-			print("noc 2")
+#			print("noc 2")
 		"ff3f4d7c":
 			sprite.frame = 6
-			print("noc finall")
+#			print("noc finall")

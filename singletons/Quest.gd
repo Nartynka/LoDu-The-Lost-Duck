@@ -9,7 +9,7 @@ enum STATUS { NONEXISTENT, STARTED, COMPLETE }
 
 # List of all started or completed quests
 var quest_list = {}
-signal quest_changed
+#signal quest_changed
 
 # Get the status of a quest. If it's not found it returns STATUS.NONEXISTENT
 func get_status(quest_name:String) -> int:

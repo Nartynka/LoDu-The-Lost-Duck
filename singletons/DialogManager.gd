@@ -11,6 +11,6 @@ func start(timeline_name:String):
 		dialog.connect("timeline_end", self, "unpause")
 		add_child(dialog)
 
-func unpause(timeline_name):
+func unpause(_timeline_name):
 	get_tree().paused = false
 	is_in_dialog = false

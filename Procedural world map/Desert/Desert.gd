@@ -61,8 +61,6 @@ func _pick_random_texture(cell_type: int) -> int:
 
 
 func _ready() -> void:
-	if PlayerStats.from_scene != null:
-		$"%Player".set_position(get_node(PlayerStats.from_scene+"Pos").position)
 	_rng.randomize()
 	generate()
 

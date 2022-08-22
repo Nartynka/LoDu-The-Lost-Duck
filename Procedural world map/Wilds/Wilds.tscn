@@ -3,19 +3,27 @@
 [ext_resource path="res://Procedural world map/Wilds/Wilds.gd" type="Script" id=1]
 [ext_resource path="res://Procedural world map/Wilds/snow-expansion.png" type="Texture" id=2]
 [ext_resource path="res://Procedural world map/Wilds/GrassTileSet.tres" type="TileSet" id=3]
-[ext_resource path="res://Procedural world map/Wilds/Background.shader" type="Shader" id=4]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Portal.tscn" type="PackedScene" id=7]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 4 )
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	float num = 1.0 - UV.y;
+	COLOR.a = num;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "snow-expansion.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
-0/material = SubResource( 1 )
+0/material = SubResource( 7 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 257, 128, 80, 48 )
 0/tile_mode = 1
@@ -125,38 +133,57 @@ extents = Vector2( 10, 16 )
 
 [node name="Wilds" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -109.0 ]
+}
+
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 30, 98 )
 
 [node name="Background" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Grass" type="TileMap" parent="."]
+z_index = -1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Roads" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Enviroment" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="YSort" type="YSort" parent="."]
-position = Vector2( 30, 98 )
+[node name="World" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 84 )
+to_scene = "res://World.tscn"
 
-[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+[node name="Spawnpoint" parent="World" index="0"]
+position = Vector2( 22, 7 )
+
+[node name="CollisionShape" parent="World" index="1"]
+position = Vector2( 0, 6 )
+shape = SubResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
 unique_name_in_owner = true
+position = Vector2( 57, 6 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-remote_path = NodePath("../../../Camera2D")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 30, 98 )
+position = Vector2( 57, 6 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
 position = Vector2( 1280, 956 )
@@ -164,16 +191,5 @@ position = Vector2( 1280, 956 )
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( 2, 2 )
 
-[node name="WorldPos" type="Position2D" parent="."]
-position = Vector2( 11, 90 )
-
-[node name="Portal" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0, 84 )
-EndScene = "res://World.tscn"
-
-[node name="CollisionShape" parent="Portal" index="0"]
-position = Vector2( 0, 6 )
-shape = SubResource( 5 )
-
+[editable path="World"]
 [editable path="Camera2D"]
-[editable path="Portal"]

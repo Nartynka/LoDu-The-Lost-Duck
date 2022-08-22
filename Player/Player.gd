@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 
@@ -26,6 +27,10 @@ onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
+	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
+	for spawnpoint in spawnpoints:
+		if spawnpoint.name == PlayerStats.spawnpoint:
+			global_position = spawnpoint.global_position
 	randomize()
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true

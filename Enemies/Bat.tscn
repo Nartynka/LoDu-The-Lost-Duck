@@ -43,16 +43,10 @@ animations = [ {
 [node name="AnimatedSprite" parent="." index="0"]
 material = SubResource( 1 )
 frames = SubResource( 7 )
-frame = 1
+frame = 4
 
 [node name="ShadowSprite" type="Sprite" parent="." index="2"]
 texture = ExtResource( 2 )
-
-[node name="Hurtbox" parent="." index="3"]
-visible = true
-
-[node name="PlayerDetectionZone" parent="." index="5"]
-visible = true
 
 [node name="Hitbox" parent="." index="6"]
 visible = true

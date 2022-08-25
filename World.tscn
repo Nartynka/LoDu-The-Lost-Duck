@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://misc/HealBox/HealBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://misc/Quest/Quest.tscn" type="PackedScene" id=8]
+[ext_resource path="res://DayCycle/DayAndWeather.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=11]
 [ext_resource path="res://npc/sensei/sensei.tscn" type="PackedScene" id=12]
@@ -1112,6 +1113,8 @@ position = Vector2( 288, 136 )
 
 [node name="Tree3" parent="YSort/Trees" instance=ExtResource( 10 )]
 position = Vector2( 280, 32 )
+
+[node name="DayAndWeather" parent="." instance=ExtResource( 9 )]
 
 [editable path="Portals/City"]
 [editable path="Portals/School"]

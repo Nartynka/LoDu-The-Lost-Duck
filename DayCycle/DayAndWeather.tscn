@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://DayCycle/DayNight.gd" type="Script" id=1]
+[ext_resource path="res://DayCycle/Weather.gd" type="Script" id=2]
+[ext_resource path="res://DayCycle/CloudLayer.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0165746, 0.0939227, 0.922652, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.513726, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+max_value = 1024.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.622038, 7.73718 ), 0.0, 0.0, 0, 0, Vector2( 0.688389, 1024 ), 362.546, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+max_value = 2.0
+_data = [ Vector2( 0, 2 ), 0.0, -5.14394, 0, 0, Vector2( 0.802133, 0.572202 ), 0.0385687, 0.0385687, 0, 0, Vector2( 0.811611, 1.36101 ), 2.78996, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_box_extents = Vector3( 300, 300, 0 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 7.76
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 98.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+tangential_accel = 53.45
+tangential_accel_random = 0.53
+damping_curve = SubResource( 4 )
+scale = 1.5
+scale_random = 0.3
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 2 )
+
+[node name="DayAndWeather" type="Node"]
+script = ExtResource( 2 )
+thunder = true
+thunder_strength = 0.163
+
+[node name="DayNight" type="CanvasModulate" parent="."]
+script = ExtResource( 1 )
+
+[node name="RainParticles" type="Particles2D" parent="."]
+position = Vector2( -85, 121 )
+emitting = false
+amount = 2000
+process_material = SubResource( 7 )
+
+[node name="CloudLayer" parent="." instance=ExtResource( 3 )]

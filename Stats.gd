@@ -17,6 +17,7 @@ func set_health(value):
 	if health<=0:
 		emit_signal('no_health')
 		emit_signal('player_death')
+		spawnpoint = "PlayerSpawnpoint"
 
 func set_max_health(value):
 	max_health = value

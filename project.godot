@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemies/BaseEnemy.gd"
+"path": "res://Enemies/Base/BaseEnemy.gd"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",

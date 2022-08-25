@@ -1,20 +1,19 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://atlas.png" type="Texture" id=3]
+[ext_resource path="res://Tilesets/atlas.png" type="Texture" id=3]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
-[ext_resource path="res://HealBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://misc/HealBox/HealBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://misc/Quest.tscn" type="PackedScene" id=8]
-[ext_resource path="res://DayNightCycle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://misc/Quest/Quest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=11]
 [ext_resource path="res://npc/sensei/sensei.tscn" type="PackedScene" id=12]
-[ext_resource path="res://World/Portal.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=14]
-[ext_resource path="res://GRASS+.png" type="Texture" id=15]
+[ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tilesets/GRASS+.png" type="Texture" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 4, 4, 16, 4, 16, 16, 4, 16 )
@@ -837,7 +836,7 @@ extents = Vector2( 32, 12.5 )
 extents = Vector2( 16.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=60]
-extents = Vector2( 14, 17.5 )
+extents = Vector2( 10.5, 17.5 )
 
 [sub_resource type="RectangleShape2D" id=59]
 extents = Vector2( 10, 16.5 )
@@ -890,14 +889,13 @@ tile_data = PoolIntArray( -262146, 3, 0, -262145, 3, 0, -327680, 3, 0, -327679, 
 
 [node name="HealBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 411, 39 )
-collision_mask = 2
 
 [node name="Portals" type="Node" parent="."]
 
 [node name="City" parent="Portals" instance=ExtResource( 13 )]
 position = Vector2( -145, 91 )
 rotation = 1.5708
-to_scene = "res://city.tscn"
+to_scene = "res://City/City.tscn"
 
 [node name="Spawnpoint" parent="Portals/City" index="0"]
 position = Vector2( 0.999901, -28 )
@@ -908,7 +906,7 @@ shape = SubResource( 57 )
 
 [node name="School" parent="Portals" instance=ExtResource( 13 )]
 position = Vector2( 145, -146 )
-to_scene = "res://School.tscn"
+to_scene = "res://School/School.tscn"
 
 [node name="Spawnpoint" parent="Portals/School" index="0"]
 position = Vector2( -1, 24 )
@@ -918,18 +916,18 @@ position = Vector2( 0.5, 0 )
 shape = SubResource( 58 )
 
 [node name="Wilds" parent="Portals" instance=ExtResource( 13 )]
-position = Vector2( 775, 12 )
+position = Vector2( 780, 3 )
 to_scene = "res://Procedural world map/Wilds/Wilds.tscn"
 
 [node name="Spawnpoint" parent="Portals/Wilds" index="0"]
 position = Vector2( -23, -2 )
 
 [node name="CollisionShape" parent="Portals/Wilds" index="1"]
-position = Vector2( 4, -1.5 )
+position = Vector2( 7.5, -1.5 )
 shape = SubResource( 60 )
 
 [node name="Desert" parent="Portals" instance=ExtResource( 13 )]
-position = Vector2( 777, 74 )
+position = Vector2( 789, 74 )
 to_scene = "res://Procedural world map/Desert/Desert.tscn"
 
 [node name="Spawnpoint" parent="Portals/Desert" index="0"]
@@ -985,12 +983,6 @@ position = Vector2( 96, 64 )
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( 0, 24 )
 remote_path = NodePath("../../../Camera2D")
-
-[node name="DayNightCycle" parent="YSort/Player" instance=ExtResource( 9 )]
-margin_left = 19.0
-margin_top = -19.0
-margin_right = 19.0
-margin_bottom = -19.0
 
 [node name="Sensei" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -76, 91 )
@@ -1127,4 +1119,3 @@ position = Vector2( 280, 32 )
 [editable path="Portals/Desert"]
 [editable path="Portals/AcientRuins"]
 [editable path="Camera2D"]
-[editable path="YSort/Player/DayNightCycle"]

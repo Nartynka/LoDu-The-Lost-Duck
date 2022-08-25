@@ -3,9 +3,9 @@
 [ext_resource path="res://Procedural world map/Wilds/Wilds.gd" type="Script" id=1]
 [ext_resource path="res://Procedural world map/Wilds/snow-expansion.png" type="Texture" id=2]
 [ext_resource path="res://Procedural world map/Wilds/GrassTileSet.tres" type="TileSet" id=3]
-[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;

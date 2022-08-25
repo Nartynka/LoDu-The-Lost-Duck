@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://misc/Portal/Portal.gd" type="Script" id=1]
+
+[node name="Portal" type="Area2D" groups=["portals"]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spawnpoint" type="Position2D" parent="." groups=["spawnpoints"]]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]

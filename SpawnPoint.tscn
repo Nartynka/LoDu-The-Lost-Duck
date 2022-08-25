@@ -1,3 +1,0 @@
-[gd_scene format=2]
-
-[node name="ScenePos" type="Position2D" groups=["spawnpoints"]]

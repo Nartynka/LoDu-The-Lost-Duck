@@ -8,7 +8,7 @@
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
-[ext_resource path="res://WhiteColorShader.tres" type="Shader" id=9]
+[ext_resource path="res://BlinkColorShader.tres" type="Shader" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0

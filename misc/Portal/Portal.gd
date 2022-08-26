@@ -13,7 +13,6 @@ func _ready():
 	if spawnpoint_name == "spawnpoint":
 		spawnpoint_name = name+"Pos"
 	if is_in_group("portals"):
-		print(get_child_count())
 		get_child(0).name = spawnpoint_name
 
 func _on_Portal_body_entered(body):

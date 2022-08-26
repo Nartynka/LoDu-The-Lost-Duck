@@ -25,6 +25,7 @@ onready var animationState = animationTree.get('parameters/playback')
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var sprite = $Sprite
 
 func _ready():
 	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
@@ -54,10 +55,8 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector
-		animationTree.set('parameters/Idle/blend_position', input_vector)
-		animationTree.set('parameters/Run/blend_position', input_vector)
-		animationTree.set('parameters/Attack/blend_position', input_vector)
-		animationTree.set('parameters/Roll/blend_position', input_vector)
+		if input_vector.x != 0:
+			sprite.scale.x = sign(input_vector.x)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -65,12 +64,13 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move()
 	if Input.is_action_just_pressed("attack"):
+		animationTree.set('parameters/Attack/blend_position', input_vector)
 		state=ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state=ROLL
 
 func attack_state():
-	velocity = Vector2.ZERO
+#	velocity = Vector2.ZERO
 	animationState.travel('Attack')
 
 func roll_state():
@@ -89,6 +89,7 @@ func roll_animation_finished():
 	velocity = Vector2.ZERO
 
 func _on_Hurtbox_area_entered(area):
+	print(area)
 	stats.health -= area.damage
 	hurtbox.start_invincibility(0.6)
 	hurtbox.create_hit_effect()

@@ -11,13 +11,13 @@
 [ext_resource path="res://BlinkColorShader.tres" type="Shader" id=9]
 [ext_resource path="res://Player/light.png" type="Texture" id=10]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.0
-height = 4.0
-
 [sub_resource type="ShaderMaterial" id=50]
 shader = ExtResource( 9 )
 shader_param/active = false
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.0
+height = 4.0
 
 [sub_resource type="Animation" id=26]
 resource_name = "AttackDown"
@@ -790,10 +790,6 @@ tracks/0/keys = {
 collision_layer = 2
 script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource( 1 )
-
 [node name="ShadowSprite" type="Sprite" parent="."]
 position = Vector2( 0, 2 )
 texture = ExtResource( 6 )
@@ -804,6 +800,10 @@ position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
 hframes = 60
 frame = 59
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 26 )
@@ -835,7 +835,6 @@ parameters/Run/blend_position = Vector2( -0.333659, 0.436177 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 4.71239
 
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, 0 )
@@ -867,7 +866,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 10 )
 energy = 0.7
 range_z_min = 16
-range_z_max = 1
+range_z_max = 16
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]

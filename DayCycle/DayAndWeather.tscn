@@ -48,8 +48,6 @@ color_ramp = SubResource( 2 )
 
 [node name="DayAndWeather" type="Node"]
 script = ExtResource( 2 )
-thunder = true
-thunder_strength = 0.163
 
 [node name="DayNight" type="CanvasModulate" parent="."]
 script = ExtResource( 1 )

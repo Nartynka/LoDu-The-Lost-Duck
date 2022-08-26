@@ -5,11 +5,15 @@ onready var cloudLayer = $CloudLayer
 onready var rainParticles = $RainParticles
 
 export(bool) var rain = false setget start_rain
-export(int) var rain_amount = 1000
+export(int) var rain_amount = 1000 setget set_rain_amount
 export(bool) var thunder = false setget start_thunderstorm
-export(float, 0, 1) var thunder_strength:float = rand_range(0.2, 1)
+export(float, 0, 1) var thunder_strength_rand_min:float = 0.2
+export(float, 0, 1) var thunder_strength_rand_max:float = 1
 export(float, 0, 1) var cloud_speed:float = 0.1 setget set_cloud_speed
 export(float, 0, 1) var cloudiness_factor:float = 0.5 setget set_cloudiness
+
+var thunder_strength:float
+
 enum TimeOfDay{
 	AUTO,
 	DAWN,
@@ -20,10 +24,18 @@ enum TimeOfDay{
 
 export(TimeOfDay) var FixedTimeOfDay = TimeOfDay.AUTO
 
+func _process(delta):
+	thunder_strength = rand_range(thunder_strength_rand_min, thunder_strength_rand_max)
+
 func start_rain(new_value):
 	rain = new_value
+	if rainParticles:
+		rainParticles.amount = rain_amount
+		rainParticles.set_emitting(new_value)
+
+func set_rain_amount(new_value):
+	rain_amount = new_value
 	rainParticles.amount = rain_amount
-	rainParticles.set_emitting(new_value)
 
 func start_thunderstorm(new_value):
 	thunder = new_value

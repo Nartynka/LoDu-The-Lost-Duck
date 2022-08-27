@@ -510,6 +510,7 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
+use_parent_material = true
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -534,6 +535,7 @@ texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 50 )
+use_parent_material = true
 position = Vector2( 0, -13 )
 texture = ExtResource( 2 )
 hframes = 6

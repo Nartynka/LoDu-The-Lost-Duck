@@ -21,4 +21,3 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 texture_scale = 0.3
 energy = 0.5
-mode = 2

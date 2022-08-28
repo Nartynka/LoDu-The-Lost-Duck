@@ -22,21 +22,22 @@ func _init(time):
 #func update(dateTime:DateTime):
 #	return self.second == dateTime.second and self.minute == dateTime.minute and dateTime.hour == hour and self.day == dateTime.day
 	
-# For later use
-#func to_string(withSeconds: bool = false) -> String:
-#	var hour = self.hour
-#	var minute = self.minute
-#	var second = self.second
-#
-#	if hour < 10:
-#		hour = "0" + str(hour)
-#	if minute < 10:
-#		minute = "0" + str(minute)
-#	if second < 10:
-#		second = "0" + str(second)
-#
-#	var string = "Year " + str(year) + ", Day " + str(day) + " at " + str(hour) + ":" + str(minute)
-#	if withSeconds:
-#		string += ":" + str(second)
-#
-#	return string
+# For debug use and later ui
+func print_string(withSeconds: bool = true) -> String:
+	var hour = self.hour
+	var minute = self.minute
+	var second = self.second
+
+	if hour < 10:
+		hour = "0" + str(hour)
+	if minute < 10:
+		minute = "0" + str(minute)
+	if second < 10:
+		second = "0" + str(second)
+
+	var string = "Year " + str(year) + ", Day " + str(day) + " at " + str(hour) + ":" + str(minute)
+	if withSeconds:
+		string += ":" + str(second)
+	
+	print(string)
+	return string

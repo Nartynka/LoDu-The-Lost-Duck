@@ -28,7 +28,7 @@ curve = SubResource( 5 )
 [sub_resource type="ParticlesMaterial" id=7]
 lifetime_randomness = 0.4
 emission_shape = 2
-emission_box_extents = Vector3( 300, 300, 0 )
+emission_box_extents = Vector3( 700, 600, 0 )
 flag_disable_z = true
 direction = Vector3( 0, 1, 0 )
 spread = 7.76
@@ -53,9 +53,14 @@ script = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
-position = Vector2( -85, 121 )
+position = Vector2( 189, 0 )
 emitting = false
 amount = 2000
+lifetime = 0.5
+visibility_rect = Rect2( -350, -300, 700, 600 )
+local_coords = false
 process_material = SubResource( 7 )
 
 [node name="CloudLayer" parent="." instance=ExtResource( 3 )]
+offset = Vector2( 600, 200 )
+transform = Transform2D( 1, 0, 0, 1, 600, 200 )

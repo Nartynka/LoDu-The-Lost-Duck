@@ -32,6 +32,8 @@ var lightning_strike_on:bool = false
 
 var thunder_random:RandomNumberGenerator = RandomNumberGenerator.new()
 
+var time_of_day = "AUTO"
+
 func _ready():
 	Clock.connect("time_passed", self, "_on_time_passed")
 	
@@ -54,10 +56,11 @@ func _ready():
 # when time passes, we calculate the brightness and tint of the environment
 # based on the current time of day
 func _on_time_passed(t):
+	if time_of_day != "AUTO":
+		return
 	var time = Clock.time
 	
 	var time_of_day = int(time) % seconds_per_day
-	var percent = float(time_of_day) / seconds_per_day
 	current_color = color_gradient.interpolate(float(time_of_day) / seconds_per_day)
 	
 	# apply color
@@ -79,6 +82,16 @@ func lightning_strike():
 
 
 func _process(delta):
+	if time_of_day != "AUTO":
+		match time_of_day:
+			"DAWN":
+				color = color_dawn
+			"DAY":
+				color = color_day
+			"DUSK":
+				color = color_dusk
+			"NIGHT":
+				color = color_night
 	if thunderstorm_enabled:
 		if lightning_strike_on:
 			if color_add.r <= 0.01:

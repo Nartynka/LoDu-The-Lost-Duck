@@ -17,3 +17,4 @@ func _process(delta):
 	time += delta * time_multiplier
 	dateTime = DateTime.new(time)
 	emit_signal("time_passed", delta * time_multiplier)
+#	dateTime.print_string()

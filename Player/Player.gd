@@ -30,7 +30,10 @@ onready var sprite = $Sprite
 func _ready():
 	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
 	for spawnpoint in spawnpoints:
-		if spawnpoint.name == PlayerStats.spawnpoint:
+		if not PlayerStats.spawnpoint:
+			if spawnpoint.name == "PlayerSpawnpoint":
+				global_position = spawnpoint.global_position
+		elif spawnpoint.name == PlayerStats.spawnpoint:
 			global_position = spawnpoint.global_position
 	randomize()
 	stats.connect("no_health", self, "queue_free")
@@ -89,7 +92,6 @@ func roll_animation_finished():
 	velocity = Vector2.ZERO
 
 func _on_Hurtbox_area_entered(area):
-	print(area)
 	stats.health -= area.damage
 	hurtbox.start_invincibility(0.6)
 	hurtbox.create_hit_effect()

@@ -59,4 +59,3 @@ amount = 2000
 process_material = SubResource( 7 )
 
 [node name="CloudLayer" parent="." instance=ExtResource( 3 )]
-visible = false

@@ -3,8 +3,8 @@
 [ext_resource path="res://Procedural world map/Wilds/Wilds.gd" type="Script" id=1]
 [ext_resource path="res://Procedural world map/Wilds/snow-expansion.png" type="Texture" id=2]
 [ext_resource path="res://Procedural world map/Wilds/GrassTileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Shader" id=6]
@@ -70,6 +70,9 @@ shader = SubResource( 6 )
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 16 )
+
 [sub_resource type="TileSet" id=4]
 0/name = "snow-expansion.png 0"
 0/texture = ExtResource( 2 )
@@ -128,17 +131,20 @@ shader = SubResource( 6 )
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 10, 16 )
-
 [node name="Wilds" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -109.0 ]
 }
 
-[node name="YSort" type="YSort" parent="."]
-position = Vector2( 30, 98 )
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( -44, 33 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 1280, 956 )
+
+[node name="TopLeft" parent="Camera2D/Limits" index="1"]
+position = Vector2( 2, 2 )
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
@@ -158,12 +164,6 @@ tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="Enviroment" type="TileMap" parent="."]
-z_index = -1
-tile_set = SubResource( 4 )
-cell_size = Vector2( 16, 16 )
-format = 1
-
 [node name="World" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 84 )
 to_scene = "res://World.tscn"
@@ -175,21 +175,22 @@ position = Vector2( 22, 7 )
 position = Vector2( 0, 6 )
 shape = SubResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-unique_name_in_owner = true
-position = Vector2( 57, 6 )
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 30, 98 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="Enviroment" type="TileMap" parent="YSort"]
+position = Vector2( -30, -98 )
+z_index = -1
+tile_set = SubResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
 
-[node name="Camera2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 57, 6 )
+[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -30, -98 )
 
-[node name="BottomRight" parent="Camera2D/Limits" index="0"]
-position = Vector2( 1280, 956 )
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+position = Vector2( -44, 33 )
+remote_path = NodePath("../../../Camera2D")
 
-[node name="TopLeft" parent="Camera2D/Limits" index="1"]
-position = Vector2( 2, 2 )
-
-[editable path="World"]
 [editable path="Camera2D"]
+[editable path="World"]

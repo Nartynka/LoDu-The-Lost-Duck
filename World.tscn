@@ -15,7 +15,7 @@
 [ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Player/Player2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 4, 4, 16, 4, 16, 16, 4, 16 )
@@ -792,14 +792,6 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -262149, 0, 4, -262148, 0, 196609, -262147, 0, 196609, -262146, 0, 196609, -262145, 0, 196609, -327680, 0, 196609, -327679, 0, 196609, -327678, 0, 196609, -327677, 0, 196610, -327675, 0, 196608, -327674, 0, 196609, -327673, 0, 196609, -327672, 0, 196609, -327671, 0, 196609, -327670, 0, 196609, -327669, 0, 196609, -327668, 0, 196609, -327667, 0, 196609, -327666, 0, 196609, -327665, 0, 196609, -327664, 0, 7, -196613, 0, 65539, -262128, 0, 65539, -131077, 0, 65539, -196592, 0, 65539, -65541, 0, 65539, -131056, 0, 131075, -5, 0, 65539, -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 2, -65529, 0, 0, -65528, 0, 1, -65527, 0, 1, -65526, 0, 2, 65531, 0, 65539, 65535, 0, 65536, 0, 0, 65541, 1, 0, 131073, 2, 0, 131074, 7, 0, 131072, 8, 0, 65542, 9, 0, 65537, 10, 0, 65538, 131067, 0, 131075, 131071, 0, 131072, 65536, 0, 131074, 65544, 0, 131072, 65545, 0, 131073, 65546, 0, 131074, 327675, 0, 3, 262147, 0, 0, 262148, 0, 2, 262157, 0, 0, 262158, 0, 1, 262159, 0, 1, 262160, 0, 2, 393211, 0, 131076, 393212, 0, 1, 393213, 0, 2, 327683, 0, 131072, 327684, 0, 131074, 327693, 0, 65536, 327694, 0, 65537, 327695, 0, 65537, 327696, 0, 65538, 458747, 0, 65536, 458748, 0, 65537, 458749, 0, 65538, 393227, 0, 196608, 393228, 0, 196609, 393229, 0, 196614, 393230, 0, 131073, 393231, 0, 65542, 393232, 0, 65538, 524283, 0, 65536, 524284, 0, 65537, 524285, 0, 65538, 458767, 0, 65536, 458768, 0, 65538, 589819, 0, 131072, 589820, 0, 131073, 589821, 0, 196613, 589822, 0, 196609, 589823, 0, 196609, 524288, 0, 196610, 524290, 0, 196608, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 196609, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 196609, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 196609, 524303, 0, 196614, 524304, 0, 131074 )
 
-[node name="Stars" type="ColorRect" parent="."]
-visible = false
-material = SubResource( 71 )
-margin_left = 382.0
-margin_top = 18.0
-margin_right = 440.0
-margin_bottom = 63.0
-
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false
 material = SubResource( 71 )
@@ -808,15 +800,17 @@ margin_top = -106.0
 margin_right = 549.0
 margin_bottom = 172.0
 
-[node name="GodRay" parent="." instance=ExtResource( 15 )]
-margin_left = 530.0
-margin_top = -199.0
-margin_right = 710.0
-margin_bottom = 70.0
-rect_scale = Vector2( -1, 1 )
-
 [node name="HealBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 411, 39 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 74, 98 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 852, 322 )
+
+[node name="TopLeft" parent="Camera2D/Limits" index="1"]
+position = Vector2( -133, -145 )
 
 [node name="Portals" type="Node" parent="."]
 
@@ -875,21 +869,12 @@ position = Vector2( 0, -27 )
 position = Vector2( -1, 2.5 )
 shape = SubResource( 61 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( 96, 88 )
-
-[node name="BottomRight" parent="Camera2D/Limits" index="0"]
-position = Vector2( 852, 322 )
-
-[node name="TopLeft" parent="Camera2D/Limits" index="1"]
-position = Vector2( -133, -145 )
-
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player2" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 140, 55 )
+[node name="Player" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 118, 65 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player2"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( -44, 33 )
 remote_path = NodePath("../../../Camera2D")
 
@@ -1049,13 +1034,18 @@ position = Vector2( 288, 136 )
 [node name="Tree3" parent="YSort/Trees" instance=ExtResource( 10 )]
 position = Vector2( 280, 32 )
 
-[node name="DayAndWeather" parent="." instance=ExtResource( 9 )]
-rain = true
-thunder_strength_rand_min = 0.0
+[node name="GodRay" parent="." instance=ExtResource( 15 )]
+margin_left = 530.0
+margin_top = -199.0
+margin_right = 710.0
+margin_bottom = 70.0
+rect_scale = Vector2( -1, 1 )
 
+[node name="DayAndWeather" parent="." instance=ExtResource( 9 )]
+
+[editable path="Camera2D"]
 [editable path="Portals/City"]
 [editable path="Portals/School"]
 [editable path="Portals/Wilds"]
 [editable path="Portals/Desert"]
 [editable path="Portals/AcientRuins"]
-[editable path="Camera2D"]

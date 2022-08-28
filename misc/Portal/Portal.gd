@@ -4,7 +4,7 @@ export(String, FILE, "*.tscn") var to_scene = ""
 export(String) var spawnpoint = "spawnpoint"
 export(String) var spawnpoint_name = "spawnpoint"
 
-# Portal must be placed above player in scene tree, idk why but doesn't work if below player
+# Portal MUST be placed above player in scene tree, idk why but doesn't work if below player
 # Portal is in Portals gorup, spawnpoint is in spawnpoints group
 
 func _ready():

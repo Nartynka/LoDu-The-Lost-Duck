@@ -60,8 +60,6 @@ shape = SubResource( 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-unique_name_in_owner = true
-z_index = 1
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( 0, 24 )

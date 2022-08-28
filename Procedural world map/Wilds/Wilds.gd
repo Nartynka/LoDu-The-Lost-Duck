@@ -45,7 +45,7 @@ func make_enviroment_map():
 				if chance < 2:
 				
 					var num = randi() % 4
-					$Enviroment.set_cell(x,y, num)
+					$YSort/Enviroment.set_cell(x,y, num)
 				
 				
 

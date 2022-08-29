@@ -1,6 +1,6 @@
 extends Node
 
-onready var dayNight = $DayNight
+onready var dayNight = get_node("../DayNight")
 onready var cloudLayer = $CloudLayer
 onready var rainParticles = $RainParticles
 
@@ -13,16 +13,6 @@ export(float, 0, 1) var cloud_speed:float = 0.1 setget set_cloud_speed
 export(float, 0, 1) var cloudiness_factor:float = 0.5 setget set_cloudiness
 export(int) var time_multipler = 3600 setget set_time_multipler
 var thunder_strength:float
-
-enum TimeOfDay{
-	AUTO,
-	DAWN,
-	DAY,
-	DUSK,
-	NIGHT
-}
-
-export(TimeOfDay) var time_of_day = TimeOfDay.AUTO setget set_timeofday
 
 func _process(delta):
 	thunder_strength = rand_range(thunder_strength_rand_min, thunder_strength_rand_max)
@@ -60,8 +50,3 @@ func set_cloudiness(new_value):
 func set_time_multipler(new_value):
 	time_multipler = new_value
 	Clock.time_multiplier = new_value
-	
-func set_timeofday(new_value):
-	time_of_day = new_value
-	if dayNight:
-		dayNight.time_of_day = TimeOfDay.keys()[time_of_day]

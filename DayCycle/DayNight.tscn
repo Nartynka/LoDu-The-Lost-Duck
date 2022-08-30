@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://DayCycle/DayNight.gd" type="Script" id=1]
 [ext_resource path="res://UI/daynight.png" type="Texture" id=3]
-
-[sub_resource type="GradientTexture2D" id=1]
 
 [node name="DayNight" type="CanvasModulate"]
 script = ExtResource( 1 )
@@ -14,9 +12,3 @@ script = ExtResource( 1 )
 position = Vector2( 309, 10 )
 texture = ExtResource( 3 )
 hframes = 7
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 156.5, 87 )
-scale = Vector2( 4.82812, 2.21875 )
-texture = SubResource( 1 )

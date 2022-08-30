@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://DayCycle/Weather.gd" type="Script" id=2]
-[ext_resource path="res://DayCycle/Legacy/CloudLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DayCycle/Clouds.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
@@ -49,7 +48,8 @@ color_ramp = SubResource( 2 )
 [node name="Weather" type="Node"]
 script = ExtResource( 2 )
 
-[node name="Clouds" parent="." instance=ExtResource( 4 )]
+[node name="CloudsLayer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 25, 24 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
 position = Vector2( 189, 0 )
@@ -60,7 +60,4 @@ visibility_rect = Rect2( -350, -300, 700, 600 )
 local_coords = false
 process_material = SubResource( 7 )
 
-[node name="CloudLayer" parent="." instance=ExtResource( 3 )]
-visible = false
-offset = Vector2( 600, 200 )
-transform = Transform2D( 1, 0, 0, 1, 600, 200 )
+[node name="ThunderLayer" type="CanvasModulate" parent="."]

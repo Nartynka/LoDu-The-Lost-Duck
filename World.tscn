@@ -1043,11 +1043,14 @@ margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="DayNight" parent="." instance=ExtResource( 17 )]
+visible = false
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
+thunder = true
+thunder_strength_rand_min = 1.0
 
-[node name="Clouds" parent="Weather" index="0"]
-position = Vector2( 79, 74 )
+[node name="ThunderLayer" parent="Weather" index="2"]
+color = Color( 0.447059, 0.243137, 0.243137, 1 )
 
 [editable path="Camera2D"]
 [editable path="Portals/City"]

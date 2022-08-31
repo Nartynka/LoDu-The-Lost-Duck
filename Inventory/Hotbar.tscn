@@ -1,8 +1,50 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Inventory/Hotbar.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/assets/inventory_bg.png" type="Texture" id=2]
+[ext_resource path="res://Inventory/assets/inventory_slot.png" type="Texture" id=3]
+[ext_resource path="res://Inventory/assets/inventory_border.png" type="Texture" id=4]
 
-[node name="Hotbar" type="Control"]
+[node name="Hotbar" type="CenterContainer"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -44.0
 script = ExtResource( 1 )
+
+[node name="InventoryBg" type="NinePatchRect" parent="."]
+margin_left = 108.0
+margin_top = 19.0
+margin_right = 212.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 104, 6 )
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 2
+patch_margin_right = 21
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+
+[node name="Slot" type="Sprite" parent="InventoryBg"]
+position = Vector2( 12, 3 )
+texture = ExtResource( 3 )
+
+[node name="Slot2" type="Sprite" parent="InventoryBg"]
+position = Vector2( 32, 3 )
+texture = ExtResource( 3 )
+
+[node name="Slot3" type="Sprite" parent="InventoryBg"]
+position = Vector2( 52, 3 )
+texture = ExtResource( 3 )
+
+[node name="Slot4" type="Sprite" parent="InventoryBg"]
+position = Vector2( 72, 3 )
+texture = ExtResource( 3 )
+
+[node name="Slot5" type="Sprite" parent="InventoryBg"]
+position = Vector2( 92, 3 )
+texture = ExtResource( 3 )
+
+[node name="Active" type="Sprite" parent="InventoryBg"]
+position = Vector2( 12, 3 )
+texture = ExtResource( 4 )

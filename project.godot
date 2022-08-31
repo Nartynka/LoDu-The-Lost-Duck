@@ -113,6 +113,7 @@ DialogManager="*res://singletons/DialogManager.gd"
 Screen="*res://singletons/Screen.gd"
 SceneChange="*res://singletons/SceneChange.tscn"
 Clock="*res://DayCycle/Clock.tscn"
+Inventory="*res://singletons/Inventory.gd"
 
 [display]
 

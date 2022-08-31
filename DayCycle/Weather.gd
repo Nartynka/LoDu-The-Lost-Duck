@@ -26,7 +26,6 @@ func _process(_delta):
 			else:
 				color_add *= 0.9
 		else:
-			print("A")
 			lightning_strike()
 #			var thunder_random = RandomNumberGenerator.new()
 #			var rand = abs(thunder_random.randfn(0, 1))

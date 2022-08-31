@@ -39,9 +39,9 @@ gradient = SubResource( 7 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
-shader_param/tint = Color( 0.266667, 0.266667, 0.266667, 0.368627 )
+shader_param/tint = Color( 0.266667, 0.266667, 0.266667, 0.160784 )
 shader_param/scroll_direction_1 = Vector2( -0.7, -0.7 )
-shader_param/time_scale_1 = 0.03
+shader_param/time_scale_1 = 0.042
 shader_param/tile_factor_1 = 2.0
 shader_param/scroll_direction_2 = Vector2( 0.75, 0.25 )
 shader_param/time_scale_2 = 0.0
@@ -49,11 +49,11 @@ shader_param/tile_factor_2 = 0.0
 shader_param/gradient_texture = SubResource( 8 )
 
 [sub_resource type="OpenSimplexNoise" id=5]
-seed = 21
+seed = 573852
 octaves = 9
-period = 146.3
-persistence = 0.169
-lacunarity = 3.29
+period = 159.0
+persistence = 0.095
+lacunarity = 3.44
 
 [sub_resource type="NoiseTexture" id=6]
 width = 683

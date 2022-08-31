@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
 [ext_resource path="res://DayCycle/DayNight.tscn" type="PackedScene" id=17]
+[ext_resource path="res://DayCycle/Legacy/CloudLayer.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 4, 4, 16, 4, 16, 16, 4, 16 )
@@ -1043,14 +1044,19 @@ margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="DayNight" parent="." instance=ExtResource( 17 )]
+
+[node name="CloudLayer" parent="." instance=ExtResource( 18 )]
 visible = false
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
 thunder = true
 thunder_strength_rand_min = 1.0
 
+[node name="CloudsLayer" parent="Weather" index="0"]
+visible = false
+
 [node name="ThunderLayer" parent="Weather" index="2"]
-color = Color( 0.447059, 0.243137, 0.243137, 1 )
+visible = false
 
 [editable path="Camera2D"]
 [editable path="Portals/City"]

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Item
 
 export(String) var item_name = "Gold_Coin"
 var active = false

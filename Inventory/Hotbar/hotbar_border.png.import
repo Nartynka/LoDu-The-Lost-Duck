@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inventory_border.png-8570ee05481676ba29401cde4ecbf9f7.stex"
+path="res://.import/hotbar_border.png-d0e80009c74d7017f274c30af94e501c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/assets/inventory_border.png"
-dest_files=[ "res://.import/inventory_border.png-8570ee05481676ba29401cde4ecbf9f7.stex" ]
+source_file="res://Inventory/Hotbar/hotbar_border.png"
+dest_files=[ "res://.import/hotbar_border.png-d0e80009c74d7017f274c30af94e501c.stex" ]
 
 [params]
 

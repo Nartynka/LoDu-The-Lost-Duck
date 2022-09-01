@@ -35,9 +35,8 @@ func remove_item(type:String, amount:int):
 		emit_signal("change_item", "removed", type, amount)
 	update_gui(type)
 
-# for future save
-#func list() -> Dictionary:
-#	return inventory.duplicate()
+func list() -> Dictionary:
+	return inventory.duplicate()
 
 func update_gui(type):
 	emit_signal("inventory_change", type, inventory[type])

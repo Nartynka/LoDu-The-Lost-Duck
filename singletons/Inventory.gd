@@ -11,7 +11,8 @@ signal change_item(action, type, amount)
 signal inventory_change(type, amount)
 
 var inventory = {}
-
+var hotbar = {}
+var armor = {}
 func get_item(type:String) -> int:
 	if inventory.has(type):
 		return inventory[type]
@@ -40,4 +41,4 @@ func list() -> Dictionary:
 
 func update_gui(type):
 	emit_signal("inventory_change", type, inventory[type])
-	print(type, " ", inventory[type])
+	print_debug(type, " ", inventory[type])

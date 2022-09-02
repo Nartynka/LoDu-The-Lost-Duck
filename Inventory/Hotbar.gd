@@ -6,12 +6,12 @@ onready var active = slots[0] setget set_active
 
 func _ready():
 	var inv = Inventory.list()
-	print(inv)
+	print_debug(inv)
 #	slots.item = inv[0]
 
 func _input(event):
 	var inv = Inventory.list()
-	print(inv.get(0))
+#	print_debug(inv.get(0))
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == BUTTON_WHEEL_UP:

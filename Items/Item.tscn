@@ -18,4 +18,3 @@ stream = ExtResource( 2 )
 volume_db = -5.821
 
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Item_body_exited"]

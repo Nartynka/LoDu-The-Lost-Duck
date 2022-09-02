@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Inventory/Hotbar.gd" type="Script" id=1]
 [ext_resource path="res://Inventory/Hotbar/hotbar_bg.png" type="Texture" id=2]
-[ext_resource path="res://Inventory/Slot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Inventory/Hotbar/Slot.tscn" type="PackedScene" id=3]
 
 [node name="Hotbar" type="CenterContainer"]
 anchor_top = 1.0

@@ -9,7 +9,7 @@ radius = 6.0
 height = 4.0
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 12.0416
+radius = 14.0
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -57,7 +57,7 @@ position = Vector2( 0, -27 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
-frame = 1
+frame = 4
 playing = true
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_TriggerArea_area_entered"]

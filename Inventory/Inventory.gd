@@ -1,7 +1,7 @@
 extends Control
 
 func _input(event):
-	if event.is_action_pressed("action"):
+	if event.is_action_pressed("inventory"):
 		if visible:
 			hide()
 		else:

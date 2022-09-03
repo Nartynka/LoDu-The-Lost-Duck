@@ -807,7 +807,7 @@ margin_bottom = 172.0
 position = Vector2( 411, 39 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( 74, 98 )
+position = Vector2( 69, 102 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
 position = Vector2( 852, 322 )
@@ -875,7 +875,7 @@ shape = SubResource( 61 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 118, 65 )
+position = Vector2( 113, 69 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( -44, 33 )

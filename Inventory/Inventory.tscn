@@ -7,6 +7,7 @@
 [ext_resource path="res://Inventory/inventory_x.png" type="Texture" id=5]
 
 [node name="Inventory" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )

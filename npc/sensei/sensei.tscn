@@ -4,7 +4,6 @@
 [ext_resource path="res://npc/sensei/sensei.png" type="Texture" id=2]
 
 [node name="Sensei" instance=ExtResource( 1 )]
-DialogueTimelineName = "sensei"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
@@ -12,6 +11,9 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 2 )
 
-[node name="AnimatedSprite" parent="." index="2"]
+[node name="AnimatedSprite" parent="." index="3"]
 position = Vector2( 1, -22 )
 frame = 2
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]

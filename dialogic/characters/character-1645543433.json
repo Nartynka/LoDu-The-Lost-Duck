@@ -1,19 +1,19 @@
 {
 	"color": "#ffcb7530",
-	"description": "",
-	"display_name": "Fox",
+	"description": "Idk czy kto będzie lodu bo to miał być zakon xD",
+	"display_name": "LoDu",
 	"display_name_bool": true,
 	"id": "character-1645543433.json",
 	"mirror_portraits": false,
-	"name": "Fox",
+	"name": "MC",
 	"nickname": "",
 	"nickname_bool": false,
 	"offset_x": 85,
-	"offset_y": -65,
+	"offset_y": -90,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://Player/fox-front.png"
+			"path": "res://Player/PlayerPortrait.tscn"
 		}
 	],
 	"scale": 250,

@@ -23,11 +23,9 @@ func _input(event):
 			DialogManager.start("Default")
 
 func _on_TriggerArea_body_entered(body):
-	print("Aaa")
 	if body.name == "Player":
 		active = true
 
 func _on_TriggerArea_body_exited(body):
-	print("bbb")
 	if body.name == "Player":
 		active = false

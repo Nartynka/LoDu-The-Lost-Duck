@@ -57,7 +57,7 @@ func set_cloud_speed(new_value):
 
 func set_cloudiness(new_value):
 	cloudiness = new_value
-	cloudsLayer.shader_param.tile_factor_1 = cloudiness
+#	cloudsLayer.shader_param.tile_factor_1 = cloudiness
 	
 func set_time_multipler(new_value):
 	time_multipler = new_value

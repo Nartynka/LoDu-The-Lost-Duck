@@ -1045,19 +1045,20 @@ margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="DayNight" parent="." instance=ExtResource( 17 )]
+visible = false
 
 [node name="CloudLayer" parent="." instance=ExtResource( 18 )]
 visible = false
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
+rain = true
+cloudiness = 0.924
 thunder = true
 thunder_strength_rand_min = 1.0
 
 [node name="CloudsLayer" parent="Weather" index="0"]
-visible = false
-
-[node name="ThunderLayer" parent="Weather" index="2"]
-visible = false
+position = Vector2( 300.75, 24 )
+scale = Vector2( 1.80747, 1 )
 
 [node name="Stick" parent="." instance=ExtResource( 19 )]
 position = Vector2( 85, -89 )

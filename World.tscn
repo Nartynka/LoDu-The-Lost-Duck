@@ -862,13 +862,14 @@ position = Vector2( -22, 2 )
 position = Vector2( 0, 2.5 )
 shape = SubResource( 59 )
 
-[node name="AcientRuins" parent="Portals" instance=ExtResource( 13 )]
+[node name="Cave" parent="Portals" instance=ExtResource( 13 )]
 position = Vector2( 49, 271 )
+to_scene = "res://Cave/Cave.tscn"
 
-[node name="Spawnpoint" parent="Portals/AcientRuins" index="0"]
+[node name="Spawnpoint" parent="Portals/Cave" index="0"]
 position = Vector2( 0, -27 )
 
-[node name="CollisionShape" parent="Portals/AcientRuins" index="1"]
+[node name="CollisionShape" parent="Portals/Cave" index="1"]
 position = Vector2( -1, 2.5 )
 shape = SubResource( 61 )
 
@@ -1059,6 +1060,19 @@ thunder_strength_rand_min = 1.0
 [node name="CloudsLayer" parent="Weather" index="0"]
 position = Vector2( 300.75, 24 )
 scale = Vector2( 1.80747, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RainParticles" parent="Weather" index="1"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ThunderLayer" parent="Weather" index="2"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Stick" parent="." instance=ExtResource( 19 )]
 position = Vector2( 85, -89 )
@@ -1070,5 +1084,5 @@ position = Vector2( 85, -89 )
 [editable path="Portals/School"]
 [editable path="Portals/Wilds"]
 [editable path="Portals/Desert"]
-[editable path="Portals/AcientRuins"]
+[editable path="Portals/Cave"]
 [editable path="Weather"]

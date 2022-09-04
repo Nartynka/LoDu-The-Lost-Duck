@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Cave/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cave/CaveGenerator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Cave/Cave.gd" type="Script" id=5]
+[ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.5, 10 )
+
+[node name="Cave" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+format = 1
+
+[node name="CaveGenerator" parent="TileMap" instance=ExtResource( 3 )]
+map_width = 320
+map_height = 200
+redraw = true
+world_seed = "12629"
+noise_octaves = 1
+noise_period = 10
+noise_lacunarity = 0.2
+noise_threshold = 0.2
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 0 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 3991, 2923 )
+
+[node name="TopLeft" parent="Camera2D/Limits" index="1"]
+position = Vector2( -1875, -2199 )
+
+[node name="World" parent="." instance=ExtResource( 6 )]
+position = Vector2( -263, -60 )
+to_scene = "res://World.tscn"
+
+[node name="Spawnpoint" parent="World" index="0"]
+position = Vector2( -0.119995, 24.811 )
+
+[node name="CollisionShape" parent="World" index="1"]
+position = Vector2( -0.119995, -0.188965 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[editable path="Camera2D"]
+[editable path="World"]

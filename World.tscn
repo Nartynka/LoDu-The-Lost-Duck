@@ -1045,11 +1045,10 @@ margin_right = 710.0
 margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
-[node name="DayNight" parent="." instance=ExtResource( 17 )]
-visible = false
-
 [node name="CloudLayer" parent="." instance=ExtResource( 18 )]
 visible = false
+
+[node name="DayNight" parent="." instance=ExtResource( 17 )]
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
 rain = true
@@ -1070,6 +1069,7 @@ __meta__ = {
 }
 
 [node name="ThunderLayer" parent="Weather" index="2"]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }

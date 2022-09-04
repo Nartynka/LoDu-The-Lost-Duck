@@ -1,2 +1,2 @@
-# Godot-Action-RPG
-My first game in Godot Engine, from HeartBeast tutorial on YouTube
+# LoDu: The lost Duck
+_Work in progress_

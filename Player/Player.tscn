@@ -529,7 +529,7 @@ position = Vector2( 0, -13 )
 texture = ExtResource( 2 )
 hframes = 6
 vframes = 2
-frame = 2
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 69 )
@@ -576,6 +576,7 @@ anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 material = SubResource( 79 )
 position = Vector2( 1, -7 )
 texture = ExtResource( 10 )

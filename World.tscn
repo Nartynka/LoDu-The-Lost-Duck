@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
 [ext_resource path="res://DayCycle/DayNight.tscn" type="PackedScene" id=17]
-[ext_resource path="res://DayCycle/Legacy/CloudLayer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Items/Stick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://grass.png" type="Texture" id=20]
 
@@ -924,7 +923,7 @@ position = Vector2( 411, 39 )
 position = Vector2( 69, 102 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
-position = Vector2( 858, 843 )
+position = Vector2( 949, 835 )
 
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( -133, -145 )
@@ -1158,9 +1157,6 @@ margin_right = 710.0
 margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
-[node name="CloudLayer" parent="." instance=ExtResource( 18 )]
-visible = false
-
 [node name="DayNight" parent="." instance=ExtResource( 17 )]
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
@@ -1170,6 +1166,7 @@ thunder = true
 thunder_strength_rand_min = 1.0
 
 [node name="CloudsLayer" parent="Weather" index="0"]
+visible = false
 position = Vector2( 300.75, 24 )
 scale = Vector2( 1.80747, 1 )
 __meta__ = {

@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://UI/BlackTexture.png" type="Texture" id=1]
 [ext_resource path="res://DayCycle/Weather.gd" type="Script" id=2]
+[ext_resource path="res://DayCycle/Legacy/CloudLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DayCycle/Clouds.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
@@ -45,6 +47,57 @@ scale_random = 0.3
 scale_curve = SubResource( 6 )
 color_ramp = SubResource( 2 )
 
+[sub_resource type="Shader" id=73]
+code = "shader_type canvas_item;
+
+uniform vec4 lightning_color: hint_color;
+
+uniform float size: hint_range (0.,1.);
+uniform float width: hint_range (0.,1.);
+uniform float speed;
+uniform float cycle;
+uniform float ratio;
+uniform float time_shift;
+const float PI = 3.14159265359;
+
+float rand(float x){
+	return fract(sin(x)*100000.0);
+}
+
+void fragment(){
+	float bolt = abs(mod(UV.y * cycle + (rand(TIME) + time_shift) * speed * -1., 0.5)-0.25)-0.125;
+	bolt *= 4. * width;
+	// why 4 ? Because we use mod 0.5, the value be devide by half
+	// and we -0.25 (which is half again) for abs function. So it 25%!
+	
+	// scale down at start and end
+	bolt *=  (0.5 - abs(UV.y-0.5)) * 2.; 
+	
+	// turn to a line
+	// center align line
+	float wave = abs(UV.x - 0.5 + bolt);
+	// invert and ajust size
+	wave = 1. - step(size*.5, wave);
+	
+	float blink = step(rand(TIME)*ratio, .5);
+	wave *= blink;
+	
+	vec4 display = lightning_color * vec4(wave);
+	
+	COLOR = display;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=74]
+shader = SubResource( 73 )
+shader_param/lightning_color = Color( 1, 1, 1, 1 )
+shader_param/size = 0.013
+shader_param/width = 0.14
+shader_param/speed = 0.01
+shader_param/cycle = 1.0
+shader_param/ratio = 6.0
+shader_param/time_shift = 94.0
+
 [node name="Weather" type="Node"]
 script = ExtResource( 2 )
 
@@ -60,4 +113,22 @@ visibility_rect = Rect2( -350, -300, 700, 600 )
 local_coords = false
 process_material = SubResource( 7 )
 
-[node name="ThunderLayer" type="CanvasModulate" parent="."]
+[node name="ThunderLayer" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -449.0
+margin_top = -397.0
+margin_right = 194.0
+margin_bottom = 227.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="ColorRect" type="Sprite" parent="."]
+visible = false
+material = SubResource( 74 )
+position = Vector2( 178, 13 )
+scale = Vector2( 2.65625, 3.10937 )
+texture = ExtResource( 1 )
+
+[node name="CloudLayer" parent="." instance=ExtResource( 3 )]
+offset = Vector2( 700, 300 )
+transform = Transform2D( 1, 0, 0, 1, 700, 300 )

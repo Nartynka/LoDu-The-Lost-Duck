@@ -3,8 +3,8 @@ extends CanvasModulate
 const seconds_per_day:int = 86400 # 60 * 60 * 24
 const HOUR = 60 * 60
 
-export(float, 0, 1) var brightness_night = 0.3
-export(float, 0, 1) var brightness_day = 1.0
+#export(float, 0, 1) var brightness_night = 0.3
+#export(float, 0, 1) var brightness_day = 1.0
 export(Color) var color_dawn = Color("494688")
 export(Color) var color_day = Color("fff1d0")
 export(Color) var color_dusk = Color("854646")

@@ -102,6 +102,7 @@ shader_param/time_shift = 94.0
 script = ExtResource( 2 )
 
 [node name="CloudsLayer" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 25, 24 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
@@ -122,7 +123,7 @@ margin_right = 194.0
 margin_bottom = 227.0
 color = Color( 1, 1, 1, 0 )
 
-[node name="ColorRect" type="Sprite" parent="."]
+[node name="Thunder" type="Sprite" parent="."]
 visible = false
 material = SubResource( 74 )
 position = Vector2( 178, 13 )

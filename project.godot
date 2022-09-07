@@ -120,6 +120,7 @@ Screen="*res://singletons/Screen.gd"
 SceneChange="*res://singletons/SceneChange.tscn"
 Clock="*res://DayCycle/Clock.tscn"
 Inventory="*res://singletons/Inventory.gd"
+DayCycle="*res://DayCycle/DayNight.tscn"
 
 [display]
 

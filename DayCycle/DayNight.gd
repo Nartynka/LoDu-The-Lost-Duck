@@ -17,6 +17,8 @@ onready var TimeLabel = $CanvasLayer/Time
 onready var DayLabel = $CanvasLayer/Day
 
 
+var is_day : bool = true
+
 var dawn_start:float = HOUR * 4.0 # starts at 4 o'clock
 var dusk_start:float = HOUR * 18.0 # start at 18 o'clock
 var sunrise_start:float
@@ -77,18 +79,25 @@ func _on_time_passed():
 	match point:
 		0.0:
 			DayNightCompas.frame = 7
+			is_day = false
 		sunrise_start:
 			DayNightCompas.frame = 0
+			is_day = false
 		sunrise_end:
 			DayNightCompas.frame = 1
+			is_day = true
 		day_start:
 			DayNightCompas.frame = 2
+			is_day = true
 		sunset_start:
 			DayNightCompas.frame = 3
+			is_day = false
 		sunset_end:
 			DayNightCompas.frame = 4
+			is_day = false
 		night_start:
 			DayNightCompas.frame = 5
+			is_day = false
 
 func _process(_delta):
 	DayLabel.text = Clock.get_day_string()
@@ -98,12 +107,16 @@ func _process(_delta):
 			"DAWN":
 				color = color_dawn
 				DayNightCompas.frame = 0
+				is_day = false
 			"DAY":
 				color = color_day
 				DayNightCompas.frame = 2
+				is_day = true
 			"DUSK":
 				color = color_dusk
 				DayNightCompas.frame = 4
+				is_day = false
 			"NIGHT":
 				color = color_night
 				DayNightCompas.frame = 7
+				is_day = false

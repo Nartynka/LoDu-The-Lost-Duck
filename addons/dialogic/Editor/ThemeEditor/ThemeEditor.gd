@@ -129,6 +129,7 @@ onready var n : Dictionary = {
 	# Button modifiers (Inherited scenes)
 	'button_normal': $"VBoxContainer/TabContainer/Choice Buttons/Column/TabContainer/Normal",
 	'button_hover': $"VBoxContainer/TabContainer/Choice Buttons/Column/TabContainer/Hover",
+	'button_focus': $"VBoxContainer/TabContainer/Choice Buttons/Column/TabContainer/Focus",
 	'button_pressed': $"VBoxContainer/TabContainer/Choice Buttons/Column/TabContainer/Pressed",
 	'button_disabled': $"VBoxContainer/TabContainer/Choice Buttons/Column/TabContainer/Disabled",
 	
@@ -234,11 +235,13 @@ func _ready() -> void:
 	# Choice button style modifiers
 	n['button_normal'].connect('picking_background', self, '_on_ButtonTextureButton_pressed')
 	n['button_hover'].connect('picking_background', self, '_on_ButtonTextureButton_pressed')
+	n['button_focus'].connect('picking_background', self, '_on_ButtonTextureButton_pressed')
 	n['button_pressed'].connect('picking_background', self, '_on_ButtonTextureButton_pressed')
 	n['button_disabled'].connect('picking_background', self, '_on_ButtonTextureButton_pressed')
 	
 	n['button_normal'].connect('style_modified', self, '_on_choice_style_modified')
 	n['button_hover'].connect('style_modified', self, '_on_choice_style_modified')
+	n['button_focus'].connect('style_modified', self, '_on_choice_style_modified')
 	n['button_pressed'].connect('style_modified', self, '_on_choice_style_modified')
 	n['button_disabled'].connect('style_modified', self, '_on_choice_style_modified')
 	
@@ -297,13 +300,13 @@ func _ready() -> void:
 	n['character_picker'].connect('item_selected', self, 'character_picker_selected')
 	
 	## Translation
-	$"VBoxContainer/VBoxContainer/HBoxContainer3/PreviewButton".text = "  "+DTS.translate('Preview changes')
-	$VBoxContainer/TabContainer.set_tab_title(0, DTS.translate('DialogTextTabTitle'))
-	$VBoxContainer/TabContainer.set_tab_title(1, DTS.translate('DialogBoxTabTitle'))
-	$VBoxContainer/TabContainer.set_tab_title(2, DTS.translate('NameLabelTabTitle'))
-	$VBoxContainer/TabContainer.set_tab_title(3, DTS.translate('ChoiceButtonTabTitle'))
-	$VBoxContainer/TabContainer.set_tab_title(4, DTS.translate('GlossaryTabTitle'))
-	$VBoxContainer/TabContainer.set_tab_title(5, DTS.translate('AudioTabTitle'))
+	$"VBoxContainer/VBoxContainer/HBoxContainer3/PreviewButton".text = "  "+editor_reference.dialogicTranslator.translate('Preview changes')
+	$VBoxContainer/TabContainer.set_tab_title(0, editor_reference.dialogicTranslator.translate('DialogTextTabTitle'))
+	$VBoxContainer/TabContainer.set_tab_title(1, editor_reference.dialogicTranslator.translate('DialogBoxTabTitle'))
+	$VBoxContainer/TabContainer.set_tab_title(2, editor_reference.dialogicTranslator.translate('NameLabelTabTitle'))
+	$VBoxContainer/TabContainer.set_tab_title(3, editor_reference.dialogicTranslator.translate('ChoiceButtonTabTitle'))
+	$VBoxContainer/TabContainer.set_tab_title(4, editor_reference.dialogicTranslator.translate('GlossaryTabTitle'))
+	$VBoxContainer/TabContainer.set_tab_title(5, editor_reference.dialogicTranslator.translate('AudioTabTitle'))
 	
 	
 	# Force preview update
@@ -318,10 +321,13 @@ func character_picker_update():
 	var characters : Array = DialogicUtil.get_character_list()
 	var character_array = []
 	for c in characters:
-		if c['data']['theme'] == '':
-			character_array.append(c)
-		elif c['data']['theme'] == current_theme:
-			character_array.append(c)
+		if 'theme' in c['data']:
+			if c['data']['theme'] == '':
+				character_array.append(c)
+			elif c['data']['theme'] == current_theme:
+				character_array.append(c)
+			else:
+				pass
 		else:
 			pass
 		
@@ -404,6 +410,7 @@ func load_theme(filename):
 	var hover_style = [true, Color( 0.698039, 0.698039, 0.698039, 1 ), false, Color.black, true, default_background, false, Color.white]
 	n['button_normal'].load_style(theme.get_value('buttons', 'normal', default_style))
 	n['button_hover'].load_style(theme.get_value('buttons', 'hover', hover_style))
+	n['button_focus'].load_style(theme.get_value('buttons', 'focus', hover_style))
 	n['button_pressed'].load_style(theme.get_value('buttons', 'pressed', default_style))
 	n['button_disabled'].load_style(theme.get_value('buttons', 'disabled', default_style))
 	
@@ -578,10 +585,11 @@ func _on_PreviewButton_pressed() -> void:
 			var characters : Array = DialogicUtil.get_character_list()
 			var character_array = []
 			for c in characters:
-				if c['data']['theme'] == '':
-					character_array.append(c)
-				elif c['data']['theme'] == current_theme:
-					character_array.append(c)
+				if 'theme' in c['data']:
+					if c['data']['theme'] == '':
+						character_array.append(c)
+					elif c['data']['theme'] == current_theme:
+						character_array.append(c)
 				
 			if character_array.size():
 				character_array.shuffle()

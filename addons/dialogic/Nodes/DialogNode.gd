@@ -11,6 +11,10 @@ var timeline_name: String
 ### MODE
 var preview: bool = false
 
+var noSkipMode: bool = false
+var autoPlayMode: bool = false
+var autoWaitTime : float = 2.0
+
 enum state {
 	IDLE, # When nothing is happening
 	READY, # When Dialogic already displayed the text on the screen
@@ -81,6 +85,8 @@ signal timeline_start(timeline_name)
 signal timeline_end(timeline_name)
 # Custom user signal
 signal dialogic_signal(value)
+# Utility
+signal letter_displayed(lastLetter)
 
 
 ## -----------------------------------------------------------------------------
@@ -399,7 +405,6 @@ func play_audio(name):
 ## -----------------------------------------------------------------------------
 # load a timeline file and start parsing
 func set_current_dialog(dialog_path: String):
-	print(dialog_path)
 	current_timeline = dialog_path
 	dialog_script = DialogicResources.get_timeline_json(dialog_path)
 	return load_dialog()
@@ -428,7 +433,7 @@ func _process(delta):
 	
 	# Hide if no input is required
 	if current_event.has('text'):
-		if '[nw]' in current_event['text'] or '[nw=' in current_event['text']:
+		if '[nw]' in current_event['text'] or '[nw=' in current_event['text'] or noSkipMode or autoPlayMode:
 			$TextBubble/NextIndicatorContainer/NextIndicator.visible = false
 		
 	# Hide if "Don't Close After Last Event" is checked and event is last text
@@ -442,7 +447,11 @@ func _process(delta):
 
 # checks for the "input_next" action
 func _input(event: InputEvent) -> void:
-	if not Engine.is_editor_hint() and event.is_action_pressed(Dialogic.get_action_button()):
+	if not Engine.is_editor_hint() and event.is_action_pressed(Dialogic.get_action_button()) and autoPlayMode:
+		autoPlayMode = false
+		return
+	
+	if not Engine.is_editor_hint() and event.is_action_pressed(Dialogic.get_action_button()) and (!noSkipMode and !autoPlayMode):
 		if HistoryTimeline.block_dialog_advance:
 			return
 		if is_state(state.WAITING):
@@ -500,7 +509,7 @@ func _on_text_completed():
 		
 		# Auto focus
 		$DialogicTimer.start(0.1); yield($DialogicTimer, "timeout")
-		if settings.get_value('input', 'autofocus_choices', true):
+		if settings.get_value('input', 'autofocus_choices', false):
 			button_container.get_child(0).grab_focus()
 		
 	
@@ -510,7 +519,7 @@ func _on_text_completed():
 		
 		# [p] needs more work
 		# Setting the timer for how long to wait in the [nw] events
-		if '[nw]' in current_event['text'] or '[nw=' in current_event['text']:
+		if '[nw]' in current_event['text'] or '[nw=' in current_event['text'] or noSkipMode or autoPlayMode:
 			var waiting_time = 2
 			var current_index = dialog_index
 			if '[nw=' in current_event['text']: # Regex stuff
@@ -530,7 +539,12 @@ func _on_text_completed():
 				# - KvaGram
 				#original line
 				#waiting_time = float(wait_settings.split('=')[1])
-			
+			elif noSkipMode or autoPlayMode:
+				waiting_time = autoWaitTime
+				if current_event.has('voice_data'):
+					waiting_time = $"FX/CharacterVoice".remaining_time()
+				else:
+					waiting_time = float(waiting_time)
 			$DialogicTimer.start(waiting_time); yield($DialogicTimer, "timeout")
 			if dialog_index == current_index:
 				_load_next_event()
@@ -1000,6 +1014,10 @@ func event_handler(event: Dictionary):
 			set_state(state.IDLE)
 			$TextBubble.visible = true
 			_load_next_event()
+		'dialogic_050':
+			noSkipMode = event['block_input']
+			autoWaitTime = event['wait_time']
+			_load_next_event()
 		_:
 			if event['event_id'] in $CustomEvents.handlers.keys():
 				# get the handler node
@@ -1040,8 +1058,10 @@ func update_text(text: String) -> String:
 	return final_text
 
 # plays a sound
-func _on_letter_written():
-	play_audio('typing')
+func _on_letter_written(lastLetter):
+	if lastLetter != ' ':
+		play_audio('typing')
+	emit_signal('letter_displayed', lastLetter)
 
 
 ## -----------------------------------------------------------------------------
@@ -1102,7 +1122,7 @@ func add_choice_button(option: Dictionary) -> Button:
 		button.shortcut_in_tooltip = false
 	
 	# Selecting the first button added
-	if settings.get_value('input', 'autofocus_choices', true):
+	if settings.get_value('input', 'autofocus_choices', false):
 		if button_container.get_child_count() == 1:
 			button.grab_focus()
 	else:
@@ -1178,6 +1198,7 @@ func get_classic_choice_button(label: String):
 	
 	var style_normal = theme.get_value('buttons', 'normal', default_style)
 	var style_hover = theme.get_value('buttons', 'hover', hover_style)
+	var style_focus = theme.get_value('buttons', 'focus', hover_style)
 	var style_pressed = theme.get_value('buttons', 'pressed', default_style)
 	var style_disabled = theme.get_value('buttons', 'disabled', default_style)
 	
@@ -1185,6 +1206,7 @@ func get_classic_choice_button(label: String):
 	var default_color = Color(theme.get_value('text', 'color', '#ffffff'))
 	button.set('custom_colors/font_color', default_color)
 	button.set('custom_colors/font_color_hover', default_color.lightened(0.2))
+	button.set('custom_colors/font_color_focus', default_color.lightened(0.2))
 	button.set('custom_colors/font_color_pressed', default_color.darkened(0.2))
 	button.set('custom_colors/font_color_disabled', default_color.darkened(0.8))
 	
@@ -1192,6 +1214,8 @@ func get_classic_choice_button(label: String):
 		button.set('custom_colors/font_color', style_normal[1])
 	if style_hover[0]:
 		button.set('custom_colors/font_color_hover', style_hover[1])
+	if style_focus[0]:
+		button.set('custom_colors/font_color_focus', style_focus[1])
 	if style_pressed[0]:
 		button.set('custom_colors/font_color_pressed', style_pressed[1])
 	if style_disabled[0]:
@@ -1201,6 +1225,7 @@ func get_classic_choice_button(label: String):
 	# Style normal
 	button_style_setter('normal', style_normal, button, theme)
 	button_style_setter('hover', style_hover, button, theme)
+	button_style_setter('focus', style_focus, button, theme)
 	button_style_setter('pressed', style_pressed, button, theme)
 	button_style_setter('disabled', style_disabled, button, theme)
 	return button

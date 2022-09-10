@@ -20,7 +20,7 @@ var _finished := false
 var _theme
 
 signal text_completed()
-signal letter_written()
+signal letter_written(lastLetter)
 signal signal_request(arg)
 
 ## *****************************************************************************
@@ -35,7 +35,6 @@ func update_name(name: String, color: Color = Color.white, autocolor: bool=false
 		return
 	
 	if not name.empty():
-		name_label.visible = true
 		# Hack to reset the size
 		name_label.rect_min_size = Vector2(0, 0)
 		name_label.rect_size = Vector2(-1, 40)
@@ -45,6 +44,8 @@ func update_name(name: String, color: Color = Color.white, autocolor: bool=false
 		call_deferred('align_name_label')
 		if autocolor:
 			name_label.set('custom_colors/font_color', color)
+		
+		name_label.visible = true
 	else:
 		name_label.visible = false
 
@@ -283,11 +284,11 @@ func _on_writing_timer_timeout():
 		if text_label.visible_characters > text_label.get_total_character_count():
 			_handle_text_completed()
 		elif (
-			text_label.visible_characters > 0 and 
+			text_label.visible_characters > 0 #and 
 			#text_label.text.length() > text_label.visible_characters-1 and 
-			text_label.text[text_label.visible_characters-1] != " "
+			#text_label.text[text_label.visible_characters-1] != " "
 		):
-			emit_signal('letter_written')
+			emit_signal('letter_written', text_label.text[text_label.visible_characters-1] )
 	else:
 		$WritingTimer.stop()
 

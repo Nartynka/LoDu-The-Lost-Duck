@@ -1185,9 +1185,13 @@ __meta__ = {
 position = Vector2( 85, -89 )
 
 [node name="Mushroom" parent="." instance=ExtResource( 17 )]
-position = Vector2( 47, 87 )
+position = Vector2( 46, 219 )
 
-[connection signal="body_exited" from="Stick" to="Stick" method="_on_Item_body_exited"]
+[node name="Mushroom2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 116, 226 )
+
+[node name="Mushroom3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 276, -97 )
 
 [editable path="Camera2D"]
 [editable path="Portals/City"]

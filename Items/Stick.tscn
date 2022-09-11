@@ -5,7 +5,9 @@
 
 [node name="Stick" instance=ExtResource( 1 )]
 
-[node name="ResourcesBasic" type="Sprite" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
+position = Vector2( -2.38419e-07, -2.38419e-07 )
+scale = Vector2( 0.673913, 0.673913 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 48, 1, 24, 23 )

@@ -11,6 +11,7 @@
 [ext_resource path="res://BlinkColorShader.tres" type="Shader" id=9]
 [ext_resource path="res://Player/light.png" type="Texture" id=10]
 
+
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 4.00001

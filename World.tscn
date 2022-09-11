@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Items/Mushroom/Mushroom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Items/Stick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://grass.png" type="Texture" id=20]
 
@@ -1182,6 +1183,9 @@ __meta__ = {
 
 [node name="Stick" parent="." instance=ExtResource( 19 )]
 position = Vector2( 85, -89 )
+
+[node name="Mushroom" parent="." instance=ExtResource( 17 )]
+position = Vector2( 47, 87 )
 
 [connection signal="body_exited" from="Stick" to="Stick" method="_on_Item_body_exited"]
 

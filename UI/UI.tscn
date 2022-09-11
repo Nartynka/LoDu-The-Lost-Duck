@@ -4,7 +4,7 @@
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=3]
 
-[node name="GUI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer"]
 
 [node name="HealthUI" parent="." instance=ExtResource( 2 )]
 margin_left = 4.0

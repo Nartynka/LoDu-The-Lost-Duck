@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Inventory/inventory_bg.png" type="Texture" id=1]
+
+[node name="InventoryContainer" type="NinePatchRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -65.5
+margin_top = 32.0
+margin_right = 65.5
+margin_bottom = 146.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 73, 56 )
+patch_margin_left = 4
+patch_margin_top = 2
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="SlotContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.5
+margin_top = -53.5
+margin_right = 62.5
+margin_bottom = 53.5
+columns = 6

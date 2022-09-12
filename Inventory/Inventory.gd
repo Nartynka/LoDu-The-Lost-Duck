@@ -7,6 +7,5 @@ func _input(event):
 		else:
 			show()
 
-
 func _on_Button_pressed():
 	hide()

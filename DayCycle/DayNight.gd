@@ -9,13 +9,14 @@ export(Color) var color_dawn = Color("494688")
 export(Color) var color_day = Color("fff1d0")
 export(Color) var color_dusk = Color("854646")
 export(Color) var color_night = Color("27264c")
-enum TimeOfDay{AUTO, DAWN, DAY, DUSK, NIGHT}
-export(TimeOfDay) var time_of_day = TimeOfDay.AUTO
+
 
 onready var DayNightCompas = $CanvasLayer/Daynight
 onready var TimeLabel = $CanvasLayer/Time
 onready var DayLabel = $CanvasLayer/Day
 
+enum TimeOfDay {AUTO, DAWN, DAY, DUSK, NIGHT}
+export(TimeOfDay) var time_of_day = TimeOfDay.AUTO
 
 var is_day : bool = true
 
@@ -55,6 +56,8 @@ func _ready():
 	color_gradient.add_point(sunset_start, color_day)
 	color_gradient.add_point(sunset_end, color_dusk)
 	color_gradient.add_point(night_start, color_night)
+
+
 # when time passes, we calculate the brightness and tint of the environment
 # based on the current time of day
 func _on_time_passed():
@@ -103,20 +106,23 @@ func _process(_delta):
 	DayLabel.text = Clock.get_day_string()
 	TimeLabel.text = Clock.get_time_string()
 	if time_of_day != TimeOfDay.AUTO:
-		match TimeOfDay.keys()[time_of_day]:
-			"DAWN":
-				color = color_dawn
-				DayNightCompas.frame = 0
-				is_day = false
-			"DAY":
-				color = color_day
-				DayNightCompas.frame = 2
-				is_day = true
-			"DUSK":
-				color = color_dusk
-				DayNightCompas.frame = 4
-				is_day = false
-			"NIGHT":
-				color = color_night
-				DayNightCompas.frame = 7
-				is_day = false
+		match_timeOfDay()
+
+func match_timeOfDay():
+	match TimeOfDay.keys()[time_of_day]:
+		"DAWN":
+			color = color_dawn
+			DayNightCompas.frame = 0
+			is_day = false
+		"DAY":
+			color = color_day
+			DayNightCompas.frame = 2
+			is_day = true
+		"DUSK":
+			color = color_dusk
+			DayNightCompas.frame = 4
+			is_day = false
+		"NIGHT":
+			color = color_night
+			DayNightCompas.frame = 7
+			is_day = false

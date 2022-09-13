@@ -6,7 +6,6 @@
 
 [node name="DayNight" type="CanvasModulate"]
 script = ExtResource( 1 )
-time_of_day = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -14,7 +13,7 @@ time_of_day = 4
 position = Vector2( 309, 10 )
 texture = ExtResource( 3 )
 hframes = 8
-frame = 7
+frame = 1
 
 [node name="Time" type="Label" parent="CanvasLayer"]
 margin_left = 297.0

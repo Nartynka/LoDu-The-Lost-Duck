@@ -122,6 +122,10 @@ Clock="*res://DayCycle/Clock.tscn"
 Inventory="*res://singletons/Inventory.gd"
 DayCycle="*res://DayCycle/DayNight.tscn"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/size/width=320

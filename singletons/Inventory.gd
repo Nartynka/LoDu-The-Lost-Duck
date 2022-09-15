@@ -41,4 +41,4 @@ func list() -> Dictionary:
 
 func update_gui(type):
 	emit_signal("inventory_change", type, inventory[type])
-	print_debug(type, " ", inventory[type])
+#	print_debug(type, " ", inventory[type])

@@ -1,4 +1,4 @@
-extends Sprite
+extends Panel
 
 var item:Dictionary setget set_item
 

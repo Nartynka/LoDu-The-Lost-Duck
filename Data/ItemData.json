@@ -1,0 +1,7 @@
+{
+  "Gold Coin": {
+    "ItemCategory": "Resource",
+    "StackSize": 99,
+    "Description": "A shining gold coin"
+  }
+}

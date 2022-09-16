@@ -59,7 +59,6 @@ max_health = 2
 
 [node name="Hitbox" parent="." index="5"]
 visible = true
-damage = 0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -17 )

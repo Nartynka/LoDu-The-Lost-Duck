@@ -6,12 +6,6 @@ var item_quantity
 func _ready():
 	var rand_val = randi() % 3
 	item_name = "Gold Coin"
-#	if rand_val == 0:
-#		item_name = "Iron Sword"
-#	elif rand_val == 1:
-#		item_name = "Tree Branch"
-#	else:
-#		item_name = "Slime Potion"
 	
 #	$TextureRect.texture = load("res://item_icons/" + item_name + ".png")
 #	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
@@ -23,10 +17,10 @@ func _ready():
 	else:
 		$Label.text = String(item_quantity)
 
-func set_item(nm, qt):
-	item_name = nm
-	item_quantity = qt
-	$TextureRect.texture = load("res://item_icons/" + item_name + ".png")
+func set_item(name, quantity):
+	item_name = name
+	item_quantity = quantity
+#	$TextureRect.texture = load("res://item_icons/" + item_name + ".png")
 	
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	if stack_size == 1:

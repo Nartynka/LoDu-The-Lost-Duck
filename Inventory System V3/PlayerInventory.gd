@@ -53,7 +53,7 @@ func add_item(item_name, item_quantity):
 
 # TODO: Make compatible with hotbar as well
 func update_slot_visual(slot_index, item_name, new_quantity):
-	var slot = get_tree().root.get_node("/root/World/UserInterface/Inventory/GridContainer/Slot" + str(slot_index + 1))
+	var slot = get_tree().root.get_node("/root/World/UI/Inventory/GridContainer/Slot" + str(slot_index + 1))
 	if slot.item != null:
 		slot.item.set_item(item_name, new_quantity)
 	else:

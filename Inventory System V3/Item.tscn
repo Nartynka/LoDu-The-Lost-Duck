@@ -2,8 +2,7 @@
 
 [ext_resource path="res://Inventory System V3/Item.gd" type="Script" id=1]
 [ext_resource path="res://Items/GoldCoin/coin.png" type="Texture" id=2]
-
-[sub_resource type="DynamicFont" id=1]
+[ext_resource path="res://UI/defaultFont.tres" type="DynamicFont" id=3]
 
 [node name="Item" type="Node2D"]
 z_index = 1
@@ -18,12 +17,9 @@ expand = true
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="."]
-margin_left = 10.375
-margin_top = 8.875
-margin_right = 26.375
-margin_bottom = 22.875
-custom_fonts/font = SubResource( 1 )
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 21.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
 text = "99"
-__meta__ = {
-"_edit_use_anchors_": false
-}

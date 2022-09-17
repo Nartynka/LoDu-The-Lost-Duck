@@ -13,7 +13,4 @@ position = Vector2( 0, 2 )
 
 [node name="AnimatedSprite" parent="." index="3"]
 position = Vector2( 1, -22 )
-frame = 0
-
-[connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
-[connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]
+frame = 3

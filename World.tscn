@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Items/Mushroom/Mushroom.tscn" type="PackedScene" id=17]
+[ext_resource path="res://npc/Sebastian/Sebastian.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Items/Stick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://grass.png" type="Texture" id=20]
 
@@ -1027,42 +1028,46 @@ position = Vector2( 393, 168 )
 [node name="PlayerSpawnpoint" type="Position2D" parent="YSort" groups=["spawnpoints"]]
 position = Vector2( 96, 60 )
 
-[node name="Lataren" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 357, 144 )
+[node name="Latarens" type="YSort" parent="YSort"]
+position = Vector2( 96, 60 )
 
-[node name="Lataren2" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -18, 115 )
+[node name="Lataren" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( 261, 84 )
 
-[node name="Lataren3" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 18, 223 )
+[node name="Lataren2" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -114, 55 )
 
-[node name="Lataren4" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -185, 1277 )
+[node name="Lataren3" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -78, 163 )
 
-[node name="Lataren5" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -64, 1512 )
+[node name="Lataren4" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -281, 1217 )
 
-[node name="Lataren6" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 38, 1615 )
+[node name="Lataren5" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -160, 1452 )
 
-[node name="Lataren7" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -160, 878 )
+[node name="Lataren6" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -58, 1555 )
 
-[node name="Lataren8" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 354, 796 )
+[node name="Lataren7" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -256, 818 )
 
-[node name="Lataren9" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 533, 957 )
+[node name="Lataren8" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( 258, 736 )
 
-[node name="Lataren10" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -752, 494 )
+[node name="Lataren9" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( 437, 897 )
 
-[node name="Lataren11" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -639, 195 )
+[node name="Lataren10" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -848, 434 )
+
+[node name="Lataren11" parent="YSort/Latarens" instance=ExtResource( 2 )]
+position = Vector2( -735, 135 )
 
 [node name="Sensei" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -76, 91 )
 scale = Vector2( 1.5, 1.5 )
+character_name = "Sensei"
 
 [node name="Quest" parent="YSort/Sensei" instance=ExtResource( 8 )]
 required_item = "Rubber Duck"
@@ -1070,6 +1075,16 @@ required_amount = 1
 initial_dialog = "/Lost Duck/Start"
 pending_dialog = "/Lost Duck/Pending"
 delivered_dialog = "/Lost Duck/Complete"
+
+[node name="Sebastian" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 0, 180 )
+
+[node name="Quest" parent="YSort/Sebastian" instance=ExtResource( 8 )]
+quest_name = "Return"
+reward_item = "Rubber Duck"
+initial_dialog = "Return/Start"
+pending_dialog = "Return/Pending"
+delivered_dialog = "Return/Complete"
 
 [node name="Bushes" type="YSort" parent="YSort"]
 

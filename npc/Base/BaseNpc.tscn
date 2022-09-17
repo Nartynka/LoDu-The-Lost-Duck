@@ -57,8 +57,7 @@ position = Vector2( 0, -27 )
 z_index = 2
 frames = SubResource( 8 )
 animation = "dialog"
-frame = 4
 playing = true
 
-[connection signal="area_entered" from="TriggerArea" to="." method="_on_TriggerArea_area_entered"]
-[connection signal="area_exited" from="TriggerArea" to="." method="_on_TriggerArea_area_exited"]
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_TriggerArea_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_TriggerArea_body_exited"]

@@ -1,0 +1,21 @@
+{
+	"color": "#ffecd808",
+	"description": "Duck",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1663447864.json",
+	"mirror_portraits": false,
+	"name": "Sebastian",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 85,
+	"offset_y": -95,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://npc/Sebastian/SEBASTIAN.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

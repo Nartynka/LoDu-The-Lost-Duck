@@ -1,0 +1,103 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543433.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mam chyba coś twojego"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Co ta..SEBASTIAN!!\nGdzieś ty się podziewał"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1663447864.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1663447864.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tam i ówdzie"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "...\nNo okej, ważne że teraz jesteś"
+		},
+		{
+			"character": "character-1645543439.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Quack"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1663447554.json",
+		"name": "Complete"
+	}
+}

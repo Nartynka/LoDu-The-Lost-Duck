@@ -5,7 +5,7 @@
 			"animation_length": 0,
 			"change_mirror_portrait": false,
 			"change_z_index": false,
-			"character": "character-1645543439.json",
+			"character": "character-1663447864.json",
 			"event_id": "dialogic_002",
 			"mirror_portrait": false,
 			"portrait": "Default",
@@ -21,10 +21,10 @@
 			"z_index": 0
 		},
 		{
-			"character": "character-1645543439.json",
+			"character": "character-1663447864.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Odnalazłeś już go?"
+			"text": "Ta już ide"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -33,7 +33,7 @@
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
-		"file": "timeline-1659727905.json",
+		"file": "timeline-1663448055.json",
 		"name": "Pending"
 	}
 }

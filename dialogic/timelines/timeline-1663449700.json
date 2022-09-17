@@ -13,7 +13,7 @@
 			"position": {
 				"0": false,
 				"1": false,
-				"2": true,
+				"2": false,
 				"3": false,
 				"4": false
 			},
@@ -24,7 +24,7 @@
 			"character": "character-1645543439.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Odnalazłeś już go?"
+			"text": "Dzięki jeszcze raz <3"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -33,7 +33,7 @@
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
-		"file": "timeline-1659727905.json",
-		"name": "Pending"
+		"file": "timeline-1663449700.json",
+		"name": "Default"
 	}
 }

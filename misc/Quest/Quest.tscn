@@ -2,5 +2,5 @@
 
 [ext_resource path="res://misc/Quest/Quest.gd" type="Script" id=1]
 
-[node name="Quest" type="Node"]
+[node name="Quest" type="Node" groups=["quest"]]
 script = ExtResource( 1 )

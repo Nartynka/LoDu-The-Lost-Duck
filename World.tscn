@@ -16,9 +16,9 @@
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/GodRays.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Items/Mushroom/Mushroom.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Inventory/Items/Mushroom/Mushroom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://npc/Sebastian/Sebastian.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Items/Stick.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Inventory/Items/Stick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://grass.png" type="Texture" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
@@ -992,16 +992,6 @@ position = Vector2( -22, 2 )
 position = Vector2( 0, 2.5 )
 shape = SubResource( 59 )
 
-[node name="Cave" parent="Portals" instance=ExtResource( 13 )]
-position = Vector2( 460, 240 )
-to_scene = "res://Cave/Cave.tscn"
-
-[node name="Spawnpoint" parent="Portals/Cave" index="0"]
-position = Vector2( -35, 0 )
-
-[node name="CollisionShape" parent="Portals/Cave" index="1"]
-shape = SubResource( 61 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 16 )]
@@ -1012,6 +1002,16 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Bat5" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 224, -48 )
+
+[node name="Cave" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 460, 240 )
+to_scene = "res://Cave/Cave.tscn"
+
+[node name="Spawnpoint" parent="YSort/Cave" index="0"]
+position = Vector2( -35, 0 )
+
+[node name="CollisionShape" parent="YSort/Cave" index="1"]
+shape = SubResource( 61 )
 
 [node name="Bat6" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 189, 223 )
@@ -1816,5 +1816,5 @@ margin_bottom = 1013.0
 [editable path="Portals/School"]
 [editable path="Portals/Wilds"]
 [editable path="Portals/Desert"]
-[editable path="Portals/Cave"]
+[editable path="YSort/Cave"]
 [editable path="Weather"]

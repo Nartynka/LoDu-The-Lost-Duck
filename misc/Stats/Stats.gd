@@ -3,8 +3,8 @@ extends Node
 export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
 
-var spawnpoint
-var previous_scene
+onready var spawnpoint
+onready var previous_scene
 
 signal no_health
 signal player_death

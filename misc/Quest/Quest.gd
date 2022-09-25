@@ -36,15 +36,15 @@ func process():
 			if required_item == "":
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
 				process()
-			elif Inventory.get_item(required_item) >= required_amount:
-				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-				process()
+#			elif Inventory.get_item(required_item) >= required_amount:
+#				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
+#				process()
 			else:
 				DialogManager.start(pending_dialog)
 		Quest.STATUS.COMPLETE:
-			if required_item != "":
-				Inventory.remove_item(required_item, required_amount)
-			Inventory.add_item(reward_item, reward_amount)
+#			if required_item != "":
+#				Inventory.remove_item(required_item, required_amount)
+#			Inventory.add_item(reward_item, reward_amount)
 			get_parent().quest_list.pop_front()
 			DialogManager.start(delivered_dialog)
 		_:

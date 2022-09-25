@@ -3,5 +3,15 @@
     "ItemCategory": "Resource",
     "StackSize": 99,
     "Description": "A shining gold coin"
+  },
+  "Grass": {
+    "ItemCategory": "Resource",
+    "StackSize": 99,
+    "Description": "Fresh and green"
+  },
+  "Zyzshroom": {
+    "ItemCategory": "Resource",
+    "StackSize": 1,
+    "Description": "Better don't eat"
   }
 }

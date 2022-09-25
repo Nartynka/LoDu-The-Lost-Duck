@@ -77,7 +77,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Items/Item.gd"
+"path": "res://Inventory/Items/Item.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -119,10 +119,9 @@ DialogManager="*res://singletons/DialogManager.gd"
 Screen="*res://singletons/Screen.gd"
 SceneChange="*res://singletons/SceneChange.tscn"
 Clock="*res://DayCycle/Clock.tscn"
-Inventory="*res://singletons/Inventory.gd"
 DayCycle="*res://DayCycle/DayNight.tscn"
-JsonData="*res://Inventory System V3/JSONData.gd"
-PlayerInventory="*res://Inventory System V3/PlayerInventory.gd"
+JsonData="*res://Inventory/JSONData.gd"
+PlayerInventory="*res://Inventory/PlayerInventory.gd"
 
 [debug]
 

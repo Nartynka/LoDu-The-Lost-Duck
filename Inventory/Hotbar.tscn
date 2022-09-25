@@ -1,40 +1,67 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Inventory/Hotbar.gd" type="Script" id=1]
-[ext_resource path="res://Inventory/Hotbar/hotbar_bg.png" type="Texture" id=2]
-[ext_resource path="res://Inventory/Hotbar/Slot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Inventory/hotbar_stylebox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Inventory/Hotbar.gd" type="Script" id=2]
+[ext_resource path="res://Inventory/Slot.gd" type="Script" id=3]
 
-[node name="Hotbar" type="CenterContainer"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -44.0
-script = ExtResource( 1 )
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 
-[node name="InventoryBg" type="NinePatchRect" parent="."]
-margin_left = 108.0
-margin_top = 19.0
-margin_right = 212.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 104, 6 )
-texture = ExtResource( 2 )
-patch_margin_left = 3
-patch_margin_top = 2
-patch_margin_right = 21
-patch_margin_bottom = 3
-axis_stretch_horizontal = 1
+[node name="Hotbar" type="Control"]
+script = ExtResource( 2 )
 
-[node name="Slot" parent="InventoryBg" instance=ExtResource( 3 )]
-position = Vector2( 12, 3 )
+[node name="HotbarSlots" type="GridContainer" parent="."]
+margin_left = 93.0
+margin_top = 148.0
+margin_right = 191.0
+margin_bottom = 166.0
+custom_constants/hseparation = 2
+columns = 8
 
-[node name="Slot2" parent="InventoryBg" instance=ExtResource( 3 )]
-position = Vector2( 32, 3 )
+[node name="HotbarSlot1" type="Panel" parent="HotbarSlots"]
+margin_right = 18.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="Slot3" parent="InventoryBg" instance=ExtResource( 3 )]
-position = Vector2( 52, 3 )
+[node name="HotbarSlot2" type="Panel" parent="HotbarSlots"]
+margin_left = 20.0
+margin_right = 38.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="Slot4" parent="InventoryBg" instance=ExtResource( 3 )]
-position = Vector2( 72, 3 )
+[node name="HotbarSlot3" type="Panel" parent="HotbarSlots"]
+margin_left = 40.0
+margin_right = 58.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="Slot5" parent="InventoryBg" instance=ExtResource( 3 )]
-position = Vector2( 92, 4 )
+[node name="HotbarSlot4" type="Panel" parent="HotbarSlots"]
+margin_left = 60.0
+margin_right = 78.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="HotbarSlot5" type="Panel" parent="HotbarSlots"]
+margin_left = 80.0
+margin_right = 98.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ActiveItemLabel" type="Label" parent="."]
+margin_left = 159.762
+margin_top = 217.523
+margin_right = 237.762
+margin_bottom = 231.523
+custom_fonts/font = SubResource( 1 )
+text = "Sample Text"

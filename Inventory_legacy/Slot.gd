@@ -1,10 +1,18 @@
 extends Panel
 
-var ItemClass = preload("res://Inventory/Item.tscn")
+var Coin = preload("res://Inventory/Items/GoldCoin/Coin.tscn")
 var item = null
-var slot_index : int = 0
-
 var default_stylebox = get_stylebox("panel")
+
+func _ready():
+	if randi()% 2 == 0:
+		var item = Coin.instance()
+		item.monitoring = false
+		item.position += Vector2(8,8)
+		item.scale = Vector2(0.7, 0.7)
+		add_child(item)
+
+var ItemClass = preload("res://Inventory/Items/Item.tscn")
 
 enum SlotType {
 	HOTBAR = 0,
@@ -15,23 +23,20 @@ enum SlotType {
 }
 
 var slotType = null
+var slot_index
 
-func _ready():
-	if randi() % 2 == 0:
-		item = ItemClass.instance()
-		add_child(item)
 
 func pickFromSlot():
 	remove_child(item)
-	get_parent().add_child(item)
+	find_parent("UI").add_child(item)
 	item = null
-	
+
 func putIntoSlot(new_item):
 	item = new_item
 	item.position = Vector2(0, 0)
-	get_parent().remove_child(item)
+	find_parent("UI").remove_child(item)
 	add_child(item)
-	
+
 func initialize_item(item_name, item_quantity):
 	if item == null:
 		item = ItemClass.instance()

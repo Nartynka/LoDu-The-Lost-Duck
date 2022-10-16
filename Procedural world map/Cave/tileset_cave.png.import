@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_cave.png-78531548ef3828a08f9360a7d7643aca.stex"
+path="res://.import/tileset_cave.png-74d2758fcd1dfe7726ad32f47177fb7d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cave/tileset_cave.png"
-dest_files=[ "res://.import/tileset_cave.png-78531548ef3828a08f9360a7d7643aca.stex" ]
+source_file="res://Procedural world map/Cave/tileset_cave.png"
+dest_files=[ "res://.import/tileset_cave.png-74d2758fcd1dfe7726ad32f47177fb7d.stex" ]
 
 [params]
 

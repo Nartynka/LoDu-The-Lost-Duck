@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://School/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 43 )
 
 [node name="School" type="Node2D"]
 
@@ -57,6 +60,17 @@ position = Vector2( -1, -28 )
 [node name="CollisionShape" parent="World" index="1"]
 shape = SubResource( 1 )
 
+[node name="Islands" parent="." instance=ExtResource( 6 )]
+position = Vector2( 737, 105 )
+to_scene = "res://Procedural world map/Island/Islands.tscn"
+
+[node name="Spawnpoint" parent="Islands" index="0"]
+position = Vector2( -21, 0 )
+
+[node name="CollisionShape" parent="Islands" index="1"]
+position = Vector2( 0, 7 )
+shape = SubResource( 2 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
@@ -76,3 +90,4 @@ texture = ExtResource( 5 )
 
 [editable path="Camera2D"]
 [editable path="World"]
+[editable path="Islands"]

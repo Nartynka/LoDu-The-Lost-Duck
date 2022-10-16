@@ -7,12 +7,22 @@
 [ext_resource path="res://Procedural world map/Cave/Cave.gd" type="Script" id=5]
 [ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.5, 10 )
 
 [node name="Cave" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="World" parent="." instance=ExtResource( 6 )]
+position = Vector2( -263, -60 )
+to_scene = "res://World.tscn"
+
+[node name="Spawnpoint" parent="World" index="0"]
+position = Vector2( -0.119995, 24.811 )
+
+[node name="CollisionShape" parent="World" index="1"]
+position = Vector2( -0.119995, -0.188965 )
+shape = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -39,21 +49,10 @@ position = Vector2( 3991, 2923 )
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( -1875, -2199 )
 
-[node name="World" parent="." instance=ExtResource( 6 )]
-position = Vector2( -263, -60 )
-to_scene = "res://World.tscn"
-
-[node name="Spawnpoint" parent="World" index="0"]
-position = Vector2( -0.119995, 24.811 )
-
-[node name="CollisionShape" parent="World" index="1"]
-position = Vector2( -0.119995, -0.188965 )
-shape = SubResource( 1 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[editable path="Camera2D"]
 [editable path="World"]
+[editable path="Camera2D"]

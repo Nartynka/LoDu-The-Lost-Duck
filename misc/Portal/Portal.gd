@@ -23,9 +23,3 @@ func _on_Portal_body_entered(body):
 		PlayerStats.spawnpoint = spawnpoint
 		PlayerStats.previous_scene = get_tree().current_scene.name
 		SceneChange.change_scene(to_scene)
-		set_player_pos()
-
-func set_player_pos():
-	if get_tree().current_scene.name != PlayerStats.previous_scene:
-		if PlayerStats.previous_scene != null:
-			$"%Player".set_position(get_tree().current_scene.find_node(PlayerStats.spawnpoint).position)

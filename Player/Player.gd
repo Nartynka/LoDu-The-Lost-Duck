@@ -29,13 +29,13 @@ onready var sprite = $Sprite
 
 func _ready():
 	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
-	for spawnpoint in spawnpoints:
-		# if no previous spawnpoint found, spawn at any spawnpoint
-		if not PlayerStats.spawnpoint:
-			if spawnpoint:
+	# if no previous spawnpoint found, spawn at any spawnpoint
+	if not PlayerStats.spawnpoint:
+		global_position = spawnpoints[0].global_position
+	else:
+		for spawnpoint in spawnpoints:
+			if spawnpoint.name == PlayerStats.spawnpoint:
 				global_position = spawnpoint.global_position
-		elif spawnpoint.name == PlayerStats.spawnpoint:
-			global_position = spawnpoint.global_position
 	randomize()
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true

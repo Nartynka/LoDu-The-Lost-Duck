@@ -26,6 +26,8 @@ func start_quest():
 	if required_quest:
 		if Quest.get_status(required_quest) == Quest.STATUS.NONEXISTENT:
 			print("You need to start '", required_quest, "' quest to start this quest")
+			if get_parent().default_dialog:
+				DialogManager.start(get_parent().default_dialog)
 			return
 	var is_quest_new = Quest.accept_quest(quest_name)
 	if is_quest_new:
@@ -41,7 +43,6 @@ func process():
 		Quest.STATUS.ACTIVE:
 			if PlayerInventory.get_item(required_item) >= required_amount || required_item == "":
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-
 			else:
 				DialogManager.start(pending_dialog)
 		Quest.STATUS.COMPLETE:

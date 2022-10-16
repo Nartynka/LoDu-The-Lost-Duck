@@ -1082,6 +1082,7 @@ delivered_dialog = "/Lost Duck/Complete"
 [node name="Sebastian" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 0, 180 )
 character_name = "Sebastian"
+default_dialog = "Quack"
 
 [node name="Quest" parent="YSort/Sebastian" instance=ExtResource( 8 )]
 quest_name = "Return"

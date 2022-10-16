@@ -15,7 +15,7 @@ var inventory = {
 }
 
 var hotbar = {
-	0: ["Gold Coin", 2],
+#	0: ["Gold Coin", 2],
 }
 
 #var equips = {

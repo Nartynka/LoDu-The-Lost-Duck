@@ -57,7 +57,7 @@
 			"animation_length": 0,
 			"change_mirror_portrait": false,
 			"change_z_index": false,
-			"character": "character-1663447864.json",
+			"character": "character-1645543433.json",
 			"event_id": "dialogic_002",
 			"mirror_portrait": false,
 			"portrait": "Default",
@@ -69,13 +69,33 @@
 				"3": false,
 				"4": false
 			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1663447864.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Right side",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
 			"type": 0,
 			"z_index": 0
 		},
 		{
 			"character": "character-1663447864.json",
 			"event_id": "dialogic_001",
-			"portrait": "",
+			"portrait": "(Don't change)",
 			"text": "Tam i ówdzie"
 		},
 		{
@@ -85,7 +105,7 @@
 			"text": "...\nNo okej, ważne że teraz jesteś"
 		},
 		{
-			"character": "character-1645543439.json",
+			"character": "character-1663447864.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Quack"

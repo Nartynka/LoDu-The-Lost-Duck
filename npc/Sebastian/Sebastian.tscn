@@ -25,4 +25,4 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="3"]
-frame = 2
+frame = 4

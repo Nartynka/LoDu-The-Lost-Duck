@@ -9,6 +9,8 @@ Remove said amount from the players inventory and give some amount of another it
 
 export(String) var quest_name = "Test Quest"
 
+export(String) var required_quest = ""
+
 export(String) var required_item = ""
 export(int) var required_amount = 0
 export(String) var reward_item = "Generic Reward"
@@ -21,21 +23,27 @@ export(String) var delivered_dialog = "Test Quest Complete"
 var quest_status = Quest.STATUS.NONEXISTENT
 
 func start_quest():
+	if required_quest:
+		if Quest.get_status(required_quest) == Quest.STATUS.NONEXISTENT:
+			print("You need to start '", required_quest, "' quest to start this quest")
+			return
 	var is_quest_new = Quest.accept_quest(quest_name)
 	if is_quest_new:
 		DialogManager.start(initial_dialog)
-	else:
-		process()
-	
+	process()
+
 func process():
 	quest_status = Quest.get_status(quest_name)
 	match quest_status:
 		Quest.STATUS.NONEXISTENT:
 			start_quest()
-		Quest.STATUS.STARTED:
+		Quest.STATUS.ACTIVE:
 			if required_item == "":
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
 				process()
+#			else:
+#				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
+#				process()
 #			elif Inventory.get_item(required_item) >= required_amount:
 #				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
 #				process()

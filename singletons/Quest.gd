@@ -5,7 +5,7 @@ Minimal quest system implementation.
 A dictionary where each string key represents a quest and an int value represanting a status
 """
 
-enum STATUS { NONEXISTENT, STARTED, COMPLETE }
+enum STATUS { NONEXISTENT, BLOCKED, ACTIVE, COMPLETE }
 
 # List of all started or completed quests
 var quest_list = {}
@@ -30,9 +30,9 @@ func accept_quest(quest_name:String) -> bool:
 	if quest_list.has(quest_name):
 		return false
 	else:
-		quest_list[quest_name] = STATUS.STARTED
+		quest_list[quest_name] = STATUS.ACTIVE
 #		update_gui(quest_name)
-		#print(quest_name + " accepted")
+#		prints(quest_name, "accepted")
 		return true
 
 #func update_gui(quest_name):
@@ -41,7 +41,7 @@ func accept_quest(quest_name:String) -> bool:
 #func get_status_text(quest_name) -> String:
 #	var quest_status = get_status(quest_name)
 #	match quest_status:
-#		Quest.STATUS.STARTED:
+#		Quest.STATUS.ACTIVE:
 #			return "in progress"
 #		Quest.STATUS.COMPLETE:
 #			return "complete"

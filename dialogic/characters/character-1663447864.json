@@ -4,18 +4,22 @@
 	"display_name": "",
 	"display_name_bool": false,
 	"id": "character-1663447864.json",
-	"mirror_portraits": false,
+	"mirror_portraits": true,
 	"name": "Sebastian",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 85,
-	"offset_y": -95,
+	"offset_x": 150,
+	"offset_y": -85,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://npc/Sebastian/SEBASTIAN.png"
+			"path": "res://npc/Sebastian/SebastianPortrait.tscn"
+		},
+		{
+			"name": "Right side",
+			"path": "res://npc/Sebastian/SebastianPortraitRightSide.tscn"
 		}
 	],
-	"scale": 100,
+	"scale": 250,
 	"theme": ""
 }

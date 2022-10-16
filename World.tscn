@@ -1068,8 +1068,10 @@ position = Vector2( -735, 135 )
 position = Vector2( -76, 91 )
 scale = Vector2( 1.5, 1.5 )
 character_name = "Sensei"
+default_dialog = "Default"
 
 [node name="Quest" parent="YSort/Sensei" instance=ExtResource( 8 )]
+quest_name = "Lost Duck"
 required_item = "Rubber Duck"
 required_amount = 1
 initial_dialog = "/Lost Duck/Start"
@@ -1078,9 +1080,11 @@ delivered_dialog = "/Lost Duck/Complete"
 
 [node name="Sebastian" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 0, 180 )
+character_name = "Sebastian"
 
 [node name="Quest" parent="YSort/Sebastian" instance=ExtResource( 8 )]
 quest_name = "Return"
+required_quest = "Lost Duck"
 reward_item = "Rubber Duck"
 initial_dialog = "Return/Start"
 pending_dialog = "Return/Pending"
@@ -1675,14 +1679,11 @@ __meta__ = {
 [node name="Stick" parent="." instance=ExtResource( 19 )]
 position = Vector2( 85, -89 )
 
-[node name="Mushroom" parent="." instance=ExtResource( 17 )]
-position = Vector2( 46, 219 )
-
 [node name="Mushroom2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 116, 226 )
+position = Vector2( -65, 795 )
 
 [node name="Mushroom3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 276, -97 )
+position = Vector2( -337, 277 )
 
 [node name="TreesAroundPath" type="YSort" parent="."]
 position = Vector2( -564, 859 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://Inventory_legacy/Hotbar/hotbar_bg.png" type="Texture" id=2]
 [ext_resource path="res://Inventory_legacy/Hotbar/Slot.tscn" type="PackedScene" id=3]
 
-[node name="Hotbar" type="CenterContainer"]
+[node name="Hotbar" type="Control"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,10 +12,10 @@ margin_top = -44.0
 script = ExtResource( 1 )
 
 [node name="InventoryBg" type="NinePatchRect" parent="."]
-margin_left = 108.0
-margin_top = 19.0
-margin_right = 212.0
-margin_bottom = 25.0
+margin_left = 113.0
+margin_top = 12.0
+margin_right = 217.0
+margin_bottom = 18.0
 rect_min_size = Vector2( 104, 6 )
 texture = ExtResource( 2 )
 patch_margin_left = 3

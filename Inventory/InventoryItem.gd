@@ -6,7 +6,6 @@ var item_quantity
 func _ready():
 	var rand_val = randi() % 3
 	item_name = "Gold Coin"
-	
 #	$TextureRect.texture = load("res://item_icons/" + item_name + ".png")
 #	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	var stack_size = 64
@@ -21,7 +20,7 @@ func set_item(name, quantity):
 	item_name = name
 	item_quantity = quantity
 #	$TextureRect.texture = load("res://item_icons/" + item_name + ".png")
-	
+	JsonData.item_data = JsonData.loadData()
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	if stack_size == 1:
 		$Label.visible = false

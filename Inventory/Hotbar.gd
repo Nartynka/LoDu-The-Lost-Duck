@@ -1,26 +1,37 @@
 extends Control
 
 const SlotClass = preload("res://Inventory/Slot.gd")
-onready var hotbar_slots = $HotbarSlots
-onready var active_item_label = $ActiveItemLabel
-onready var slots = hotbar_slots.get_children()
+
+onready var activeItemLabel = $Control/ActiveItemLabel
+onready var slots = $InventoryBg/HotbarSlots.get_children()
+onready var labelAnimation = $Control/LabelAnimation
+
+onready var default_stylebox = slots[0].get_stylebox("panel")
 
 func _ready():
-	for i in range(slots.size()):
-		slots[i].connect("gui_input", self, "slot_gui_input", [slots[i]])
-		slots[i].slot_index = i
-	PlayerInventory.connect("active_item_updated", self, "update_active_item_label")
-	for i in range(slots.size()):
-		PlayerInventory.connect("active_item_updated", slots[i], "refresh_style")
-		slots[i].slotType = SlotClass.SlotType.HOTBAR
+	for slot in slots:
+		slot.connect("gui_input", self, "slot_gui_input", [slot])
+		slot.slotType = SlotClass.SlotType.HOTBAR
+
+	PlayerInventory.connect("active_item_updated", self, "update_style")
 	initialize_hotbar()
+	update_active_item_label()
+
+func update_style(previous_index):
+	var previous_slot = slots[previous_index]
+	previous_slot.add_stylebox_override("panel", default_stylebox)
+	
+	var slot = slots[PlayerInventory.active_item_slot]
+	var stylebox = slot.get_stylebox("panel").duplicate()
+	stylebox.region_rect.position.x = 18
+	slot.add_stylebox_override("panel", stylebox)
+	
 	update_active_item_label()
 
 func update_active_item_label():
 	if slots[PlayerInventory.active_item_slot].item != null:
-		active_item_label.text = slots[PlayerInventory.active_item_slot].item.item_name
-	else:
-		active_item_label.text = ""
+		activeItemLabel.text = slots[PlayerInventory.active_item_slot].item.item_name
+		labelAnimation.play("show")
 
 func initialize_hotbar():
 	for i in range(slots.size()):
@@ -30,6 +41,11 @@ func initialize_hotbar():
 func _input(event):
 	if get_parent().holding_item:
 		get_parent().holding_item.global_position = get_global_mouse_position()
+
+	if event.is_action_pressed("scroll_up"):
+		PlayerInventory.active_item_scroll_down()
+	elif event.is_action_pressed("scroll_down"):
+		PlayerInventory.active_item_scroll_up()
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -52,7 +68,7 @@ func left_click_empty_slot(slot: SlotClass):
 	get_parent().holding_item = null
 	
 func left_click_different_item(event: InputEvent, slot: SlotClass):
-	PlayerInventory.remove_item(slot)
+	PlayerInventory.remove_item_from_slot(slot)
 	PlayerInventory.add_item_to_empty_slot(get_parent().holding_item, slot)
 	var temp_item = slot.item
 	slot.pickFromSlot()
@@ -74,8 +90,8 @@ func left_click_same_item(slot: SlotClass):
 		get_parent().holding_item.decrease_item_quantity(able_to_add)
 		
 func left_click_not_holding(slot: SlotClass):
-	PlayerInventory.remove_item(slot)
+	PlayerInventory.remove_item_from_slot(slot)
 	get_parent().holding_item = slot.item
 	slot.pickFromSlot()
+#	print(get_parent())
 	get_parent().holding_item.global_position = get_global_mouse_position()
-

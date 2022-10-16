@@ -1,11 +1,11 @@
 extends Node
 
-var item_data: Dictionary
+export var item_data: Dictionary
 
 func _ready():
-	item_data = LoadData("res://Data/ItemData.json")
+	item_data = loadData("res://Data/ItemData.json")
 
-func LoadData(file_path):
+func loadData(file_path="res://Data/ItemData.json"):
 	var json_data
 	var file_data = File.new()
 	

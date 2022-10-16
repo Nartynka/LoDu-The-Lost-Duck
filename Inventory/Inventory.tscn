@@ -9,10 +9,7 @@
 [ext_resource path="res://Inventory/ShirtOverlay.png" type="Texture" id=7]
 [ext_resource path="res://Inventory/ShoesOverlay.png" type="Texture" id=8]
 [ext_resource path="res://Inventory/PantsOverlay.png" type="Texture" id=9]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 16, 16 )
+[ext_resource path="res://Inventory/Slot.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 5 )
@@ -23,26 +20,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
+[node name="InventoryHeader" type="TextureRect" parent="."]
+anchor_right = 1.0
+margin_top = 35.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 50, 11 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -77.0
-margin_top = -46.0
-margin_right = 77.0
-margin_bottom = 66.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_left = -57.5
+margin_top = -45.0
+margin_right = 57.5
+margin_bottom = 45.0
+rect_min_size = Vector2( 115, 90 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 73, 56 )
+patch_margin_left = 4
+patch_margin_top = 2
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="CloseButton" type="Button" parent="NinePatchRect"]
-margin_left = 132.0
-margin_top = -18.0
-margin_right = 152.0
-margin_bottom = 2.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 104.0
+margin_top = -9.0
+margin_right = 124.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 20, 20 )
 icon = ExtResource( 3 )
 flat = true
 
@@ -51,197 +62,122 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -38.0
-margin_top = -32.0
-margin_right = 68.0
-margin_bottom = 52.0
+margin_left = -48.0
+margin_top = -38.0
+margin_right = 48.0
+margin_bottom = 38.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 5
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Slot1" type="Panel" parent="GridContainer"]
-margin_right = 18.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot1" parent="GridContainer" instance=ExtResource( 10 )]
 
-[node name="Slot2" type="Panel" parent="GridContainer"]
-margin_left = 22.0
-margin_right = 40.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot2" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 20.0
+margin_right = 36.0
 
-[node name="Slot3" type="Panel" parent="GridContainer"]
-margin_left = 44.0
-margin_right = 62.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot3" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 40.0
+margin_right = 56.0
 
-[node name="Slot4" type="Panel" parent="GridContainer"]
-margin_left = 66.0
-margin_right = 84.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot4" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 60.0
+margin_right = 76.0
 
-[node name="Slot5" type="Panel" parent="GridContainer"]
-margin_left = 88.0
-margin_right = 106.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot5" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 80.0
+margin_right = 96.0
 
-[node name="Slot6" type="Panel" parent="GridContainer"]
-margin_top = 22.0
-margin_right = 18.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot6" parent="GridContainer" instance=ExtResource( 10 )]
+margin_top = 20.0
+margin_bottom = 36.0
 
-[node name="Slot7" type="Panel" parent="GridContainer"]
-margin_left = 22.0
-margin_top = 22.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot7" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 36.0
+margin_bottom = 36.0
 
-[node name="Slot8" type="Panel" parent="GridContainer"]
-margin_left = 44.0
-margin_top = 22.0
-margin_right = 62.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot8" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 56.0
+margin_bottom = 36.0
 
-[node name="Slot9" type="Panel" parent="GridContainer"]
-margin_left = 66.0
-margin_top = 22.0
-margin_right = 84.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot9" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 60.0
+margin_top = 20.0
+margin_right = 76.0
+margin_bottom = 36.0
 
-[node name="Slot10" type="Panel" parent="GridContainer"]
-margin_left = 88.0
-margin_top = 22.0
-margin_right = 106.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot10" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 80.0
+margin_top = 20.0
+margin_right = 96.0
+margin_bottom = 36.0
 
-[node name="Slot11" type="Panel" parent="GridContainer"]
-margin_top = 44.0
-margin_right = 18.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot11" parent="GridContainer" instance=ExtResource( 10 )]
+margin_top = 40.0
+margin_bottom = 56.0
 
-[node name="Slot12" type="Panel" parent="GridContainer"]
-margin_left = 22.0
-margin_top = 44.0
-margin_right = 40.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot12" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 56.0
 
-[node name="Slot13" type="Panel" parent="GridContainer"]
-margin_left = 44.0
-margin_top = 44.0
-margin_right = 62.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot13" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 56.0
+margin_bottom = 56.0
 
-[node name="Slot14" type="Panel" parent="GridContainer"]
-margin_left = 66.0
-margin_top = 44.0
-margin_right = 84.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot14" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 76.0
+margin_bottom = 56.0
 
-[node name="Slot15" type="Panel" parent="GridContainer"]
-margin_left = 88.0
-margin_top = 44.0
-margin_right = 106.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot15" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 96.0
+margin_bottom = 56.0
 
-[node name="Slot16" type="Panel" parent="GridContainer"]
-margin_top = 66.0
-margin_right = 18.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot16" parent="GridContainer" instance=ExtResource( 10 )]
+margin_top = 60.0
+margin_bottom = 76.0
 
-[node name="Slot17" type="Panel" parent="GridContainer"]
-margin_left = 22.0
-margin_top = 66.0
-margin_right = 40.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot17" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 36.0
+margin_bottom = 76.0
 
-[node name="Slot18" type="Panel" parent="GridContainer"]
-margin_left = 44.0
-margin_top = 66.0
-margin_right = 62.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot18" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 40.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 76.0
 
-[node name="Slot19" type="Panel" parent="GridContainer"]
-margin_left = 66.0
-margin_top = 66.0
-margin_right = 84.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot19" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 76.0
+margin_bottom = 76.0
 
-[node name="Slot20" type="Panel" parent="GridContainer"]
-margin_left = 88.0
-margin_top = 66.0
-margin_right = 106.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 18, 18 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="Slot20" parent="GridContainer" instance=ExtResource( 10 )]
+margin_left = 80.0
+margin_top = 60.0
+margin_right = 96.0
+margin_bottom = 76.0
 
 [node name="EquipSlots" type="GridContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -65.0
-margin_top = -21.0
-margin_right = -47.0
-margin_bottom = 41.0
+visible = false
+margin_left = 151.0
+margin_top = 59.0
+margin_right = 169.0
+margin_bottom = 121.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -295,15 +231,5 @@ texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="InventoryHeader" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -52.5
-margin_top = 7.0
-margin_right = 52.5
-margin_bottom = 30.0
-texture = ExtResource( 4 )
-expand = true
 
 [connection signal="pressed" from="NinePatchRect/CloseButton" to="." method="_on_CloseButton_pressed"]

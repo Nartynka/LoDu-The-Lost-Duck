@@ -43,7 +43,7 @@ animations = [ {
 [node name="AnimatedSprite" parent="." index="0"]
 material = SubResource( 1 )
 frames = SubResource( 7 )
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = true

@@ -13,5 +13,20 @@
     "ItemCategory": "Resource",
     "StackSize": 1,
     "Description": "Better don't eat"
-  }
+  },
+  "Bat Meat": {
+    "ItemCategory": "Resource",
+    "StackSize": 99,
+    "Description": "Yummy"
+  },
+  "Bat Fang": {
+    "ItemCategory": "Resource",
+    "StackSize": 99,
+    "Description": "Nice necklace"
+  },
+  "Rubber Duck": {
+    "ItemCategory": "Quest",
+    "StackSize": 1,
+    "Description": "Required to quest"
+  },
 }

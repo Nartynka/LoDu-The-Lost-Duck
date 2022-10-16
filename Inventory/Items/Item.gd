@@ -1,5 +1,5 @@
 extends Area2D
-class_name Item
+class_name ItemClass
 
 export(String) var item_name = "Gold_Coin"
 

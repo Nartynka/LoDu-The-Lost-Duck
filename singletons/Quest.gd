@@ -5,7 +5,7 @@ Minimal quest system implementation.
 A dictionary where each string key represents a quest and an int value represanting a status
 """
 
-enum STATUS { NONEXISTENT, BLOCKED, ACTIVE, COMPLETE }
+enum STATUS { NONEXISTENT, ACTIVE, COMPLETE }
 
 # List of all started or completed quests
 var quest_list = {}

@@ -34,26 +34,22 @@ func start_quest():
 
 func process():
 	quest_status = Quest.get_status(quest_name)
+	print(Quest.STATUS.keys()[quest_status])
 	match quest_status:
 		Quest.STATUS.NONEXISTENT:
 			start_quest()
 		Quest.STATUS.ACTIVE:
-			if required_item == "":
+			if PlayerInventory.get_item(required_item) >= required_amount || required_item == "":
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-				process()
-#			else:
-#				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-#				process()
-#			elif Inventory.get_item(required_item) >= required_amount:
-#				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-#				process()
+
 			else:
 				DialogManager.start(pending_dialog)
 		Quest.STATUS.COMPLETE:
-#			if required_item != "":
-#				Inventory.remove_item(required_item, required_amount)
-#			Inventory.add_item(reward_item, reward_amount)
-			get_parent().quest_list.pop_front()
+			if required_item != "":
+				PlayerInventory.remove_item(required_item, required_amount)
+			PlayerInventory.add_item(reward_item, reward_amount)
+			print("complete dialog")
 			DialogManager.start(delivered_dialog)
+			get_parent().quest_list.pop_front()
 		_:
 			return

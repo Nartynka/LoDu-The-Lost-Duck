@@ -1074,6 +1074,7 @@ default_dialog = "Default"
 quest_name = "Lost Duck"
 required_item = "Rubber Duck"
 required_amount = 1
+reward_item = "Gold Coin"
 initial_dialog = "/Lost Duck/Start"
 pending_dialog = "/Lost Duck/Pending"
 delivered_dialog = "/Lost Duck/Complete"

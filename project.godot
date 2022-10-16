@@ -75,7 +75,7 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
 }, {
 "base": "Area2D",
-"class": "Item",
+"class": "ItemClass",
 "language": "GDScript",
 "path": "res://Inventory/Items/Item.gd"
 }, {
@@ -83,6 +83,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Panel",
+"class": "SlotClass",
+"language": "GDScript",
+"path": "res://Inventory/Slot.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -98,8 +103,9 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "Enemy": "",
 "HistoryRow": "",
-"Item": "",
-"Player": ""
+"ItemClass": "",
+"Player": "",
+"SlotClass": ""
 }
 
 [application]
@@ -111,7 +117,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Quest="*res://singletons/Quest.gd"
-Gui="res://UI/UI.tscn"
+UI="res://UI/UI.tscn"
 PlayerStats="*res://Player/PlayerStats.tscn"
 Death="res://UI/Death.tscn"
 Pause="res://UI/Pause.tscn"

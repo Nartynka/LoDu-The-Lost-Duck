@@ -1,0 +1,298 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/json_editor/icons/add.png" type="Texture" id=1]
+[ext_resource path="res://addons/json_editor/icons/delete.png" type="Texture" id=2]
+[ext_resource path="res://addons/json_editor/icons/rename.png" type="Texture" id=3]
+
+[node name="Json_reader" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 200 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_split" type="VSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+dragger_visibility = 1
+
+[node name="container_titolo" type="Control" parent="v_split"]
+margin_right = 1024.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 0, 26 )
+
+[node name="label_titolo" type="Label" parent="v_split/container_titolo"]
+margin_right = 42.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 13 )
+text = "Files in Folder:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_info" type="Label" parent="v_split/container_titolo"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -287.0
+margin_right = -56.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 0, 13 )
+text = "..."
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_button" type="Button" parent="v_split/container_titolo"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -42.0
+margin_bottom = 26.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="file_folder" type="LineEdit" parent="v_split/container_titolo"]
+margin_left = 105.0
+margin_right = 498.0
+margin_bottom = 26.0
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="update_button" type="Button" parent="v_split/container_titolo"]
+margin_left = 508.0
+margin_right = 566.0
+margin_bottom = 26.0
+text = "Update"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Container" parent="v_split"]
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="h_split" type="HSplitContainer" parent="v_split/container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="sections_area" type="Container" parent="v_split/container/h_split"]
+margin_right = 200.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="panel" type="Panel" parent="v_split/container/h_split/sections_area"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_list" type="ItemList" parent="v_split/container/h_split/sections_area/panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tools" type="Container" parent="v_split/container/h_split/sections_area"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="add_button" type="Button" parent="v_split/container/h_split/sections_area/tools"]
+margin_left = 170.0
+margin_right = 200.0
+margin_bottom = 30.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 1 )
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rename_button" type="Button" parent="v_split/container/h_split/sections_area/tools"]
+margin_left = 140.0
+margin_right = 170.0
+margin_bottom = 30.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+align = 2
+
+[node name="delete_button" type="Button" parent="v_split/container/h_split/sections_area/tools"]
+margin_right = 30.0
+margin_bottom = 30.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 2 )
+flat = true
+align = 0
+
+[node name="text_area" type="Container" parent="v_split/container/h_split"]
+margin_left = 212.0
+margin_right = 1024.0
+margin_bottom = 562.0
+
+[node name="text_edit" type="TextEdit" parent="v_split/container/h_split/text_area"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+mouse_default_cursor_shape = 0
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+highlight_all_occurrences = true
+wrap_enabled = true
+minimap_draw = true
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="new_file_dialog" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -54.0
+margin_right = 117.0
+margin_bottom = 60.0
+popup_exclusive = true
+window_title = "Create New File"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="margin" type="MarginContainer" parent="new_file_dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vsplit_1" type="VSplitContainer" parent="new_file_dialog/margin"]
+margin_right = 220.0
+margin_bottom = 94.0
+dragger_visibility = 1
+
+[node name="label" type="Label" parent="new_file_dialog/margin/vsplit_1"]
+margin_right = 220.0
+margin_bottom = 14.0
+text = "File Name:"
+
+[node name="container" type="Control" parent="new_file_dialog/margin/vsplit_1"]
+margin_top = 26.0
+margin_right = 220.0
+margin_bottom = 94.0
+
+[node name="vsplit_2" type="VSplitContainer" parent="new_file_dialog/margin/vsplit_1/container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
+dragger_visibility = 1
+
+[node name="file_name" type="LineEdit" parent="new_file_dialog/margin/vsplit_1/container/vsplit_2"]
+margin_right = 220.0
+margin_bottom = 24.0
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="hsplit_1" type="HSplitContainer" parent="new_file_dialog/margin/vsplit_1/container/vsplit_2"]
+margin_top = 36.0
+margin_right = 220.0
+margin_bottom = 66.0
+split_offset = 50
+dragger_visibility = 1
+
+[node name="nf_cancel_button" type="Button" parent="new_file_dialog/margin/vsplit_1/container/vsplit_2/hsplit_1"]
+margin_right = 104.0
+margin_bottom = 30.0
+text = "Cancel"
+
+[node name="nf_ok_button" type="Button" parent="new_file_dialog/margin/vsplit_1/container/vsplit_2/hsplit_1"]
+margin_left = 116.0
+margin_right = 220.0
+margin_bottom = 30.0
+text = "Ok"
+
+[node name="del_file_dialog" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -54.0
+margin_right = 117.0
+margin_bottom = 21.0
+popup_exclusive = true
+window_title = "Please Confirm..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="margin" type="MarginContainer" parent="del_file_dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vsplit_1" type="VSplitContainer" parent="del_file_dialog/margin"]
+margin_right = 220.0
+margin_bottom = 55.0
+dragger_visibility = 1
+
+[node name="label" type="Label" parent="del_file_dialog/margin/vsplit_1"]
+margin_right = 220.0
+margin_bottom = 14.0
+text = "Delete File?"
+
+[node name="container" type="Control" parent="del_file_dialog/margin/vsplit_1"]
+margin_top = 26.0
+margin_right = 220.0
+margin_bottom = 55.0
+
+[node name="hsplit_1" type="HSplitContainer" parent="del_file_dialog/margin/vsplit_1/container"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+split_offset = 50
+dragger_visibility = 1
+
+[node name="del_cancel" type="Button" parent="del_file_dialog/margin/vsplit_1/container/hsplit_1"]
+margin_right = 104.0
+margin_bottom = 20.0
+text = "Cancel"
+
+[node name="del_ok" type="Button" parent="del_file_dialog/margin/vsplit_1/container/hsplit_1"]
+margin_left = 116.0
+margin_right = 220.0
+margin_bottom = 20.0
+text = "Ok"
+
+[node name="saving_timer" type="Timer" parent="."]
+
+[node name="typing_timer" type="Timer" parent="."]

@@ -41,7 +41,7 @@ func process():
 		Quest.STATUS.NONEXISTENT:
 			start_quest()
 		Quest.STATUS.ACTIVE:
-			if PlayerInventory.get_item(required_item) >= required_amount || required_item == "":
+			if PlayerInventory.get_item_count(required_item) >= required_amount || required_item == "":
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
 			else:
 				DialogManager.start(pending_dialog)

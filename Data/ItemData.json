@@ -29,4 +29,10 @@
     "StackSize": 1,
     "Description": "Required to quest"
   },
+  "Stick": {
+    "ItemCategory": "Resource",
+    "StackSize": 64,
+    "Description": "Just a wooden stick"
+  },
 }
+

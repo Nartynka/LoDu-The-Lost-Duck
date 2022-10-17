@@ -74,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
 }, {
-"base": "Area2D",
-"class": "ItemClass",
-"language": "GDScript",
-"path": "res://Inventory/Items/Item.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -103,7 +98,6 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "Enemy": "",
 "HistoryRow": "",
-"ItemClass": "",
 "Player": "",
 "SlotClass": ""
 }
@@ -145,7 +139,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/json_editor/plugin.cfg" )
 
 [gdnative]
 

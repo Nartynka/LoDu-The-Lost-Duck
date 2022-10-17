@@ -4,12 +4,12 @@ class_name SlotClass
 export(int) var move_x = 16
 var ItemClass = preload("res://Inventory/InventoryItem.tscn")
 var item = null
-#var slot_index : int = 0
+var slotIndex : int = 0
 
 var default_stylebox = get_stylebox("panel")
 
-enum SlotType {
-	HOTBAR = 0,
+enum SlotTypes {
+	HOTBAR,
 	INVENTORY,
 #	SHIRT,
 #	PANTS,

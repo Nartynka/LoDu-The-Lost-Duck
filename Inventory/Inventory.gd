@@ -7,8 +7,8 @@ onready var slots = $GridContainer.get_children()
 func _ready():
 	for slot in slots:
 		slot.connect("gui_input", self, "slot_gui_input", [slot])
-		slot.slotType = SlotClass.SlotType.INVENTORY
-		#slot.slot_index = i
+		slot.slotType = SlotClass.SlotTypes.INVENTORY
+		slot.slotIndex = slots.find(slot)
 	initialize_inventory()
 #	for i in range(equip_slots.size()):
 #		equip_slots[i].connect("gui_input", self, "slot_gui_input", [equip_slots[i]])
@@ -19,10 +19,10 @@ func _ready():
 #	initialize_equips()
 
 func initialize_inventory():
-	print("initializing inv")
-	for i in range(slots.size()):
+	for slot in slots:
+		var i = slot.slotIndex
 		if PlayerInventory.inventory.has(i):
-			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
+			slot.initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
 
 #func initialize_equips():
 #	for i in range(equip_slots.size()):
@@ -74,6 +74,7 @@ func left_click_empty_slot(slot: SlotClass):
 func left_click_different_item(event: InputEvent, slot: SlotClass):
 	if able_to_put_into_slot(slot):
 		PlayerInventory.remove_item_from_slot(slot)
+		print("aaa")
 		PlayerInventory.add_item_to_empty_slot(get_parent().holding_item, slot)
 		var temp_item = slot.item
 		slot.pickFromSlot()

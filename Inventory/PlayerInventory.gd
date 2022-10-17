@@ -44,7 +44,6 @@ func add_item(item_name, item_quantity):
 	for i in range(INVENTORY_SLOTS):
 		if inventory.has(i) == false:
 			inventory[i] = [item_name, item_quantity]
-			prints(i, inventory[i])
 			update_slot_visual(i, inventory[i][0], inventory[i][1])
 			return
 

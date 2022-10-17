@@ -53,7 +53,6 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 			if get_parent().holding_item != null:
 				if !slot.item:
 					left_click_empty_slot(slot)
-					print(slot.slotType)
 				else:
 					if get_parent().holding_item.item_name != slot.item.item_name:
 						left_click_different_item(event, slot)
@@ -94,5 +93,4 @@ func left_click_not_holding(slot: SlotClass):
 	PlayerInventory.remove_item_from_slot(slot)
 	get_parent().holding_item = slot.item
 	slot.pickFromSlot()
-#	print(get_parent())
 	get_parent().holding_item.global_position = get_global_mouse_position()

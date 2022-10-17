@@ -30,7 +30,10 @@ func pickFromSlot():
 	
 func putIntoSlot(new_item):
 	item = new_item
-	item.position = Vector2(0, 0)
+	if slotType == SlotTypes.INVENTORY:
+		item.position = Vector2(0, 0)
+	else:
+		item.position = Vector2(1, 1)
 	get_owner().get_parent().remove_child(item)
 	add_child(item)
 	

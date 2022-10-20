@@ -173,18 +173,25 @@ margin_right = 96.0
 margin_bottom = 76.0
 
 [node name="EquipSlots" type="GridContainer" parent="."]
-visible = false
-margin_left = 151.0
-margin_top = 59.0
-margin_right = 169.0
-margin_bottom = 121.0
+margin_left = 78.0
+margin_top = 56.0
+margin_right = 96.0
+margin_bottom = 118.0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="ShirtSlot" type="Panel" parent="EquipSlots"]
+[node name="HelmetSlot" type="Panel" parent="EquipSlots"]
 margin_right = 18.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="ShirtSlot" type="Panel" parent="EquipSlots"]
+margin_top = 22.0
+margin_right = 18.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 18, 18 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
@@ -197,9 +204,9 @@ margin_bottom = 17.0
 texture = ExtResource( 7 )
 
 [node name="PantsSlot" type="Panel" parent="EquipSlots"]
-margin_top = 22.0
+margin_top = 44.0
 margin_right = 18.0
-margin_bottom = 40.0
+margin_bottom = 62.0
 rect_min_size = Vector2( 18, 18 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
@@ -215,9 +222,9 @@ __meta__ = {
 }
 
 [node name="ShoesSlot" type="Panel" parent="EquipSlots"]
-margin_top = 44.0
+margin_top = 66.0
 margin_right = 18.0
-margin_bottom = 62.0
+margin_bottom = 84.0
 rect_min_size = Vector2( 18, 18 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )

@@ -17,8 +17,8 @@ var inventory = {
 var hotbar = {
 }
 
-#var equips = {
-#}
+var equips = {
+}
 
 #func _physics_process(delta):
 #	prints(inventory, hotbar)
@@ -74,8 +74,8 @@ func remove_item_from_slot(slot: SlotClass):
 			hotbar.erase(slot.slotIndex)
 		SlotClass.SlotTypes.INVENTORY:
 			inventory.erase(slot.slotIndex)
-#		_:
-#			equips.erase(slot.slot_index)
+		_:
+			equips.erase(slot.slotIndex)
 
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
 	match slot.slotType:
@@ -83,8 +83,8 @@ func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
 			hotbar[slot.slotIndex] = [item.item_name, item.item_quantity]
 		SlotClass.SlotTypes.INVENTORY:
 			inventory[slot.slotIndex] = [item.item_name, item.item_quantity]
-#		_:
-#			equips[slot.slot_index] = [item.item_name, item.item_quantity]
+		_:
+			equips[slot.slotIndex] = [item.item_name, item.item_quantity]
 
 func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 	match slot.slotType:
@@ -92,8 +92,8 @@ func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 			hotbar[slot.slotIndex][1] += quantity_to_add
 		SlotClass.SlotTypes.INVENTORY:
 			inventory[slot.slotIndex][1] += quantity_to_add
-#		_:
-#			equips[slot.slot_index][1] += quantity_to_add
+		_:
+			equips[slot.slotIndex][1] += quantity_to_add
 
 
 ### Hotbar Style update

@@ -17,13 +17,15 @@ func _ready():
 #			print(quest_list)
 #			quest_list.append(child)
 
+
 func _input(event):
 	if event.is_action_pressed("action") and active:
 		if quest_list:
 			var quest = quest_list[0]
 			quest.start_quest()
 		elif default_dialog:
-				DialogManager.start(default_dialog)
+			DialogManager.start(default_dialog)
+
 
 func _on_TriggerArea_body_entered(body):
 	if body.name == "Player":

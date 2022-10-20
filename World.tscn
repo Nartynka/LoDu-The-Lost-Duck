@@ -1814,6 +1814,22 @@ margin_top = 735.0
 margin_right = 191.0
 margin_bottom = 1013.0
 
+[node name="Stick2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 146, 68 )
+item_name = "Helmet"
+
+[node name="Stick3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 146, 38 )
+item_name = "Shirt"
+
+[node name="Stick4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 184, 73 )
+item_name = "Shoes"
+
+[node name="Stick5" parent="." instance=ExtResource( 19 )]
+position = Vector2( 139, 102 )
+item_name = "Pants"
+
 [editable path="Camera2D"]
 [editable path="Portals/City"]
 [editable path="Portals/School"]

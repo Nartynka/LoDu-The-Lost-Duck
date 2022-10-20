@@ -11,9 +11,10 @@ var default_stylebox = get_stylebox("panel")
 enum SlotTypes {
 	HOTBAR,
 	INVENTORY,
-#	SHIRT,
-#	PANTS,
-#	SHOES,
+	HELMET,
+	SHIRT,
+	PANTS,
+	SHOES,
 }
 
 var slotType = null

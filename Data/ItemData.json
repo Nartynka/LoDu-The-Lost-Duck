@@ -34,5 +34,36 @@
     "StackSize": 64,
     "Description": "Just a wooden stick"
   },
+  "Helmet": {
+    "ItemCategory": "Helmet",
+    "StackSize": 1,
+    "Description": "Basic helmet"
+  },
+  "Pants": {
+    "ItemCategory": "Pants",
+    "StackSize": 1,
+    "Description": "Basic Pants"
+  },
+  "Shirt": {
+    "ItemCategory": "Shirt",
+    "StackSize": 1,
+    "Description": "Basic Shirt"
+  },
+  "Shoes": {
+    "ItemCategory": "Shoes",
+    "StackSize": 1,
+    "Description": "Basic shoes"
+  },
 }
+
+
+
+
+
+
+
+
+
+
+
 

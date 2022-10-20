@@ -2,7 +2,7 @@ extends Control
 
 const SlotClass = preload("res://Inventory/Slot.gd")
 onready var slots = $GridContainer.get_children()
-#onready var equip_slots = $EquipSlots.get_children()
+onready var equip_slots = $EquipSlots.get_children()
 
 func _ready():
 	for slot in slots:
@@ -10,13 +10,16 @@ func _ready():
 		slot.slotType = SlotClass.SlotTypes.INVENTORY
 		slot.slotIndex = slots.find(slot)
 	initialize_inventory()
-#	for i in range(equip_slots.size()):
-#		equip_slots[i].connect("gui_input", self, "slot_gui_input", [equip_slots[i]])
-#		equip_slots[i].slot_index = i
-#	equip_slots[0].slotType = SlotClass.SlotType.SHIRT
-#	equip_slots[1].slotType = SlotClass.SlotType.PANTS
-#	equip_slots[2].slotType = SlotClass.SlotType.SHOES
-#	initialize_equips()
+	
+	for slot in equip_slots:
+		slot.connect("gui_input", self, "slot_gui_input", [slot])
+		slot.slotIndex = slots.find(slot)
+		
+	equip_slots[0].slotType = SlotClass.SlotTypes.HELMET
+	equip_slots[1].slotType = SlotClass.SlotTypes.SHIRT
+	equip_slots[2].slotType = SlotClass.SlotTypes.PANTS
+	equip_slots[3].slotType = SlotClass.SlotTypes.SHOES
+	initialize_equips()
 
 func initialize_inventory():
 	for slot in slots:
@@ -24,10 +27,11 @@ func initialize_inventory():
 		if PlayerInventory.inventory.has(i):
 			slot.initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
 
-#func initialize_equips():
-#	for i in range(equip_slots.size()):
-#		if PlayerInventory.equips.has(i):
-#			equip_slots[i].initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i][1])
+func initialize_equips():
+	for slot in equip_slots:
+		var i = slot.slotIndex
+		if PlayerInventory.equips.has(i):
+			slot.initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i][1])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -57,12 +61,14 @@ func able_to_put_into_slot(slot: SlotClass):
 		return true
 	var holding_item_category = JsonData.item_data[holding_item.item_name]["ItemCategory"]
 	
-#	if slot.slotType == SlotClass.SlotType.SHIRT:
-#		return holding_item_category == "Shirt"
-#	elif slot.slotType == SlotClass.SlotType.PANTS:
-#		return holding_item_category == "Pants"
-#	elif slot.slotType == SlotClass.SlotType.SHOES:
-#		return holding_item_category == "Shoes"
+	if slot.slotType == SlotClass.SlotTypes.HELMET:
+		return holding_item_category == "Helmet"
+	elif slot.slotType == SlotClass.SlotTypes.SHIRT:
+		return holding_item_category == "Shirt"
+	elif slot.slotType == SlotClass.SlotTypes.PANTS:
+		return holding_item_category == "Pants"
+	elif slot.slotType == SlotClass.SlotTypes.SHOES:
+		return holding_item_category == "Shoes"
 	return true
 		
 func left_click_empty_slot(slot: SlotClass):

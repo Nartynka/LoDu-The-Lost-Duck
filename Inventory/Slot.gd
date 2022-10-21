@@ -1,6 +1,8 @@
 extends Panel
 class_name SlotClass
 
+onready var label = $Container/Label
+
 export(int) var move_x = 16
 var ItemClass = preload("res://Inventory/InventoryItem.tscn")
 var item = null
@@ -28,6 +30,8 @@ func pickFromSlot():
 	remove_child(item)
 	get_owner().get_parent().add_child(item)
 	item = null
+	if slotType != SlotTypes.HOTBAR and label.visible:
+		label.visible = false
 	
 func putIntoSlot(new_item):
 	item = new_item
@@ -50,6 +54,11 @@ func _on_Slot_mouse_entered():
 	var stylebox = get_stylebox("panel").duplicate()
 	stylebox.region_rect.position.x = move_x
 	add_stylebox_override("panel", stylebox)
+	if item and slotType != SlotTypes.HOTBAR:
+		label.text = item.item_name
+		label.visible = true
 
 func _on_Slot_mouse_exited():
 	add_stylebox_override("panel", default_stylebox)
+	if item and slotType != SlotTypes.HOTBAR:
+		label.visible = false

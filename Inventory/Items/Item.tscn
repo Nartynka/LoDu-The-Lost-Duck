@@ -17,4 +17,6 @@ shape = SubResource( 7 )
 stream = ExtResource( 2 )
 volume_db = -5.821
 
+[node name="Sprite" type="Sprite" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]

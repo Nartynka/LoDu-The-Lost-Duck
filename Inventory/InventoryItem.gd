@@ -26,6 +26,7 @@ func set_texture():
 	elif file.file_exists("res://Inventory/Items Icon/" + item_name + ".png"):
 		textureRect.texture = load("res://Inventory/Items Icon/" + item_name + ".png")
 	else:
+		print_debug("Missing item inventory icon")
 		textureRect.texture = load("res://Inventory/Items Icon/Gold Coin.tres")
 
 func add_item_quantity(amount_to_add):

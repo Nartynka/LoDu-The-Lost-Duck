@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Inventory/Items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Inventory/Items/Helmets/DuckHat.png" type="Texture" id=2]
+
+[node name="DuckHat" instance=ExtResource( 1 )]
+item_name = "Duck Hat"
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )

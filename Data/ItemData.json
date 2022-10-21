@@ -39,6 +39,11 @@
     "StackSize": 1,
     "Description": "Basic helmet"
   },
+  "Small Helmet": {
+    "ItemCategory": "Helmet",
+    "StackSize": 1,
+    "Description": "Basic helmet but smaller"
+  },
   "Pants": {
     "ItemCategory": "Pants",
     "StackSize": 1,
@@ -54,7 +59,13 @@
     "StackSize": 1,
     "Description": "Basic shoes"
   },
+  "Duck Hat": {
+    "ItemCategory": "Helmet",
+    "StackSize": 1,
+    "Description": "Cute duck hat"
+  },
 }
+
 
 
 

@@ -1,7 +1,6 @@
 extends Area2D
 
-export(String) var item_name = "Gold_Coin"
-export(Texture) var inventory_texture
+export(String) var item_name = "Gold Coin"
 
 func _on_Item_body_entered(body):
 	if body.name == "Player":

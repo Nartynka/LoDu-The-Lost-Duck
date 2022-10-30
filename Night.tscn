@@ -58,6 +58,7 @@ fill_to = Vector2( 1, 0.5 )
 
 [node name="Night" type="TextureRect"]
 self_modulate = Color( 1, 1, 1, 0.501961 )
+show_behind_parent = true
 light_mask = 0
 material = SubResource( 16 )
 anchor_right = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
 [ext_resource path="res://BlinkColorShader.tres" type="Shader" id=9]
-[ext_resource path="res://Player/light.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -470,45 +469,6 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Shader" id=78]
-code = "shader_type canvas_item;
-
-// Light height variables
-uniform bool fake_light_depth = false;
-uniform float obj_height : hint_range(-2048.0, 2048.0) = 0.0; 
-uniform float light_change_thresh : hint_range(0.0, 4080.0) = 0.0;
-uniform bool light_fade = false;
-uniform float light_fade_end : hint_range(0.0, 4080.0) = 0.0;
-
-void light() {
-	if (fake_light_depth) {
-		float base_height = LIGHT_HEIGHT;
-		float new_height = base_height - obj_height;
-		LIGHT_HEIGHT = new_height;
-		if (light_fade && new_height > light_change_thresh) {
-			float n_height_safety = new_height;
-			if (n_height_safety == 0.0) { n_height_safety += 0.01; }
-			float light_dist_safety = light_change_thresh;
-			if (light_dist_safety == 0.0) { light_dist_safety += 0.001; }
-			float new_intens = 1.0;
-			float dark_distance = light_fade_end;
-			if (dark_distance == 0.0) {dark_distance = 1.0;}
-			new_intens = 1.0 - abs(abs(light_dist_safety) - abs(n_height_safety)) / dark_distance;
-			float light_drop_a = clamp(LIGHT_COLOR.a * new_intens, 0.0, 1.0);
-			LIGHT_COLOR *= light_drop_a;
-		}
-	}
-	LIGHT = LIGHT;
-}"
-
-[sub_resource type="ShaderMaterial" id=79]
-shader = SubResource( 78 )
-shader_param/fake_light_depth = false
-shader_param/obj_height = 0.0
-shader_param/light_change_thresh = 0.0
-shader_param/light_fade = false
-shader_param/light_fade_end = 0.0
-
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 use_parent_material = true
 collision_layer = 2
@@ -529,7 +489,6 @@ position = Vector2( 0, -13 )
 texture = ExtResource( 2 )
 hframes = 6
 vframes = 2
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 69 )
@@ -574,14 +533,6 @@ stream = ExtResource( 7 )
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
-
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-material = SubResource( 79 )
-position = Vector2( 1, -7 )
-texture = ExtResource( 10 )
-texture_scale = 0.3
-energy = 0.5
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]

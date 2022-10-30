@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Inventory/Items/Helmets/SmallHelmet.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Inventory/Items/Helmets/Helmet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://DayCycle/DayCycleCanvas.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Night.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 4, 4, 16, 4, 16, 16, 4, 16 )
@@ -1017,6 +1018,12 @@ shape = SubResource( 61 )
 position = Vector2( -44, 33 )
 remote_path = NodePath("../../../Camera2D")
 
+[node name="Night" parent="YSort/Player" instance=ExtResource( 25 )]
+margin_left = -296.0
+margin_top = -122.0
+margin_right = 176.0
+margin_bottom = 182.0
+
 [node name="Bat5" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 224, -48 )
 
@@ -1658,16 +1665,10 @@ margin_right = 710.0
 margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
+[node name="DayCycleCanvas" parent="." instance=ExtResource( 24 )]
+
 [node name="Weather" parent="." instance=ExtResource( 9 )]
 time_multipler = 3600
-
-[node name="CloudsLayer" parent="Weather" index="0"]
-visible = true
-
-[node name="ThunderLayer" parent="Weather" index="2"]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Stick" parent="." instance=ExtResource( 19 )]
 position = Vector2( 85, -89 )
@@ -1826,12 +1827,9 @@ position = Vector2( 384, 74 )
 [node name="Helmet" parent="." instance=ExtResource( 23 )]
 position = Vector2( 357, 72 )
 
-[node name="DayCycleCanvas" parent="." instance=ExtResource( 24 )]
-
 [editable path="Camera2D"]
 [editable path="Portals/City"]
 [editable path="Portals/School"]
 [editable path="Portals/Wilds"]
 [editable path="Portals/Desert"]
 [editable path="Portals/Cave"]
-[editable path="Weather"]

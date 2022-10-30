@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/BlackTexture.png" type="Texture" id=1]
 [ext_resource path="res://DayCycle/Weather.gd" type="Script" id=2]
-[ext_resource path="res://DayCycle/Clouds.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0165746, 0.0939227, 0.922652, 1 )
@@ -28,7 +27,7 @@ curve = SubResource( 5 )
 [sub_resource type="ParticlesMaterial" id=7]
 lifetime_randomness = 0.4
 emission_shape = 2
-emission_box_extents = Vector3( 700, 600, 0 )
+emission_box_extents = Vector3( 1400, 1200, 0 )
 flag_disable_z = true
 direction = Vector3( 0, 1, 0 )
 spread = 7.76
@@ -101,16 +100,12 @@ shader_param/time_shift = 94.0
 script = ExtResource( 2 )
 time_multipler = 360
 
-[node name="CloudsLayer" parent="." instance=ExtResource( 4 )]
-visible = false
-position = Vector2( 25, 24 )
-
 [node name="RainParticles" type="Particles2D" parent="."]
 position = Vector2( 189, 0 )
 emitting = false
-amount = 2000
-lifetime = 0.5
-visibility_rect = Rect2( -350, -300, 700, 600 )
+amount = 20000
+lifetime = 0.7
+visibility_rect = Rect2( -1400, -1200, 2800, 2400 )
 local_coords = false
 process_material = SubResource( 7 )
 

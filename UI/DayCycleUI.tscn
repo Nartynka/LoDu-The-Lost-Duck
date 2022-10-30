@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://DayCycle/dayCycle.png" type="Texture" id=2]
+[ext_resource path="res://UI/DayCycleUI.gd" type="Script" id=3]
+
+[node name="DayCycleUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_right = -4.0
+margin_bottom = -147.0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, 12 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 1
+
+[node name="DayLabel" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 20.0
+margin_right = 53.0
+margin_bottom = 42.0
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "Day 1"
+
+[node name="TimeLabel" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 27.0
+margin_right = 53.0
+margin_bottom = 49.0
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "12:00"

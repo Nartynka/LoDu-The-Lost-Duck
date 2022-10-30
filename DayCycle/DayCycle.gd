@@ -1,4 +1,4 @@
-extends CanvasModulate
+extends Node2D
 
 const seconds_per_day:int = 86400 # 60 * 60 * 24
 const HOUR = 60 * 60
@@ -10,13 +10,11 @@ export(Color) var color_day = Color("fff1d0")
 export(Color) var color_dusk = Color("854646")
 export(Color) var color_night = Color("27264c")
 
-
-onready var DayNightCompas = $CanvasLayer/Daynight
-onready var TimeLabel = $CanvasLayer/Time
-onready var DayLabel = $CanvasLayer/Day
-
 enum TimeOfDay {AUTO, DAWN, DAY, DUSK, NIGHT}
 export(TimeOfDay) var time_of_day = TimeOfDay.AUTO
+
+signal time_of_day_change(frame)
+signal color_changed(color)
 
 var is_day : bool = true
 
@@ -70,7 +68,7 @@ func _on_time_passed():
 	
 	current_color = color_gradient.interpolate(point)
 	# apply color
-	color = current_color
+	emit_signal("color_changed", current_color)
 	sunrise_start = stepify(sunrise_start, 0.001)
 	sunrise_end = stepify(sunrise_end, 0.001)
 	day_start = stepify(day_start, 0.001)
@@ -81,48 +79,46 @@ func _on_time_passed():
 
 	match point:
 		0.0:
-			DayNightCompas.frame = 7
+			emit_signal("time_of_day_change", 7)
 			is_day = false
 		sunrise_start:
-			DayNightCompas.frame = 0
+			emit_signal("time_of_day_change", 0)
 			is_day = false
 		sunrise_end:
-			DayNightCompas.frame = 1
+			emit_signal("time_of_day_change", 1)
 			is_day = true
 		day_start:
-			DayNightCompas.frame = 2
+			emit_signal("time_of_day_change", 2)
 			is_day = true
 		sunset_start:
-			DayNightCompas.frame = 3
+			emit_signal("time_of_day_change", 3)
 			is_day = false
 		sunset_end:
-			DayNightCompas.frame = 4
+			emit_signal("time_of_day_change", 4)
 			is_day = false
 		night_start:
-			DayNightCompas.frame = 5
+			emit_signal("time_of_day_change", 5)
 			is_day = false
 
 func _process(_delta):
-	DayLabel.text = Clock.get_day_string()
-	TimeLabel.text = Clock.get_time_string()
 	if time_of_day != TimeOfDay.AUTO:
 		match_timeOfDay()
 
 func match_timeOfDay():
 	match TimeOfDay.keys()[time_of_day]:
 		"DAWN":
-			color = color_dawn
-			DayNightCompas.frame = 0
+			emit_signal("color_changed", color_dawn)
+			emit_signal("time_of_day_change", 0)
 			is_day = false
 		"DAY":
-			color = color_day
-			DayNightCompas.frame = 2
+			emit_signal("color_changed", color_day)
+			emit_signal("time_of_day_change", 2)
 			is_day = true
 		"DUSK":
-			color = color_dusk
-			DayNightCompas.frame = 4
+			emit_signal("color_changed", color_dusk)
+			emit_signal("time_of_day_change", 4)
 			is_day = false
 		"NIGHT":
-			color = color_night
-			DayNightCompas.frame = 7
+			emit_signal("color_changed", color_night)
+			emit_signal("time_of_day_change", 7)
 			is_day = false

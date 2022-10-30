@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Inventory/Items/Helmets/DuckHat.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Inventory/Items/Helmets/SmallHelmet.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Inventory/Items/Helmets/Helmet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://DayCycle/DayCycleCanvas.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 4, 4, 16, 4, 16, 16, 4, 16 )
@@ -1658,25 +1659,12 @@ margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
-rain = true
-cloudiness = 0.924
-thunder = true
-thunder_strength_rand_min = 1.0
+time_multipler = 3600
 
 [node name="CloudsLayer" parent="Weather" index="0"]
-position = Vector2( 300.75, 24 )
-scale = Vector2( 1.80747, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RainParticles" parent="Weather" index="1"]
-__meta__ = {
-"_edit_lock_": true
-}
+visible = true
 
 [node name="ThunderLayer" parent="Weather" index="2"]
-visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1810,7 +1798,7 @@ position = Vector2( -408, -417 )
 [node name="Tree10" parent="TreesAroundPath" instance=ExtResource( 10 )]
 position = Vector2( -509, -45 )
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="HoloShader" type="ColorRect" parent="."]
 material = SubResource( 71 )
 margin_left = -251.0
 margin_top = 735.0
@@ -1818,25 +1806,27 @@ margin_right = 191.0
 margin_bottom = 1013.0
 
 [node name="Stick3" parent="." instance=ExtResource( 19 )]
-position = Vector2( 169, 101 )
+position = Vector2( 359, 103 )
 item_name = "Shirt"
 
 [node name="Stick4" parent="." instance=ExtResource( 19 )]
-position = Vector2( 197, 100 )
+position = Vector2( 387, 102 )
 item_name = "Shoes"
 
 [node name="Stick5" parent="." instance=ExtResource( 19 )]
-position = Vector2( 139, 102 )
+position = Vector2( 329, 104 )
 item_name = "Pants"
 
 [node name="DuckHat" parent="." instance=ExtResource( 21 )]
-position = Vector2( 139, 72 )
+position = Vector2( 141, 46 )
 
 [node name="SmallHelmet" parent="." instance=ExtResource( 22 )]
-position = Vector2( 194, 72 )
+position = Vector2( 384, 74 )
 
 [node name="Helmet" parent="." instance=ExtResource( 23 )]
-position = Vector2( 167, 70 )
+position = Vector2( 357, 72 )
+
+[node name="DayCycleCanvas" parent="." instance=ExtResource( 24 )]
 
 [editable path="Camera2D"]
 [editable path="Portals/City"]

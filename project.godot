@@ -111,7 +111,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Quest="*res://singletons/Quest.gd"
-UI="res://UI/UI.tscn"
+UI="*res://UI/UI.tscn"
 PlayerStats="*res://Player/PlayerStats.tscn"
 Death="res://UI/Death.tscn"
 Pause="res://UI/Pause.tscn"
@@ -119,9 +119,9 @@ DialogManager="*res://singletons/DialogManager.gd"
 Screen="*res://singletons/Screen.gd"
 SceneChange="*res://singletons/SceneChange.tscn"
 Clock="*res://DayCycle/Clock.tscn"
-DayCycle="*res://DayCycle/DayNight.tscn"
 JsonData="*res://Inventory/JSONData.gd"
 PlayerInventory="*res://Inventory/PlayerInventory.gd"
+DayCycle="*res://DayCycle/DayCycle.gd"
 
 [debug]
 

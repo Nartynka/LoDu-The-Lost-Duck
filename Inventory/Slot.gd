@@ -1,8 +1,6 @@
 extends Panel
 class_name SlotClass
 
-onready var label = $Container/Label
-
 export(int) var move_x = 16
 var ItemClass = preload("res://Inventory/InventoryItem.tscn")
 var item = null
@@ -21,17 +19,14 @@ enum SlotTypes {
 
 var slotType = null
 
-#func _ready():
-#	if randi() % 2 == 0:
-#		item = ItemClass.instance()
-#		add_child(item)
-
 func pickFromSlot():
 	remove_child(item)
 	get_owner().get_parent().add_child(item)
 	item = null
-	if slotType != SlotTypes.HOTBAR and label.visible:
-		label.visible = false
+	if slotType != SlotTypes.HOTBAR:
+		var label = $Container/Label
+		if label.visible:
+			label.visible = false
 	
 func putIntoSlot(new_item):
 	item = new_item
@@ -55,10 +50,11 @@ func _on_Slot_mouse_entered():
 	stylebox.region_rect.position.x = move_x
 	add_stylebox_override("panel", stylebox)
 	if item and slotType != SlotTypes.HOTBAR:
+		var label = $Container/Label
 		label.text = item.item_name
 		label.visible = true
 
 func _on_Slot_mouse_exited():
 	add_stylebox_override("panel", default_stylebox)
 	if item and slotType != SlotTypes.HOTBAR:
-		label.visible = false
+		$Container/Label.visible = false

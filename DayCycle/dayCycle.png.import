@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/daynight.png-ecf090152779d734f6057bc3a64250af.stex"
+path="res://.import/dayCycle.png-43b9f7d088b393c209a582fd4a0dd5ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DayCycle/daynight.png"
-dest_files=[ "res://.import/daynight.png-ecf090152779d734f6057bc3a64250af.stex" ]
+source_file="res://DayCycle/dayCycle.png"
+dest_files=[ "res://.import/dayCycle.png-43b9f7d088b393c209a582fd4a0dd5ce.stex" ]
 
 [params]
 

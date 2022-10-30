@@ -26,11 +26,10 @@ func _process(_delta):
 			else:
 				color_add *= 0.9
 		else:
-			lightning_strike()
-#			var thunder_random = RandomNumberGenerator.new()
-#			var rand = abs(thunder_random.randfn(0, 1))
-#			if rand < thunder_strength * 0.1:
-#				lightning_strike()
+			var thunder_random = RandomNumberGenerator.new()
+			var rand = abs(thunder_random.randfn(0, 1))
+			if rand < thunder_strength * 0.1:
+				lightning_strike()
 		thunderLayer.color += color_add
 		var timer = get_tree().create_timer(2)
 		if timer.time_left >= 0:

@@ -53,6 +53,8 @@ func _input(event):
 
 	if event.is_action_pressed("inventory"):
 		visible = !visible
+	elif event.is_action_pressed("ui_cancel"):
+		visible = false
 
 		
 func able_to_put_into_slot(slot: SlotClass):

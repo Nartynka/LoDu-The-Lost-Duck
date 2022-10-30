@@ -5,8 +5,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		set_visible(!get_tree().paused)
-		get_tree().paused = !get_tree().paused
+		if !UI.get_child(0).visible:
+			set_visible(!get_tree().paused)
+			get_tree().paused = !get_tree().paused
 	if event.is_action_pressed("fullscreen"):
 		_on_Fullscreen_pressed()
 

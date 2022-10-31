@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
 [ext_resource path="res://BlinkColorShader.tres" type="Shader" id=9]
+[ext_resource path="res://Player/LightDifuse.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -489,6 +490,7 @@ position = Vector2( 0, -13 )
 texture = ExtResource( 2 )
 hframes = 6
 vframes = 2
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 69 )
@@ -533,6 +535,14 @@ stream = ExtResource( 7 )
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
+
+[node name="NightLight" type="Light2D" parent="."]
+position = Vector2( 1, -10 )
+texture = ExtResource( 10 )
+texture_scale = 0.3
+color = Color( 0.929412, 0.619608, 0.564706, 1 )
+energy = 0.6
+mode = 2
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]

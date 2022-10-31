@@ -16,7 +16,7 @@ export(TimeOfDay) var time_of_day = TimeOfDay.AUTO
 signal time_of_day_change(frame)
 signal color_changed(color)
 
-var is_day : bool = true
+var is_day : bool = true setget set_is_day
 
 var dawn_start:float = HOUR * 4.0 # starts at 4 o'clock
 var dusk_start:float = HOUR * 18.0 # start at 18 o'clock
@@ -80,25 +80,25 @@ func _on_time_passed():
 	match point:
 		0.0:
 			emit_signal("time_of_day_change", 7)
-			is_day = false
+			self.is_day = false
 		sunrise_start:
 			emit_signal("time_of_day_change", 0)
-			is_day = false
+			self.is_day = false
 		sunrise_end:
 			emit_signal("time_of_day_change", 1)
-			is_day = true
+			self.is_day = true
 		day_start:
 			emit_signal("time_of_day_change", 2)
-			is_day = true
+			self.is_day = true
 		sunset_start:
 			emit_signal("time_of_day_change", 3)
-			is_day = false
+			self.is_day = false
 		sunset_end:
 			emit_signal("time_of_day_change", 4)
-			is_day = false
+			self.is_day = false
 		night_start:
 			emit_signal("time_of_day_change", 5)
-			is_day = false
+			self.is_day = false
 
 func _process(_delta):
 	if time_of_day != TimeOfDay.AUTO:
@@ -109,16 +109,21 @@ func match_timeOfDay():
 		"DAWN":
 			emit_signal("color_changed", color_dawn)
 			emit_signal("time_of_day_change", 0)
-			is_day = false
+			self.is_day = false
 		"DAY":
 			emit_signal("color_changed", color_day)
 			emit_signal("time_of_day_change", 2)
-			is_day = true
+			self.is_day = true
 		"DUSK":
 			emit_signal("color_changed", color_dusk)
 			emit_signal("time_of_day_change", 4)
-			is_day = false
+			self.is_day = false
 		"NIGHT":
 			emit_signal("color_changed", color_night)
 			emit_signal("time_of_day_change", 7)
-			is_day = false
+			self.is_day = false
+
+
+func set_is_day(new_value):
+	yield(get_tree().create_timer(0.7), "timeout")
+	is_day = new_value

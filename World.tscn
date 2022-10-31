@@ -1019,6 +1019,7 @@ position = Vector2( -44, 33 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="Night" parent="YSort/Player" instance=ExtResource( 25 )]
+visible = false
 margin_left = -296.0
 margin_top = -122.0
 margin_right = 176.0

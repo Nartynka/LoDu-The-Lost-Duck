@@ -42,7 +42,7 @@ func _ready():
 	swordHitbox.knockback_vector = roll_vector
 
 func _physics_process(delta):
-#	$Light2D.visible = !DayCycle.is_day
+	$NightLight.visible = !DayCycle.is_day
 	match state:
 		MOVE:
 			move_state(delta)

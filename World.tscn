@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Inventory/Items/Helmets/DuckHat.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Inventory/Items/Helmets/SmallHelmet.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Inventory/Items/Helmets/Helmet.tscn" type="PackedScene" id=23]
-[ext_resource path="res://DayCycle/DayCycleCanvas.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Night.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=63]
@@ -942,7 +941,7 @@ tile_data = PoolIntArray( -262149, 0, 4, -262148, 0, 196609, -262147, 0, 196609,
 position = Vector2( 411, 39 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( -44, 33 )
+position = Vector2( -26, 63 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
 position = Vector2( 1327, 1956 )
@@ -1013,6 +1012,7 @@ shape = SubResource( 61 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 18, 30 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( -44, 33 )
@@ -1665,8 +1665,6 @@ margin_top = -199.0
 margin_right = 710.0
 margin_bottom = 70.0
 rect_scale = Vector2( -1, 1 )
-
-[node name="DayCycleCanvas" parent="." instance=ExtResource( 24 )]
 
 [node name="Weather" parent="." instance=ExtResource( 9 )]
 time_multipler = 3600

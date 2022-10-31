@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasModulate
 
 const seconds_per_day:int = 86400 # 60 * 60 * 24
 const HOUR = 60 * 60
@@ -59,16 +59,13 @@ func _ready():
 # when time passes, we calculate the brightness and tint of the environment
 # based on the current time of day
 func _on_time_passed():
-	if time_of_day != TimeOfDay.AUTO:
-		return
-
 	var time = Clock.time
 	var day_time = int(time) % seconds_per_day
 	var point := float(day_time)/seconds_per_day
 	
-	current_color = color_gradient.interpolate(point)
-	# apply color
-	emit_signal("color_changed", current_color)
+	if time_of_day == TimeOfDay.AUTO:
+		update_color(point)
+
 	sunrise_start = stepify(sunrise_start, 0.001)
 	sunrise_end = stepify(sunrise_end, 0.001)
 	day_start = stepify(day_start, 0.001)
@@ -76,7 +73,15 @@ func _on_time_passed():
 	sunset_end = stepify(sunset_end, 0.001)
 	night_start = stepify(night_start, 0.001)
 	point = stepify(point, 0.001)
+	
+	update_frames(point)
 
+func update_color(point):
+	current_color = color_gradient.interpolate(point)
+	color = current_color
+#	emit_signal("color_changed", current_color)
+
+func update_frames(point):
 	match point:
 		0.0:
 			emit_signal("time_of_day_change", 7)
@@ -107,20 +112,24 @@ func _process(_delta):
 func match_timeOfDay():
 	match TimeOfDay.keys()[time_of_day]:
 		"DAWN":
-			emit_signal("color_changed", color_dawn)
-			emit_signal("time_of_day_change", 0)
+			color = color_dawn
+#			emit_signal("color_changed", color_dawn)
+#			emit_signal("time_of_day_change", 0)
 			self.is_day = false
 		"DAY":
-			emit_signal("color_changed", color_day)
-			emit_signal("time_of_day_change", 2)
+			color = color_day
+#			emit_signal("color_changed", color_day)
+#			emit_signal("time_of_day_change", 2)
 			self.is_day = true
 		"DUSK":
-			emit_signal("color_changed", color_dusk)
-			emit_signal("time_of_day_change", 4)
+			color = color_dusk
+#			emit_signal("color_changed", color_dusk)
+#			emit_signal("time_of_day_change", 4)
 			self.is_day = false
 		"NIGHT":
-			emit_signal("color_changed", color_night)
-			emit_signal("time_of_day_change", 7)
+			color = color_night
+#			emit_signal("color_changed", color_night)
+#			emit_signal("time_of_day_change", 7)
 			self.is_day = false
 
 

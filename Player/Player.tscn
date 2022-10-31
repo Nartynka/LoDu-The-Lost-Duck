@@ -537,6 +537,7 @@ anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
 
 [node name="NightLight" type="Light2D" parent="."]
+visible = false
 position = Vector2( 1, -10 )
 texture = ExtResource( 10 )
 texture_scale = 0.3

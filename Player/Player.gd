@@ -31,7 +31,8 @@ func _ready():
 	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
 	# if no previous spawnpoint found, spawn at any spawnpoint
 	if not PlayerStats.spawnpoint:
-		global_position = spawnpoints[0].global_position
+		if spawnpoints.size() > 0:
+			global_position = spawnpoints[0].global_position
 	else:
 		for spawnpoint in spawnpoints:
 			if spawnpoint.name == PlayerStats.spawnpoint:

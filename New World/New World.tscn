@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://New World/New World Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://npc/wizard/Wizard.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://npc/evil wizard/EvilWizard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://props/Obelisk.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/FlyingObelisk.tscn" type="PackedScene" id=7]
+[ext_resource path="res://props/Book.tscn" type="PackedScene" id=8]
 
 [node name="New World" type="Node2D"]
 
@@ -62,10 +63,13 @@ position = Vector2( -20, 71 )
 [node name="Obelisk" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 123, 328 )
 
+[node name="EvilWizard" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 135, 72 )
+
 [node name="FlyingObelisk" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -6, 332 )
 
-[node name="EvilWizard" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 135, 72 )
+[node name="Book" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 225, 161 )
 
 [editable path="Camera2D"]

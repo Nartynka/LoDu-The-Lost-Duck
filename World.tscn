@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Lataren.tscn" type="PackedScene" id=2]
@@ -871,9 +871,6 @@ extents = Vector2( 10.5, 17.5 )
 [sub_resource type="RectangleShape2D" id=59]
 extents = Vector2( 10, 16.5 )
 
-[sub_resource type="RectangleShape2D" id=61]
-extents = Vector2( 16, 12.5 )
-
 [sub_resource type="Shader" id=70]
 code = "shader_type canvas_item;
 
@@ -941,7 +938,7 @@ tile_data = PoolIntArray( -262149, 0, 4, -262148, 0, 196609, -262147, 0, 196609,
 position = Vector2( 411, 39 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 11 )]
-position = Vector2( -26, 63 )
+position = Vector2( 100, 5 )
 
 [node name="BottomRight" parent="Camera2D/Limits" index="0"]
 position = Vector2( 1327, 1956 )
@@ -999,20 +996,10 @@ position = Vector2( -22, 2 )
 position = Vector2( 0, 2.5 )
 shape = SubResource( 59 )
 
-[node name="Cave" parent="Portals" instance=ExtResource( 13 )]
-position = Vector2( 460, 240 )
-to_scene = "res://Procedural world map/Cave/Cave.tscn"
-
-[node name="Spawnpoint" parent="Portals/Cave" index="0"]
-position = Vector2( -35, 0 )
-
-[node name="CollisionShape" parent="Portals/Cave" index="1"]
-shape = SubResource( 61 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 18, 30 )
+position = Vector2( 144, -28 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( -44, 33 )
@@ -1831,4 +1818,3 @@ position = Vector2( 357, 72 )
 [editable path="Portals/School"]
 [editable path="Portals/Wilds"]
 [editable path="Portals/Desert"]
-[editable path="Portals/Cave"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://New World/New World Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://npc/wizard/Wizard.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://props/Obelisk.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/FlyingObelisk.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Book.tscn" type="PackedScene" id=8]
+[ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 23 )
 
 [node name="New World" type="Node2D"]
 
@@ -50,6 +54,18 @@ position = Vector2( 687, 457 )
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( -54, -91 )
 
+[node name="World" parent="." instance=ExtResource( 9 )]
+position = Vector2( -64, 21 )
+to_scene = "res://World.tscn"
+to_spawnpoint = "PlayerSpawnpoint"
+
+[node name="Spawnpoint" parent="World" index="0"]
+position = Vector2( 29, 8 )
+
+[node name="CollisionShape" parent="World" index="1"]
+position = Vector2( -1, 11 )
+shape = SubResource( 1 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
@@ -73,3 +89,4 @@ position = Vector2( -6, 332 )
 position = Vector2( 225, 161 )
 
 [editable path="Camera2D"]
+[editable path="World"]

@@ -1,0 +1,324 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Cave enterance/tileset.png" type="Texture" id=2]
+[ext_resource path="res://Cave enterance/bridge.png" type="Texture" id=3]
+[ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=5]
+
+[sub_resource type="TileSet" id=1]
+0/name = "stairs"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 64, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "enterance"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 48, 48, 48, 48 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "rock"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 16, 16, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "ground decor"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 32, 96, 64, 16 )
+3/tile_mode = 2
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 16, 16 )
+3/autotile/spacing = 0
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+5/name = "ground diff"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 64, 16, 32, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "wall right"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 112, 16, 32, 96 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "wall left"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 208, 16, 32, 96 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "cliff midle"
+8/texture = ExtResource( 2 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 160, 32, 32, 80 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "clif to chasm right"
+9/texture = ExtResource( 2 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 336, 16, 16, 96 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "clif to chasm left"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 256, 16, 16, 96 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "after chasm"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 288, 16, 32, 96 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+13/name = "ground"
+13/texture = ExtResource( 2 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 48, 16, 16, 32 )
+13/tile_mode = 2
+13/autotile/icon_coordinate = Vector2( 0, 0 )
+13/autotile/tile_size = Vector2( 16, 16 )
+13/autotile/spacing = 0
+13/autotile/occluder_map = [  ]
+13/autotile/navpoly_map = [  ]
+13/autotile/priority_map = [  ]
+13/autotile/z_index_map = [  ]
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "up"
+14/texture = ExtResource( 2 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 288, 16, 32, 48 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "down"
+15/texture = ExtResource( 2 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 288, 80, 32, 32 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "cliff middle 2"
+16/texture = ExtResource( 2 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 144, -16, 48, 128 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+17/name = "stairs start"
+17/texture = ExtResource( 2 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 16, 48, 32, 16 )
+17/tile_mode = 2
+17/autotile/icon_coordinate = Vector2( 0, 0 )
+17/autotile/tile_size = Vector2( 16, 16 )
+17/autotile/spacing = 0
+17/autotile/occluder_map = [  ]
+17/autotile/navpoly_map = [  ]
+17/autotile/priority_map = [  ]
+17/autotile/z_index_map = [  ]
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape_one_way = false
+17/shape_one_way_margin = 0.0
+17/shapes = [  ]
+17/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.5, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.5, 19 )
+
+[node name="CaveEnterance" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131072, 13, 0, -131071, 13, 0, -131070, 13, 0, -131069, 16, 0, -131068, 13, 0, -131067, 13, 0, -131066, 13, 0, -131065, 13, 0, -131064, 13, 0, -131063, 13, 0, -131062, 13, 0, -131061, 13, 0, -131060, 13, 0, -131059, 13, 0, -131058, 13, 0, -131057, 13, 0, -131056, 13, 0, -131055, 13, 0, -131054, 13, 0, -131053, 13, 0, -131052, 13, 0, -131051, 13, 0, -131050, 13, 0, -131049, 13, 0, -131048, 13, 0, -131047, 13, 0, -131046, 13, 0, -131045, 13, 0, -131044, 13, 0, -131043, 13, 0, -65536, 13, 0, -65535, 13, 0, -65534, 13, 0, -65533, 13, 0, -65532, 13, 0, -65531, 13, 0, -65530, 13, 0, -65529, 13, 0, -65528, 13, 0, -65527, 13, 0, -65526, 13, 0, -65525, 13, 0, -65524, 13, 0, -65523, 13, 0, -65522, 13, 0, -65521, 13, 0, -65520, 13, 0, -65519, 13, 0, -65518, 13, 0, -65517, 13, 0, -65516, 13, 0, -65515, 13, 0, -65514, 13, 0, -65513, 13, 0, -65512, 13, 0, -65511, 13, 0, -65510, 13, 0, -65509, 13, 0, -65508, 13, 0, -65507, 8, 0, -65505, 8, 0, 0, 13, 0, 1, 13, 0, 2, 13, 0, 3, 13, 0, 4, 13, 0, 5, 13, 0, 6, 13, 0, 7, 3, 0, 8, 13, 0, 9, 3, 3, 10, 13, 0, 11, 13, 0, 12, 13, 0, 13, 13, 0, 14, 13, 0, 15, 13, 0, 16, 13, 0, 17, 13, 0, 18, 13, 0, 19, 13, 0, 20, 3, 0, 21, 13, 0, 22, 3, 3, 23, 13, 0, 24, 13, 0, 25, 13, 0, 26, 13, 0, 27, 13, 0, 28, 7, 0, 65536, 3, 1, 65537, 3, 3, 65538, 13, 0, 65539, 13, 0, 65540, 10, 0, 65542, 8, 0, 65544, 8, 0, 65546, 8, 0, 65547, 9, 0, 65548, 13, 0, 65549, 13, 0, 65550, 13, 0, 65551, 13, 0, 65552, 5, 0, 65554, 13, 0, 65555, 13, 0, 65556, 13, 0, 65557, 13, 0, 65558, 13, 0, 65559, 13, 0, 65560, 13, 0, 65561, 3, 1, 65562, 13, 0, 65563, 7, 0, 131072, 13, 0, 131073, 13, 0, 131074, 13, 0, 131075, 7, 0, 131083, 6, 0, 131084, 9, 0, 131085, 13, 0, 131086, 13, 0, 131087, 13, 0, 131090, 13, 0, 131091, 13, 0, 131092, 13, 0, 131093, 13, 0, 131094, 13, 0, 131095, 13, 0, 131096, 13, 0, 131097, 13, 0, 131098, 7, 0, 196608, 13, 0, 196609, 13, 0, 196610, 7, 0, 196620, 6, 0, 196621, 13, 0, 196622, 13, 0, 196623, 3, 3, 196624, 13, 0, 196625, 3, 3, 196626, 3, 2, 196627, 3, 3, 196628, 13, 0, 196629, 13, 0, 196630, 13, 0, 196631, 13, 0, 196632, 13, 0, 196633, 7, 0, 262144, 8, 0, 262158, 8, 0, 262160, 8, 0, 262162, 8, 0, 262164, 8, 0, 262165, 17, 0, 262166, 17, 1, 262167, 8, 0, 262174, 13, 0, 262175, 13, 0, 262176, 13, 0, 327701, 0, 0, 327710, 13, 0, 327711, 13, 0, 327712, 13, 0, 393221, 13, 0, 393222, 13, 0, 393223, 2, 0, 393225, 13, 0, 393226, 3, 1, 393232, 1, 0, 393244, 13, 0, 393245, 13, 0, 393246, 13, 0, 393247, 13, 0, 393248, 13, 0, 458755, 4, 0, 458756, 13, 0, 458757, 13, 0, 458758, 13, 0, 458761, 3, 2, 458762, 3, 1, 458763, 13, 0, 458773, 0, 0, 458779, 13, 0, 458780, 13, 0, 458781, 13, 0, 458782, 13, 0, 458783, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 10, 0, 524294, 14, 0, 524296, 14, 0, 524298, 9, 0, 524299, 3, 3, 524300, 13, 0, 524315, 13, 0, 524316, 13, 0, 524317, 13, 0, 524318, 13, 0, 524319, 13, 0, 589824, 13, 0, 589825, 3, 1, 589826, 13, 0, 589827, 13, 0, 589828, 10, 0, 589835, 9, 0, 589836, 13, 0, 589837, 13, 0, 589838, 3, 1, 589839, 13, 0, 589840, 13, 0, 589841, 13, 0, 589842, 13, 0, 589843, 13, 0, 589844, 3, 3, 589845, 13, 0, 589846, 13, 0, 589847, 13, 0, 589848, 13, 0, 589849, 13, 0, 589850, 13, 0, 589851, 13, 0, 589852, 13, 0, 589853, 13, 0, 589854, 13, 0, 589855, 13, 0, 655360, 3, 2, 655361, 3, 1, 655362, 13, 0, 655363, 10, 0, 655364, 10, 0, 655372, 9, 0, 655373, 3, 2, 655374, 13, 0, 655375, 13, 0, 655376, 13, 0, 655377, 3, 3, 655378, 13, 0, 655379, 13, 0, 655380, 13, 0, 655381, 13, 0, 655382, 13, 0, 655383, 13, 0, 655384, 13, 0, 655385, 13, 0, 655386, 13, 0, 655387, 13, 0, 655388, 13, 0, 655389, 13, 0, 655390, 13, 0, 655391, 13, 0, 720896, 11, 0, 720898, 11, 0, 720902, 13, 65536, 720903, 13, 65536, 720904, 13, 65536, 720905, 13, 65536, 720908, 14, 0, 720910, 14, 0, 720912, 14, 0, 720914, 14, 0, 720916, 9, 0, 720917, 13, 0, 720918, 13, 0, 720919, 3, 1, 720920, 13, 0, 720921, 13, 0, 720922, 13, 0, 720923, 13, 0, 720924, 13, 0, 720925, 13, 0, 720926, 13, 0, 786438, 13, 65536, 786439, 13, 65536, 786440, 13, 65536, 786441, 13, 65536, 786453, 9, 0, 786454, 13, 0, 786455, 13, 0, 786456, 13, 0, 786457, 13, 0, 786458, 13, 0, 786459, 13, 0, 786460, 13, 0, 786461, 13, 0, 786462, 13, 0, 851974, 13, 65536, 851975, 13, 65536, 851976, 13, 65536, 851977, 13, 65536, 851980, 15, 0, 851982, 15, 0, 851984, 15, 0, 851986, 15, 0, 851990, 9, 0, 851991, 13, 0, 851992, 13, 0, 851993, 13, 0, 851994, 13, 0, 851995, 13, 0, 851996, 13, 0, 851997, 13, 0, 851998, 13, 0, 917509, 13, 65536, 917510, 13, 65536, 917511, 13, 65536, 917512, 13, 65536, 917513, 13, 65536, 917514, 13, 65536, 917526, 14, 0, 917528, 14, 0, 917530, 14, 0, 983045, 13, 65536, 983046, 13, 65536, 983047, 13, 65536, 983048, 13, 65536, 983049, 13, 65536, 983050, 13, 65536, 983051, 13, 65536, 983053, 13, 65536, 983054, 13, 65536, 983055, 13, 65536, 983056, 13, 65536, 983057, 13, 65536, 983058, 13, 65536, 983059, 13, 65536, 1048580, 13, 65536, 1048581, 13, 65536, 1048582, 13, 65536, 1048583, 13, 65536, 1048584, 13, 65536, 1048585, 13, 65536, 1048586, 13, 65536, 1048587, 13, 65536, 1048588, 13, 65536, 1048589, 13, 65536, 1048590, 13, 65536, 1048591, 13, 65536, 1048592, 13, 65536, 1048593, 13, 65536, 1048594, 13, 65536, 1048595, 13, 65536, 1048598, 15, 0, 1048600, 15, 0, 1048602, 15, 0, 1114112, 13, 65536, 1114113, 13, 65536, 1114114, 13, 65536, 1114115, 13, 65536, 1114116, 13, 65536, 1114117, 13, 65536, 1114118, 13, 65536, 1114119, 13, 65536, 1114120, 13, 65536, 1114121, 13, 65536, 1114122, 13, 65536, 1114123, 13, 65536, 1114124, 13, 65536, 1114125, 13, 65536, 1114126, 13, 65536, 1114127, 13, 65536, 1114128, 13, 65536, 1114129, 13, 65536, 1114130, 13, 65536, 1114131, 13, 65536, 1114132, 13, 65536 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 66, 136 )
+
+[node name="BottomRight" parent="Camera2D/Limits" index="0"]
+position = Vector2( 434, 327 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 65, 144 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2( 1, -8 )
+remote_path = NodePath("../../Camera2D")
+
+[node name="World" parent="." instance=ExtResource( 4 )]
+position = Vector2( 10, 157 )
+to_scene = "res://World.tscn"
+
+[node name="Spawnpoint" parent="World" index="0"]
+position = Vector2( 30, 0 )
+
+[node name="CollisionShape" parent="World" index="1"]
+position = Vector2( -10, 1 )
+shape = SubResource( 3 )
+
+[node name="Cave" parent="." instance=ExtResource( 4 )]
+position = Vector2( 279.953, 128 )
+to_scene = "res://Procedural world map/Cave/Cave.tscn"
+
+[node name="Spawnpoint" parent="Cave" index="0"]
+position = Vector2( -1.48669, 32.0051 )
+
+[node name="CollisionShape" parent="Cave" index="1"]
+position = Vector2( -1.5, -3 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 48, 202, 54, 201, 56, 199, 60, 195, 74, 198, 80, 189, 80, 172, 100, 148, 116, 154, 122, 149, 125, 146, 132, 145, 141, 152, 150, 152, 156, 147, 164, 158, 167, 164, 173, 165, 176, 171, 179, 175, 179, 179, 188, 181, 192, 186, 196, 194, 202, 200, 211, 201, 217, 199, 221, 194, 228, 194, 231, 198, 240, 202, 245, 202, 249, 200, 253, 194, 261, 194, 262, 197, 269, 201, 277, 201, 282, 199, 285, 194, 292, 194, 296, 199, 302, 201, 309, 201, 315, 197, 323, 207, 323, 211, 333, 213, 337, 223, 341, 228, 348, 229, 352, 234, 352, 240, 356, 242, 361, 247, 369, 250, 382, 243, 388, 242, 396, 247, 402, 249, 409, 247, 412, 242, 420, 242, 427, 248, 434, 250, 441, 247, 445, 241, 448, 241, 448, 288, 0, 288, 0, 194, 11, 200, 22, 202, 26, 198, 29, 194, 36, 194, 39, 198 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Bridge" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 128, 200 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 58, 186, 59, 186, 59, 183, 60, 183, 60, 181, 61, 181, 61, 179, 62, 179, 62, 177, 63, 177, 63, 174, 64, 174, 64, 170, 65, 170, 65, 166, 69, 166, 69, 167, 76, 167, 76, 168, 80, 168, 80, 169, 90, 169, 90, 170, 99, 170, 99, 171, 108, 171, 157, 171, 157, 170, 166, 170, 166, 169, 176, 169, 176, 168, 180, 168, 180, 167, 187, 167, 187, 166, 191, 166, 191, 170, 192, 170, 192, 174, 193, 174, 193, 177, 194, 177, 194, 179, 195, 179, 195, 181, 196, 181, 196, 183, 197, 183, 197, 186, 198, 186, 198, 189, 199, 189, 199, 193, 198, 193, 198, 194, 197, 194, 197, 195, 195, 195, 195, 196, 190, 196, 190, 195, 188, 195, 188, 196, 187, 196, 187, 197, 180, 197, 177, 197, 175, 197, 175, 198, 165, 198, 165, 200, 156, 200, 156, 201, 100, 201, 100, 200, 91, 200, 91, 198, 81, 198, 81, 197, 69, 197, 69, 196, 61, 196, 61, 195, 59, 195, 59, 194, 58, 194, 57, 193, 57, 189, 58, 189 )
+
+[editable path="Camera2D"]
+[editable path="World"]
+[editable path="Cave"]

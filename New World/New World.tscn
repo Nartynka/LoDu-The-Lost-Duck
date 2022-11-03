@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://New World/New World Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://npc/wizard/Wizard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Camera2D.tscn" type="PackedScene" id=4]
 [ext_resource path="res://npc/evil wizard/EvilWizard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/Obelisk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/FlyingObelisk.tscn" type="PackedScene" id=7]
 
 [node name="New World" type="Node2D"]
 
@@ -38,17 +40,6 @@ cell_y_sort = true
 format = 1
 tile_data = PoolIntArray( -327664, 8, 0, -327663, 8, 1, -327662, 8, 1, -327661, 8, 1, -327660, 8, 1, -327659, 8, 1, -327658, 8, 1, -327657, 8, 1, -327656, 8, 1, -327655, 8, 1, -327654, 8, 1, -327653, 8, 2, -262128, 8, 65536, -262127, 8, 65537, -262126, 8, 65537, -262125, 8, 65537, -262124, 8, 65537, -262123, 8, 65537, -262122, 8, 65537, -262121, 8, 65537, -262120, 8, 65537, -262119, 8, 65537, -262118, 8, 65537, -262117, 8, 65538, -196592, 8, 65536, -196591, 8, 65537, -196590, 8, 65537, -196589, 8, 65537, -196588, 8, 65537, -196587, 8, 65537, -196586, 8, 65537, -196585, 8, 65537, -196584, 8, 65537, -196583, 8, 65537, -196582, 8, 65537, -196581, 8, 65538, -131056, 8, 65536, -131055, 8, 65537, -131054, 8, 65537, -131053, 8, 65537, -131052, 8, 65537, -131051, 8, 65537, -131050, 8, 65537, -131049, 8, 65537, -131048, 8, 65537, -131047, 8, 65537, -131046, 8, 65537, -131045, 8, 65538, -65520, 8, 131072, -65519, 8, 131073, -65518, 8, 131073, -65517, 8, 131073, -65516, 8, 131073, -65515, 8, 131073, -65514, 8, 131073, -65513, 8, 131073, -65512, 8, 131073, -65511, 8, 131073, -65510, 8, 131073, -65509, 8, 131074, 16, 9, 0, 17, 9, 1, 18, 9, 1, 19, 9, 1, 20, 9, 1, 21, 9, 1, 22, 9, 1, 23, 9, 1, 24, 9, 1, 25, 9, 1, 26, 9, 1, 27, 9, 2, 65552, 10, 0, 65553, 10, 1, 65554, 10, 1, 65555, 10, 1, 65556, 10, 1, 65557, 10, 1, 65558, 10, 1, 65559, 10, 1, 65560, 10, 1, 65561, 10, 1, 65562, 10, 1, 65563, 10, 2 )
 
-[node name="EvilWizard" parent="Tilemaps" instance=ExtResource( 5 )]
-position = Vector2( 135, 72 )
-
-[node name="Wizard" parent="." instance=ExtResource( 2 )]
-position = Vector2( -20, 71 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 0 )
 
@@ -57,5 +48,24 @@ position = Vector2( 687, 457 )
 
 [node name="TopLeft" parent="Camera2D/Limits" index="1"]
 position = Vector2( -54, -91 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Wizard" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -20, 71 )
+
+[node name="Obelisk" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 123, 328 )
+
+[node name="FlyingObelisk" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( -6, 332 )
+
+[node name="EvilWizard" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 135, 72 )
 
 [editable path="Camera2D"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://New World/New World Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://npc/wizard/Wizard.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://props/FlyingObelisk.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/Book.tscn" type="PackedScene" id=8]
 [ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://npc/warrior/Warrior.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 23 )
@@ -87,6 +88,10 @@ position = Vector2( -6, 332 )
 
 [node name="Book" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 225, 161 )
+
+[node name="Warrior" parent="." instance=ExtResource( 10 )]
+position = Vector2( 104, -11 )
+scale = Vector2( -1, 1 )
 
 [editable path="Camera2D"]
 [editable path="World"]

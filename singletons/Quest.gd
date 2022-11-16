@@ -6,10 +6,12 @@ A dictionary where each string key represents a quest and an int value represant
 """
 
 enum STATUS { NONEXISTENT, ACTIVE, COMPLETE }
+enum TYPE { COLLECT, TALK, GOTO, REQUIRED }
 
 # List of all started or completed quests
 var quest_list = {}
 #signal quest_changed
+var talked_to = []
 
 # Get the status of a quest. If it's not found it returns STATUS.NONEXISTENT
 func get_status(quest_name:String) -> int:

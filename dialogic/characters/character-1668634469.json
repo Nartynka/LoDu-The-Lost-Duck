@@ -1,0 +1,21 @@
+{
+	"color": "#ff170a42",
+	"description": "",
+	"display_name": "Czarodziej",
+	"display_name_bool": true,
+	"id": "character-1668634469.json",
+	"mirror_portraits": false,
+	"name": "wizard_2",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -80,
+	"offset_y": -80,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://npc/evil wizard/wizard2_portrait.tscn"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

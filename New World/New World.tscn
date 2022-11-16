@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://New World/New World Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://npc/wizard/Wizard.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://props/Book.tscn" type="PackedScene" id=8]
 [ext_resource path="res://misc/Portal/Portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://npc/warrior/Warrior.tscn" type="PackedScene" id=10]
+[ext_resource path="res://misc/Quest/Quest.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 23 )
@@ -77,11 +78,32 @@ remote_path = NodePath("../../../Camera2D")
 [node name="Wizard" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( -20, 71 )
 
+[node name="Quest" parent="YSort/Wizard" instance=ExtResource( 11 )]
+quest_name = "talk to wizard_2"
+quest_type = 1
+required_thing = "wizard_2"
+reward_item = ""
+reward_amount = 0
+initial_dialog = "talk to wizard_2/Start"
+pending_dialog = "talk to wizard_2/Pending"
+delivered_dialog = "talk to wizard_2/Complete"
+
 [node name="Obelisk" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 123, 328 )
 
 [node name="EvilWizard" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 135, 72 )
+
+[node name="Quest" parent="YSort/EvilWizard" instance=ExtResource( 11 )]
+quest_name = "wizard_2"
+quest_type = 3
+required_quest = "talk to wizard_2"
+required_thing = "wizard_2"
+reward_item = ""
+reward_amount = 0
+initial_dialog = "wizard_2/Start"
+pending_dialog = "wizard_2/Pending"
+delivered_dialog = "wizard_2/Complete"
 
 [node name="FlyingObelisk" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -6, 332 )

@@ -874,23 +874,27 @@ extents = Vector2( 10, 16.5 )
 [sub_resource type="Shader" id=70]
 code = "shader_type canvas_item;
 
-uniform sampler2D offset_image : hint_white;
-uniform float strength = 1.0;
+uniform float _amount: hint_range(0.0, 5.0) = 0.55;
+uniform float _centerFade: hint_range(0.0, 1.0) = 0.154;
+uniform vec2 _aberrationCenter = vec2(0.5, 0.5);
 
-void fragment() {
-	vec4 output = texture(SCREEN_TEXTURE, SCREEN_UV);
+void fragment(){
+	vec2 coords = UV - _aberrationCenter;
+	float amount = _amount * 0.01 * mix(dot(coords, coords), 1.0, _centerFade);
 	
-	float shift = strength * texture(offset_image, SCREEN_UV).r / 100.0;
-	output.r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + shift, SCREEN_UV.y)).r;
-	output.g = texture(SCREEN_TEXTURE, SCREEN_UV).g;
-	output.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - shift, SCREEN_UV.y)).b;
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	color.r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + amount, SCREEN_UV.y)).r;
+	color.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - amount, SCREEN_UV.y)).b;
 	
-	COLOR = output;
-}"
+	COLOR = color; 
+}
+"
 
 [sub_resource type="ShaderMaterial" id=71]
 shader = SubResource( 70 )
-shader_param/strength = 1.0
+shader_param/_amount = 0.55
+shader_param/_centerFade = 0.154
+shader_param/_aberrationCenter = Vector2( 0.5, 0.5 )
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -1071,9 +1075,12 @@ default_dialog = "Default"
 
 [node name="Quest" parent="YSort/Sensei" instance=ExtResource( 8 )]
 quest_name = "Lost Duck"
-required_item = "Rubber Duck"
+quest_type = null
+required_quest = null
+required_thing = null
 required_amount = 1
 reward_item = "Gold Coin"
+reward_amount = null
 initial_dialog = "/Lost Duck/Start"
 pending_dialog = "/Lost Duck/Pending"
 delivered_dialog = "/Lost Duck/Complete"
@@ -1085,8 +1092,12 @@ default_dialog = "Quack"
 
 [node name="Quest" parent="YSort/Sebastian" instance=ExtResource( 8 )]
 quest_name = "Return"
+quest_type = null
 required_quest = "Lost Duck"
+required_thing = null
+required_amount = null
 reward_item = "Rubber Duck"
+reward_amount = null
 initial_dialog = "Return/Start"
 pending_dialog = "Return/Pending"
 delivered_dialog = "Return/Complete"
@@ -1791,6 +1802,13 @@ margin_left = -251.0
 margin_top = 735.0
 margin_right = 191.0
 margin_bottom = 1013.0
+
+[node name="HoloShader2" type="ColorRect" parent="."]
+material = SubResource( 71 )
+margin_left = -819.0
+margin_top = 835.0
+margin_right = -377.0
+margin_bottom = 1113.0
 
 [node name="Stick3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 359, 103 )

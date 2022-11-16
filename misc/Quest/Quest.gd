@@ -52,7 +52,7 @@ func process():
 				PlayerInventory.remove_item(required_thing, required_amount)
 			if reward_item != "":
 				PlayerInventory.add_item(reward_item, reward_amount)
-			print("complete dialog")
+			print("complete quest")
 			DialogManager.start(delivered_dialog)
 			get_parent().quest_list.pop_front()
 		_:
@@ -66,7 +66,7 @@ func process_active():
 		Quest.TYPE.TALK:
 			if Quest.talked_to.has(required_thing):
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
+				process()
 		Quest.TYPE.REQUIRED:
 			Quest.talked_to.push_front(required_thing)
 			Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-			print(Quest.talked_to)
